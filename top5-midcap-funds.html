@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top 5 Midcap Funds – Deep Dive Analysis | Sai Assets</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:#0a0f1e; color:#e2e8f0; min-height:100vh; padding:72px 16px 40px 16px; }
+  .ctr { max-width:1160px; margin:0 auto; }
+
+  /* BRAND */
+  .brand-bar { display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px; padding-bottom:24px; border-bottom:1px solid rgba(232,196,90,0.15); }
+  .brand-bar svg { flex-shrink:0; }
+  .brand-text { display:flex; flex-direction:column; }
+  .brand-name { font-size:34px; font-weight:700; letter-spacing:8px; color:#f1f5f9; }
+  .brand-sub  { font-size:20px; font-weight:200; letter-spacing:8px; color:#cbd5e1; margin-top:-2px; }
+  .brand-line { width:100%; height:1.5px; background:linear-gradient(90deg,#E8C45A,#B8922E); margin:6px 0 4px; border-radius:1px; }
+  .brand-tagline { font-size:10px; font-weight:400; letter-spacing:3px; color:#7A8599; }
+
+  /* HEADER */
+  .hdr { text-align:center; margin-bottom:36px; }
+  .tag { display:inline-block; background:linear-gradient(135deg,#E8C45A,#B8922E); color:#1B2A4A; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:6px 18px; border-radius:20px; margin-bottom:14px; }
+  .hdr h1 { font-size:34px; font-weight:900; background:linear-gradient(135deg,#E8C45A,#f5e6a3,#B8922E); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1.25; margin-bottom:10px; }
+  .hdr p { font-size:15px; color:#94a3b8; max-width:680px; margin:0 auto; line-height:1.6; }
+  .hdr .period { display:inline-block; margin-top:12px; background:rgba(232,196,90,0.1); border:1px solid rgba(232,196,90,0.25); padding:6px 16px; border-radius:8px; font-size:12px; color:#E8C45A; font-weight:600; }
+
+  /* CARDS */
+  .card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.15); border-radius:18px; padding:28px; margin-bottom:28px; overflow-x:auto; }
+  .card h3 { font-size:18px; font-weight:700; color:#f1f5f9; margin-bottom:4px; }
+  .card .sub { font-size:12px; color:#64748b; margin-bottom:20px; }
+
+  /* TABLE */
+  table { width:100%; border-collapse:separate; border-spacing:0; font-size:13px; }
+  thead th { background:rgba(232,196,90,0.08); color:#E8C45A; font-weight:700; padding:12px 10px; text-align:center; font-size:11.5px; letter-spacing:.4px; white-space:nowrap; }
+  thead th:first-child { text-align:left; border-radius:8px 0 0 8px; }
+  thead th:last-child { border-radius:0 8px 8px 0; }
+  tbody td { padding:12px 10px; text-align:center; border-bottom:1px solid rgba(51,65,85,0.4); font-weight:500; }
+  tbody td:first-child { text-align:left; font-weight:700; color:#cbd5e1; }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody tr:hover { background:rgba(232,196,90,0.03); }
+  .gold { color:#E8C45A; font-weight:800; }
+  .green { color:#4ade80; }
+  .red   { color:#f87171; }
+  .muted { color:#64748b; }
+  .best-cell { background:rgba(232,196,90,0.12); color:#E8C45A; font-weight:800; border-radius:5px; padding:3px 7px; }
+
+  /* FUND HERO CARDS */
+  .fund-grid { display:grid; grid-template-columns:1fr; gap:24px; margin-bottom:28px; }
+  .fund-hero { background:linear-gradient(145deg,#131b30,#111827); border-radius:18px; overflow:hidden; border:1px solid rgba(99,102,241,0.12); }
+  .fh-top { padding:24px 28px 16px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; }
+  .fh-rank { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:900; color:#1B2A4A; flex-shrink:0; }
+  .fh-rank.r1 { background:linear-gradient(135deg,#E8C45A,#B8922E); }
+  .fh-rank.r2 { background:linear-gradient(135deg,#c0c0c0,#8a8a8a); }
+  .fh-rank.r3 { background:linear-gradient(135deg,#cd7f32,#a0522d); }
+  .fh-rank.r4 { background:linear-gradient(135deg,#60a5fa,#3b82f6); }
+  .fh-rank.r5 { background:linear-gradient(135deg,#a78bfa,#7c3aed); }
+  .fh-info { flex:1; min-width:200px; }
+  .fh-name { font-size:18px; font-weight:800; color:#f1f5f9; margin-bottom:2px; }
+  .fh-mgr  { font-size:12px; color:#94a3b8; }
+  .fh-badge { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  .fh-badge span { font-size:10px; padding:3px 10px; border-radius:12px; font-weight:600; }
+  .badge-gold { background:rgba(232,196,90,0.12); color:#E8C45A; border:1px solid rgba(232,196,90,0.25); }
+  .badge-blue { background:rgba(96,165,250,0.12); color:#60a5fa; border:1px solid rgba(96,165,250,0.25); }
+  .badge-green { background:rgba(74,222,128,0.12); color:#4ade80; border:1px solid rgba(74,222,128,0.25); }
+  .fh-stats { display:flex; flex-wrap:wrap; gap:0; border-top:1px solid rgba(51,65,85,0.3); }
+  .fh-stat { flex:1; min-width:100px; padding:14px 16px; text-align:center; border-right:1px solid rgba(51,65,85,0.2); }
+  .fh-stat:last-child { border-right:none; }
+  .fh-stat .val { font-size:18px; font-weight:800; color:#f1f5f9; }
+  .fh-stat .lbl { font-size:10px; color:#64748b; margin-top:2px; letter-spacing:.3px; }
+
+  /* BAR VIZ */
+  .bar-section { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-bottom:28px; }
+  .bar-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:16px; padding:22px; }
+  .bar-card h4 { font-size:14px; font-weight:700; color:#f1f5f9; margin-bottom:3px; }
+  .bar-card .bsub { font-size:11px; color:#64748b; margin-bottom:16px; }
+  .brow { display:flex; align-items:center; margin-bottom:8px; gap:8px; }
+  .blbl { width:80px; font-size:11px; font-weight:600; color:#94a3b8; flex-shrink:0; text-align:right; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .btrk { flex:1; height:26px; background:rgba(20,30,50,0.8); border-radius:5px; overflow:hidden; }
+  .bfill { height:100%; border-radius:5px; display:flex; align-items:center; justify-content:flex-end; padding-right:8px; font-size:11px; font-weight:700; color:#fff; }
+  .bg1 { background:linear-gradient(90deg,#E8C45A,#B8922E); }
+  .bg2 { background:linear-gradient(90deg,#60a5fa,#3b82f6); }
+  .bg3 { background:linear-gradient(90deg,#a78bfa,#7c3aed); }
+  .bg4 { background:linear-gradient(90deg,#34d399,#059669); }
+  .bg5 { background:linear-gradient(90deg,#f472b6,#db2777); }
+  .bg-bench { background:linear-gradient(90deg,#475569,#334155); }
+
+  /* STAT GRID */
+  .stat-row { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-bottom:28px; }
+  .stat-box { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:14px; padding:18px; text-align:center; }
+  .stat-box .sv { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .stat-box .sl { font-size:11px; color:#94a3b8; line-height:1.4; }
+
+  /* RISK METER */
+  .risk-meter { display:flex; align-items:center; gap:4px; justify-content:center; margin-top:6px; }
+  .rm-seg { width:18px; height:8px; border-radius:2px; }
+
+  /* LEGEND */
+  .legend-row { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:20px; }
+  .leg-item { display:flex; align-items:center; gap:6px; font-size:12px; color:#94a3b8; }
+  .leg-dot { width:10px; height:10px; border-radius:3px; }
+
+  /* FOOTER */
+  .footer { text-align:center; padding:24px 20px; border-top:2px solid rgba(232,196,90,0.15); margin-top:12px; }
+  .footer-brand { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px; }
+  .footer-name { font-size:16px; font-weight:700; letter-spacing:4px; color:#94a3b8; }
+  .footer-sub  { font-size:11px; font-weight:300; letter-spacing:3px; color:#64748b; }
+  .footer .disc { font-size:11px; color:#475569; line-height:1.6; }
+
+  /* TOOLTIP */
+  .info { cursor:help; border-bottom:1px dashed #64748b; }
+
+  @media(max-width:900px) {
+    .bar-section { grid-template-columns:1fr; }
+    .stat-row { grid-template-columns:repeat(2,1fr); }
+    .fh-stats { flex-direction:column; }
+    .hdr h1 { font-size:24px; }
+  }
+
+/* ===== GLOBAL NAV ===== */
+.sa-nav{position:sticky;top:0;z-index:9999;background:rgba(10,15,30,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(232,196,90,0.1);padding:0 20px;}
+.sa-nav-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.sa-nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.sa-nav-logo svg{width:32px;height:32px;}
+.sa-nav-logo-text{display:flex;flex-direction:column;}
+.sa-nav-logo-name{font-size:16px;font-weight:800;letter-spacing:4px;color:#f1f5f9;line-height:1;}
+.sa-nav-logo-sub{font-size:8px;font-weight:400;letter-spacing:2px;color:#7A8599;line-height:1;margin-top:2px;}
+.sa-nav-links{display:flex;align-items:center;gap:4px;}
+.sa-nav-link{font-size:12px;font-weight:600;color:#94a3b8;text-decoration:none;padding:6px 12px;border-radius:8px;transition:all 0.2s;letter-spacing:0.3px;white-space:nowrap;}
+.sa-nav-link:hover{color:#f1f5f9;background:rgba(232,196,90,0.08);}
+.sa-nav-link.active{color:#E8C45A;background:rgba(232,196,90,0.1);border:1px solid rgba(232,196,90,0.2);}
+.sa-nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:10001;}
+.sa-nav-hamburger span{width:22px;height:2px;background:#E8C45A;border-radius:2px;transition:all 0.3s;}
+.sa-nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(10,15,30,0.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(232,196,90,0.15);padding:12px 20px;flex-direction:column;gap:4px;z-index:9998;}
+.sa-nav-mobile .sa-nav-link{padding:10px 16px;font-size:13px;border-radius:10px;display:block;}
+@media(max-width:860px){
+  .sa-nav-links{display:none;}
+  .sa-nav-hamburger{display:flex;}
+  .sa-nav-mobile.open{display:flex;}
+}
+
+/* ===== PAGE NAVIGATION ===== */
+.page-nav{max-width:1160px;margin:0 auto 32px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.pn-link{text-decoration:none;padding:16px 24px;background:linear-gradient(145deg,#131b30,#111827);border:1px solid rgba(99,102,241,0.12);border-radius:14px;transition:all 0.3s;flex:1;max-width:280px;}
+.pn-link:hover{border-color:rgba(232,196,90,0.3);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.2);}
+.pn-prev{text-align:left;}
+.pn-next{text-align:right;}
+.pn-dir{display:block;font-size:11px;color:#64748b;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.pn-name{display:block;font-size:15px;font-weight:700;color:#E8C45A;}
+.pn-home{text-decoration:none;font-size:13px;font-weight:700;color:#94a3b8;padding:10px 20px;border:1px solid rgba(99,102,241,0.15);border-radius:10px;transition:all 0.2s;flex-shrink:0;}
+.pn-home:hover{color:#E8C45A;border-color:rgba(232,196,90,0.3);background:rgba(232,196,90,0.05);}
+@media(max-width:640px){.pn-link{padding:12px 16px;}.page-nav{flex-wrap:wrap;justify-content:center;}}
+
+</style>
+</head>
+<body>
+<!-- GLOBAL NAVIGATION -->
+<nav class="sa-nav">
+  <div class="sa-nav-inner">
+    <a href="index.html" class="sa-nav-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <defs><linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#E8C45A"/><stop offset="100%" style="stop-color:#B8922E"/></linearGradient></defs>
+        <polygon points="50,0 93,25 93,75 50,100 7,75 7,25" fill="#1B2A4A" stroke="url(#ng)" stroke-width="3"/>
+        <polyline points="22,70 38,50 55,58 78,28" stroke="url(#ng)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="78" cy="28" r="6" fill="url(#ng)"/>
+      </svg>
+      <div class="sa-nav-logo-text">
+        <span class="sa-nav-logo-name">SAI ASSETS</span>
+        <span class="sa-nav-logo-sub">MF ADVISORY</span>
+      </div>
+    </a>
+    <div class="sa-nav-links">
+      <a href="index.html" class="sa-nav-link">Home</a>
+          <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
+          <a href="#" class="sa-nav-link active">Mid Cap</a>
+          <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
+          <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
+          <a href="top5-international-funds.html" class="sa-nav-link">International</a>
+          <a href="sip-date-analysis.html" class="sa-nav-link">SIP Analysis</a>
+    </div>
+    <button class="sa-nav-hamburger" onclick="document.querySelector('.sa-nav-mobile').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="sa-nav-mobile">
+  <a href="index.html" class="sa-nav-link">Home</a>
+        <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
+        <a href="#" class="sa-nav-link active">Mid Cap</a>
+        <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
+        <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
+        <a href="top5-international-funds.html" class="sa-nav-link">International</a>
+        <a href="sip-date-analysis.html" class="sa-nav-link">SIP Analysis</a>
+</div>
+
+<div class="ctr">
+
+  </div>
+
+  <!-- ==================== FUND 1 ==================== -->
+  <div class="fund-hero">
+    <div class="fh-top">
+      <div class="fh-rank r1">1</div>
+      <div class="fh-info">
+        <div class="fh-name">Edelweiss Mid Cap Fund</div>
+        <div class="fh-mgr">Fund Manager: Harshad Patwardhan &nbsp;|&nbsp; Since Jan 2013</div>
+        <div class="fh-badge">
+          <span class="badge-gold">&#9733; 5-Star Rated</span>
+          <span class="badge-blue">AUM: &#8377;14,355 Cr</span>
+          <span class="badge-green">Expense: 0.46%</span>
+        </div>
+      </div>
+    </div>
+    <div class="fh-stats">
+      <div class="fh-stat"><div class="val">4.98%</div><div class="lbl">1-Year</div></div>
+      <div class="fh-stat"><div class="val green">25.27%</div><div class="lbl">3-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val green">21.21%</div><div class="lbl">5-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val" style="color:#E8C45A;">19.48%</div><div class="lbl">10-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val gold">20.91%</div><div class="lbl">Since Inception</div></div>
+      <div class="fh-stat"><div class="val">1.27</div><div class="lbl">Sharpe Ratio</div></div>
+      <div class="fh-stat"><div class="val green">5.16</div><div class="lbl">Alpha</div></div>
+      <div class="fh-stat"><div class="val">0.93</div><div class="lbl">Beta</div></div>
+    </div>
+  </div>
+
+  <!-- ==================== FUND 2 ==================== -->
+  <div class="fund-hero">
+    <div class="fh-top">
+      <div class="fh-rank r2">2</div>
+      <div class="fh-info">
+        <div class="fh-name">Invesco India Mid Cap Fund</div>
+        <div class="fh-mgr">Fund Manager: Vinay Paharia &nbsp;|&nbsp; Since Jan 2013</div>
+        <div class="fh-badge">
+          <span class="badge-gold">&#9733; 4-Star Rated</span>
+          <span class="badge-blue">AUM: &#8377;10,771 Cr</span>
+          <span class="badge-green">Expense: 0.55%</span>
+        </div>
+      </div>
+    </div>
+    <div class="fh-stats">
+      <div class="fh-stat"><div class="val">5.85%</div><div class="lbl">1-Year</div></div>
+      <div class="fh-stat"><div class="val green">25.82%</div><div class="lbl">3-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val green">20.36%</div><div class="lbl">5-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val" style="color:#E8C45A;">19.29%</div><div class="lbl">10-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val gold">~19.5%</div><div class="lbl">Since Inception</div></div>
+      <div class="fh-stat"><div class="val">—</div><div class="lbl">Sharpe Ratio</div></div>
+      <div class="fh-stat"><div class="val">—</div><div class="lbl">Alpha</div></div>
+      <div class="fh-stat"><div class="val">—</div><div class="lbl">Beta</div></div>
+    </div>
+  </div>
+
+  <!-- ==================== FUND 3 ==================== -->
+  <div class="fund-hero">
+    <div class="fh-top">
+      <div class="fh-rank r3">3</div>
+      <div class="fh-info">
+        <div class="fh-name">Nippon India Growth Mid Cap Fund</div>
+        <div class="fh-mgr">Fund Manager: Rupesh Patel &nbsp;|&nbsp; Inception: Jun 1995 (one of India's oldest midcap funds)</div>
+        <div class="fh-badge">
+          <span class="badge-gold">&#9733; 4-Star Rated</span>
+          <span class="badge-blue">AUM: &#8377;43,983 Cr</span>
+          <span class="badge-green">Expense: 0.77%</span>
+        </div>
+      </div>
+    </div>
+    <div class="fh-stats">
+      <div class="fh-stat"><div class="val">5.55%</div><div class="lbl">1-Year</div></div>
+      <div class="fh-stat"><div class="val green">25.29%</div><div class="lbl">3-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val green">21.47%</div><div class="lbl">5-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val" style="color:#E8C45A;">19.18%</div><div class="lbl">10-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val gold">17.56%</div><div class="lbl">Since Inception</div></div>
+      <div class="fh-stat"><div class="val">1.31</div><div class="lbl">Sharpe Ratio</div></div>
+      <div class="fh-stat"><div class="val green">4.34</div><div class="lbl">Alpha</div></div>
+      <div class="fh-stat"><div class="val">0.94</div><div class="lbl">Beta</div></div>
+    </div>
+  </div>
+
+  <!-- ==================== FUND 4 ==================== -->
+  <div class="fund-hero">
+    <div class="fh-top">
+      <div class="fh-rank r4">4</div>
+      <div class="fh-info">
+        <div class="fh-name">Kotak Midcap Fund</div>
+        <div class="fh-mgr">Fund Manager: Atul Bhole &nbsp;|&nbsp; Since Jan 2013</div>
+        <div class="fh-badge">
+          <span class="badge-gold">&#9733; 4-Star Rated</span>
+          <span class="badge-blue">AUM: &#8377;61,694 Cr</span>
+          <span class="badge-green">Expense: 0.38%</span>
+        </div>
+      </div>
+    </div>
+    <div class="fh-stats">
+      <div class="fh-stat"><div class="val">5.22%</div><div class="lbl">1-Year</div></div>
+      <div class="fh-stat"><div class="val">20.46%</div><div class="lbl">3-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val">18.53%</div><div class="lbl">5-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val" style="color:#E8C45A;">18.90%</div><div class="lbl">10-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val gold">20.31%</div><div class="lbl">Since Inception</div></div>
+      <div class="fh-stat"><div class="val">1.07</div><div class="lbl">Sharpe Ratio</div></div>
+      <div class="fh-stat"><div class="val green">1.22</div><div class="lbl">Alpha</div></div>
+      <div class="fh-stat"><div class="val">0.90</div><div class="lbl">Beta</div></div>
+    </div>
+  </div>
+
+  <!-- ==================== FUND 5 ==================== -->
+  <div class="fund-hero">
+    <div class="fh-top">
+      <div class="fh-rank r5">5</div>
+      <div class="fh-info">
+        <div class="fh-name">HDFC Mid Cap Fund</div>
+        <div class="fh-mgr">Fund Manager: Chirag Setalvad &nbsp;|&nbsp; Since Jan 2013 &nbsp;|&nbsp; Largest midcap fund in India</div>
+        <div class="fh-badge">
+          <span class="badge-gold">&#9733; 5-Star Rated</span>
+          <span class="badge-blue">AUM: &#8377;94,257 Cr</span>
+          <span class="badge-green">Expense: 0.77%</span>
+        </div>
+      </div>
+    </div>
+    <div class="fh-stats">
+      <div class="fh-stat"><div class="val">5.25%</div><div class="lbl">1-Year</div></div>
+      <div class="fh-stat"><div class="val green">24.07%</div><div class="lbl">3-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val green">21.43%</div><div class="lbl">5-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val" style="color:#E8C45A;">18.64%</div><div class="lbl">10-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val gold">19.77%</div><div class="lbl">Since Inception</div></div>
+      <div class="fh-stat"><div class="val">0.78</div><div class="lbl">Sharpe Ratio</div></div>
+      <div class="fh-stat"><div class="val">—</div><div class="lbl">Alpha</div></div>
+      <div class="fh-stat"><div class="val">0.85</div><div class="lbl">Beta</div></div>
+    </div>
+  </div>
+
+  <!-- ==================== COMPARATIVE TABLE ==================== -->
+  <div class="card" style="margin-top:8px;">
+    <h3>Side-by-Side: All Parameters at a Glance</h3>
+    <div class="sub">Direct Plans &bull; Returns as of Mar 2026 &bull; Risk metrics trailing 3 years</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th style="color:#E8C45A;">Edelweiss</th>
+          <th style="color:#c0c0c0;">Invesco</th>
+          <th style="color:#cd7f32;">Nippon</th>
+          <th style="color:#60a5fa;">Kotak</th>
+          <th style="color:#a78bfa;">HDFC</th>
+          <th>Benchmark</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>NAV (&#8377;)</td><td>110.71</td><td>194.72</td><td>4,312.75</td><td>144.86</td><td>202.87</td><td class="muted">—</td></tr>
+        <tr><td>AUM (&#8377; Cr)</td><td>14,355</td><td>10,771</td><td>43,983</td><td>61,694</td><td class="best-cell">94,257</td><td class="muted">—</td></tr>
+        <tr><td>Expense Ratio</td><td>0.46%</td><td>0.55%</td><td>0.77%</td><td class="best-cell">0.38%</td><td>0.77%</td><td class="muted">—</td></tr>
+        <tr><td>1-Year Return</td><td>4.98%</td><td class="best-cell">5.85%</td><td>5.55%</td><td>5.22%</td><td>5.25%</td><td>3.29%</td></tr>
+        <tr><td>3-Year CAGR</td><td>25.27%</td><td class="best-cell">25.82%</td><td>25.29%</td><td>20.46%</td><td>24.07%</td><td>22.04%</td></tr>
+        <tr><td>5-Year CAGR</td><td>21.21%</td><td>20.36%</td><td class="best-cell">21.47%</td><td>18.53%</td><td>21.43%</td><td>18.52%</td></tr>
+        <tr><td>10-Year CAGR</td><td class="best-cell">19.48%</td><td>19.29%</td><td>19.18%</td><td>18.90%</td><td>18.64%</td><td>17.93%</td></tr>
+        <tr><td>Since Inception</td><td>20.91%</td><td>~19.5%</td><td>17.56%</td><td class="best-cell">20.31%</td><td>19.77%</td><td class="muted">—</td></tr>
+        <tr><td>Sharpe Ratio</td><td class="best-cell">1.27</td><td>—</td><td>1.31</td><td>1.07</td><td>0.78</td><td class="muted">—</td></tr>
+        <tr><td>Alpha</td><td class="best-cell">5.16</td><td>—</td><td>4.34</td><td>1.22</td><td>—</td><td class="muted">0</td></tr>
+        <tr><td>Beta</td><td>0.93</td><td>—</td><td>0.94</td><td>0.90</td><td class="best-cell">0.85</td><td class="muted">1.00</td></tr>
+        <tr><td>Std Deviation</td><td>—</td><td>—</td><td>15.34%</td><td>15.21%</td><td class="best-cell">13.47%</td><td class="muted">—</td></tr>
+        <tr><td>Sortino Ratio</td><td>—</td><td>—</td><td class="best-cell">1.87</td><td>1.32</td><td>—</td><td class="muted">—</td></tr>
+        <tr><td>PE Ratio</td><td>—</td><td>—</td><td>—</td><td>—</td><td>26.95</td><td class="muted">—</td></tr>
+        <tr><td>Min SIP</td><td>&#8377;100</td><td>&#8377;100</td><td>&#8377;100</td><td>&#8377;100</td><td>&#8377;100</td><td class="muted">—</td></tr>
+        <tr><td>Exit Load</td><td colspan="5" style="color:#94a3b8;">1% if redeemed within 12 months (standard across all)</td><td class="muted">—</td></tr>
+        <tr><td>Rating</td><td class="gold">&#9733;&#9733;&#9733;&#9733;&#9733;</td><td>&#9733;&#9733;&#9733;&#9733;</td><td>&#9733;&#9733;&#9733;&#9733;</td><td>&#9733;&#9733;&#9733;&#9733;</td><td class="gold">&#9733;&#9733;&#9733;&#9733;&#9733;</td><td class="muted">—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- BAR COMPARISONS -->
+  <div class="legend-row">
+    <div class="leg-item"><div class="leg-dot" style="background:linear-gradient(135deg,#E8C45A,#B8922E);"></div>Edelweiss</div>
+    <div class="leg-item"><div class="leg-dot" style="background:linear-gradient(135deg,#60a5fa,#3b82f6);"></div>Invesco</div>
+    <div class="leg-item"><div class="leg-dot" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);"></div>Nippon</div>
+    <div class="leg-item"><div class="leg-dot" style="background:linear-gradient(135deg,#34d399,#059669);"></div>Kotak</div>
+    <div class="leg-item"><div class="leg-dot" style="background:linear-gradient(135deg,#f472b6,#db2777);"></div>HDFC</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#475569;"></div>Benchmark</div>
+  </div>
+
+  <div class="bar-section">
+    <!-- 10-Year CAGR -->
+    <div class="bar-card">
+      <h4>10-Year CAGR (%)</h4>
+      <div class="bsub">The most important long-term metric</div>
+      <div class="brow"><div class="blbl">Edelweiss</div><div class="btrk"><div class="bfill bg1" style="width:97%;">19.48%</div></div></div>
+      <div class="brow"><div class="blbl">Invesco</div><div class="btrk"><div class="bfill bg2" style="width:96%;">19.29%</div></div></div>
+      <div class="brow"><div class="blbl">Nippon</div><div class="btrk"><div class="bfill bg3" style="width:95%;">19.18%</div></div></div>
+      <div class="brow"><div class="blbl">Kotak</div><div class="btrk"><div class="bfill bg4" style="width:94%;">18.90%</div></div></div>
+      <div class="brow"><div class="blbl">HDFC</div><div class="btrk"><div class="bfill bg5" style="width:93%;">18.64%</div></div></div>
+      <div class="brow"><div class="blbl" style="color:#64748b;">Benchmark</div><div class="btrk"><div class="bfill bg-bench" style="width:89%;">17.93%</div></div></div>
+    </div>
+
+    <!-- 5-Year CAGR -->
+    <div class="bar-card">
+      <h4>5-Year CAGR (%)</h4>
+      <div class="bsub">Recent medium-term performance</div>
+      <div class="brow"><div class="blbl">Nippon</div><div class="btrk"><div class="bfill bg3" style="width:97%;">21.47%</div></div></div>
+      <div class="brow"><div class="blbl">HDFC</div><div class="btrk"><div class="bfill bg5" style="width:96%;">21.43%</div></div></div>
+      <div class="brow"><div class="blbl">Edelweiss</div><div class="btrk"><div class="bfill bg1" style="width:95%;">21.21%</div></div></div>
+      <div class="brow"><div class="blbl">Invesco</div><div class="btrk"><div class="bfill bg2" style="width:92%;">20.36%</div></div></div>
+      <div class="brow"><div class="blbl">Kotak</div><div class="btrk"><div class="bfill bg4" style="width:84%;">18.53%</div></div></div>
+      <div class="brow"><div class="blbl" style="color:#64748b;">Benchmark</div><div class="btrk"><div class="bfill bg-bench" style="width:83%;">18.52%</div></div></div>
+    </div>
+
+    <!-- Expense Ratio -->
+    <div class="bar-card">
+      <h4>Expense Ratio (%)</h4>
+      <div class="bsub">Lower is better — direct impact on returns</div>
+      <div class="brow"><div class="blbl">Kotak</div><div class="btrk"><div class="bfill bg4" style="width:38%;">0.38%</div></div></div>
+      <div class="brow"><div class="blbl">Edelweiss</div><div class="btrk"><div class="bfill bg1" style="width:46%;">0.46%</div></div></div>
+      <div class="brow"><div class="blbl">Invesco</div><div class="btrk"><div class="bfill bg2" style="width:55%;">0.55%</div></div></div>
+      <div class="brow"><div class="blbl">Nippon</div><div class="btrk"><div class="bfill bg3" style="width:77%;">0.77%</div></div></div>
+      <div class="brow"><div class="blbl">HDFC</div><div class="btrk"><div class="bfill bg5" style="width:77%;">0.77%</div></div></div>
+    </div>
+
+    <!-- Sharpe Ratio -->
+    <div class="bar-card">
+      <h4>Sharpe Ratio</h4>
+      <div class="bsub">Risk-adjusted return — higher is better</div>
+      <div class="brow"><div class="blbl">Nippon</div><div class="btrk"><div class="bfill bg3" style="width:92%;">1.31</div></div></div>
+      <div class="brow"><div class="blbl">Edelweiss</div><div class="btrk"><div class="bfill bg1" style="width:89%;">1.27</div></div></div>
+      <div class="brow"><div class="blbl">Kotak</div><div class="btrk"><div class="bfill bg4" style="width:75%;">1.07</div></div></div>
+      <div class="brow"><div class="blbl">HDFC</div><div class="btrk"><div class="bfill bg5" style="width:55%;">0.78</div></div></div>
+      <div class="brow"><div class="blbl" style="color:#64748b;">Invesco</div><div class="btrk"><div class="bfill bg-bench" style="width:20%;">N/A</div></div></div>
+    </div>
+  </div>
+
+  <!-- STAT HIGHLIGHTS -->
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="sv gold">19.48%</div>
+      <div class="sl">Highest 10-Year CAGR<br><strong>Edelweiss</strong></div>
+    </div>
+    <div class="stat-box">
+      <div class="sv" style="color:#60a5fa;">0.38%</div>
+      <div class="sl">Lowest Expense Ratio<br><strong>Kotak</strong></div>
+    </div>
+    <div class="stat-box">
+      <div class="sv" style="color:#a78bfa;">1.31</div>
+      <div class="sl">Best Sharpe Ratio<br><strong>Nippon</strong></div>
+    </div>
+    <div class="stat-box">
+      <div class="sv" style="color:#4ade80;">0.85</div>
+      <div class="sl">Lowest Beta (least volatile)<br><strong>HDFC</strong></div>
+    </div>
+    <div class="stat-box">
+      <div class="sv" style="color:#f472b6;">&#8377;94,257 Cr</div>
+      <div class="sl">Largest AUM<br><strong>HDFC</strong></div>
+    </div>
+  </div>
+
+  <!-- WEALTH CREATION -->
+  <div class="card">
+    <h3>&#8377;10,000/month SIP — What Would You Have Today?</h3>
+    <div class="sub">Hypothetical SIP started 10 years ago &bull; Based on actual fund CAGR &bull; Total invested: &#8377;12,00,000</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Fund</th>
+          <th>10-Yr CAGR</th>
+          <th>Approx Corpus (&#8377;)</th>
+          <th>Wealth Gain (&#8377;)</th>
+          <th>Wealth Multiplier</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="color:#E8C45A;">Edelweiss Mid Cap</td>
+          <td>19.48%</td>
+          <td class="best-cell">&#8377;37.8 L</td>
+          <td class="green">&#8377;25.8 L</td>
+          <td>3.15x</td>
+        </tr>
+        <tr>
+          <td style="color:#c0c0c0;">Invesco Mid Cap</td>
+          <td>19.29%</td>
+          <td>&#8377;37.4 L</td>
+          <td class="green">&#8377;25.4 L</td>
+          <td>3.12x</td>
+        </tr>
+        <tr>
+          <td style="color:#cd7f32;">Nippon Growth</td>
+          <td>19.18%</td>
+          <td>&#8377;37.2 L</td>
+          <td class="green">&#8377;25.2 L</td>
+          <td>3.10x</td>
+        </tr>
+        <tr>
+          <td style="color:#60a5fa;">Kotak Midcap</td>
+          <td>18.90%</td>
+          <td>&#8377;36.5 L</td>
+          <td class="green">&#8377;24.5 L</td>
+          <td>3.04x</td>
+        </tr>
+        <tr>
+          <td style="color:#a78bfa;">HDFC Mid Cap</td>
+          <td>18.64%</td>
+          <td>&#8377;35.9 L</td>
+          <td class="green">&#8377;23.9 L</td>
+          <td>2.99x</td>
+        </tr>
+        <tr>
+          <td class="muted">Nifty Midcap 150 TRI</td>
+          <td class="muted">17.93%</td>
+          <td class="muted">&#8377;34.5 L</td>
+          <td class="muted">&#8377;22.5 L</td>
+          <td class="muted">2.88x</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- JARGON BUSTER -->
+  <div class="card">
+    <h3>Jargon Buster — What These Metrics Mean</h3>
+    <div class="sub">Understanding every parameter in the analysis above</div>
+    <table>
+      <thead>
+        <tr><th style="text-align:left; width:160px;">Metric</th><th style="text-align:left;">What It Tells You</th><th style="width:130px;">Ideal Value</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>CAGR</td><td style="text-align:left; color:#94a3b8;">Compounded Annual Growth Rate — smoothed annual return over a period</td><td class="green">Higher = Better</td></tr>
+        <tr><td>Expense Ratio</td><td style="text-align:left; color:#94a3b8;">Annual fee charged by the fund house; directly reduces your returns</td><td class="green">Lower = Better</td></tr>
+        <tr><td>Sharpe Ratio</td><td style="text-align:left; color:#94a3b8;">Return earned per unit of risk taken; measures efficiency of returns</td><td class="green">&gt; 1.0 is Good</td></tr>
+        <tr><td>Alpha</td><td style="text-align:left; color:#94a3b8;">Excess return over benchmark after adjusting for risk; shows manager skill</td><td class="green">Positive = Better</td></tr>
+        <tr><td>Beta</td><td style="text-align:left; color:#94a3b8;">Sensitivity to market moves; Beta &lt; 1 = less volatile than market</td><td class="green">&lt; 1.0 = Less Risky</td></tr>
+        <tr><td>Std Deviation</td><td style="text-align:left; color:#94a3b8;">Measures how much returns fluctuate; higher = more volatile</td><td class="green">Lower = Smoother</td></tr>
+        <tr><td>Sortino Ratio</td><td style="text-align:left; color:#94a3b8;">Like Sharpe but only penalizes downside volatility; more relevant</td><td class="green">Higher = Better</td></tr>
+        <tr><td>PE Ratio</td><td style="text-align:left; color:#94a3b8;">Price-to-Earnings of the portfolio; lower means cheaper valuation</td><td class="green">Lower = Better Value</td></tr>
+        <tr><td>AUM</td><td style="text-align:left; color:#94a3b8;">Total money managed; very high AUM in midcap can limit agility</td><td style="color:#f59e0b;">Sweet spot: &#8377;5K–50K Cr</td></tr>
+        <tr><td>Exit Load</td><td style="text-align:left; color:#94a3b8;">Penalty for early redemption; standard is 1% if redeemed within 1 year</td><td class="green">Lower/Shorter = Better</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TAXATION -->
+  <div class="card">
+    <h3>Tax Impact on Midcap Fund Returns (FY 2025-26)</h3>
+    <div class="sub">Equity mutual fund taxation rules as per current budget</div>
+    <table>
+      <thead>
+        <tr><th style="text-align:left;">Holding Period</th><th>Tax Type</th><th>Tax Rate</th><th>Exemption</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>&lt; 12 months</td><td>STCG (Short Term)</td><td style="color:#f87171; font-weight:700;">20%</td><td class="muted">None</td></tr>
+        <tr><td>&gt; 12 months</td><td>LTCG (Long Term)</td><td style="color:#fbbf24; font-weight:700;">12.5%</td><td class="green">First &#8377;1.25 Lakh/year exempt</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- PAGE NAVIGATION -->
+<div class="page-nav">
+  <a href="top5-largecap-funds.html" class="pn-link pn-prev">
+    <span class="pn-dir">&larr; Previous</span>
+    <span class="pn-name">Large Cap</span>
+  </a>
+  <a href="index.html" class="pn-home">&#8962; Home</a>
+  <a href="top5-smallcap-funds.html" class="pn-link pn-next">
+    <span class="pn-dir">Next &rarr;</span>
+    <span class="pn-name">Small Cap</span>
+  </a>
+</div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="30" height="30">
+        <defs><linearGradient id="g6f" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#E8C45A"/><stop offset="100%" style="stop-color:#B8922E"/></linearGradient></defs>
+        <polygon points="50,0 93,25 93,75 50,100 7,75 7,25" fill="#1B2A4A" stroke="url(#g6f)" stroke-width="3"/>
+        <polyline points="22,70 38,50 55,58 78,28" stroke="url(#g6f)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="78" cy="28" r="6" fill="url(#g6f)"/>
+      </svg>
+      <div>
+        <span class="footer-name">SAI ASSETS</span><br>
+        <span class="footer-sub">MF ADVISORY &amp; FINANCIAL LITERACY</span>
+      </div>
+    </div>
+    <p class="disc">
+      Data Sources: Groww, Tickertape, Advisorkhoj, ET Mutual Funds (Mar 2026) &bull; All returns are for Direct Growth plans<br>
+      Past performance is not indicative of future returns. This is for educational purposes only — not financial advice.<br>
+      Consult a SEBI-registered advisor before making investment decisions.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>

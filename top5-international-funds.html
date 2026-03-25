@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top 5 International Funds – Deep Dive Analysis | Sai Assets</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:#0a0f1e; color:#e2e8f0; min-height:100vh; padding:72px 16px 40px 16px; }
+  .ctr { max-width:1160px; margin:0 auto; }
+
+  /* BRAND */
+  .brand-bar { display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px; padding-bottom:24px; border-bottom:1px solid rgba(232,196,90,0.15); }
+  .brand-bar svg { flex-shrink:0; }
+  .brand-text { display:flex; flex-direction:column; }
+  .brand-name { font-size:34px; font-weight:700; letter-spacing:8px; color:#f1f5f9; }
+  .brand-sub  { font-size:20px; font-weight:200; letter-spacing:8px; color:#cbd5e1; margin-top:-2px; }
+  .brand-line { width:100%; height:1.5px; background:linear-gradient(90deg,#E8C45A,#B8922E); margin:6px 0 4px; border-radius:1px; }
+  .brand-tagline { font-size:10px; font-weight:400; letter-spacing:3px; color:#7A8599; }
+
+  /* HEADER */
+  .hdr { text-align:center; margin-bottom:36px; }
+  .tag { display:inline-block; background:linear-gradient(135deg,#E8C45A,#B8922E); color:#1B2A4A; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:6px 18px; border-radius:20px; margin-bottom:14px; }
+  .hdr h1 { font-size:34px; font-weight:900; background:linear-gradient(135deg,#E8C45A,#f5e6a3,#B8922E); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1.25; margin-bottom:10px; }
+  .hdr p { font-size:15px; color:#94a3b8; max-width:680px; margin:0 auto; line-height:1.6; }
+  .hdr .period { display:inline-block; margin-top:12px; background:rgba(232,196,90,0.1); border:1px solid rgba(232,196,90,0.25); padding:6px 16px; border-radius:8px; font-size:12px; color:#E8C45A; font-weight:600; }
+
+  /* CARDS */
+  .card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.15); border-radius:18px; padding:28px; margin-bottom:28px; overflow-x:auto; }
+  .card h3 { font-size:18px; font-weight:700; color:#f1f5f9; margin-bottom:4px; }
+  .card .sub { font-size:12px; color:#64748b; margin-bottom:20px; }
+
+  /* TABLE */
+  table { width:100%; border-collapse:separate; border-spacing:0; font-size:13px; }
+  thead th { background:rgba(232,196,90,0.08); color:#E8C45A; font-weight:700; padding:12px 10px; text-align:center; font-size:11.5px; letter-spacing:.4px; white-space:nowrap; }
+  thead th:first-child { text-align:left; border-radius:8px 0 0 8px; }
+  thead th:last-child { border-radius:0 8px 8px 0; }
+  tbody td { padding:12px 10px; text-align:center; border-bottom:1px solid rgba(51,65,85,0.4); font-weight:500; }
+  tbody td:first-child { text-align:left; font-weight:700; color:#cbd5e1; }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody tr:hover { background:rgba(232,196,90,0.03); }
+  .gold { color:#E8C45A; font-weight:800; }
+  .green { color:#4ade80; }
+  .red   { color:#f87171; }
+  .muted { color:#64748b; }
+  .best-cell { background:rgba(232,196,90,0.12); color:#E8C45A; font-weight:800; border-radius:5px; padding:3px 7px; }
+
+  /* FUND HERO CARDS */
+  .fund-grid { display:grid; grid-template-columns:1fr; gap:24px; margin-bottom:28px; }
+  .fund-hero { background:linear-gradient(145deg,#131b30,#111827); border-radius:18px; overflow:hidden; border:1px solid rgba(99,102,241,0.12); }
+  .fh-top { padding:24px 28px 16px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; }
+  .fh-rank { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:900; color:#1B2A4A; flex-shrink:0; }
+  .fh-rank.r1 { background:linear-gradient(135deg,#E8C45A,#B8922E); }
+  .fh-rank.r2 { background:linear-gradient(135deg,#c0c0c0,#8a8a8a); }
+  .fh-rank.r3 { background:linear-gradient(135deg,#cd7f32,#a0522d); }
+  .fh-rank.r4 { background:linear-gradient(135deg,#60a5fa,#3b82f6); }
+  .fh-rank.r5 { background:linear-gradient(135deg,#a78bfa,#7c3aed); }
+  .fh-info { flex:1; min-width:200px; }
+  .fh-name { font-size:18px; font-weight:800; color:#f1f5f9; margin-bottom:2px; }
+  .fh-mgr  { font-size:12px; color:#94a3b8; }
+  .fh-badge { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  .fh-badge span { font-size:10px; padding:3px 10px; border-radius:12px; font-weight:600; }
+  .badge-gold { background:rgba(232,196,90,0.12); color:#E8C45A; border:1px solid rgba(232,196,90,0.25); }
+  .badge-blue { background:rgba(96,165,250,0.12); color:#60a5fa; border:1px solid rgba(96,165,250,0.25); }
+  .badge-green { background:rgba(74,222,128,0.12); color:#4ade80; border:1px solid rgba(74,222,128,0.25); }
+  .badge-red { background:rgba(248,113,113,0.12); color:#f87171; border:1px solid rgba(248,113,113,0.25); }
+  .fh-stats { display:flex; flex-wrap:wrap; gap:0; border-top:1px solid rgba(51,65,85,0.3); }
+  .fh-stat { flex:1; min-width:100px; padding:14px 16px; text-align:center; border-right:1px solid rgba(51,65,85,0.2); }
+  .fh-stat:last-child { border-right:none; }
+  .fh-stat .val { font-size:18px; font-weight:800; color:#f1f5f9; }
+  .fh-stat .lbl { font-size:10px; color:#64748b; margin-top:2px; letter-spacing:.3px; }
+
+  /* BAR VIZ */
+  .bar-section { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-bottom:28px; }
+  .bar-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:16px; padding:22px; }
+  .bar-card h4 { font-size:14px; font-weight:700; color:#f1f5f9; margin-bottom:3px; }
+  .bar-card .bsub { font-size:11px; color:#64748b; margin-bottom:16px; }
+  .brow { display:flex; align-items:center; margin-bottom:8px; gap:8px; }
+  .blbl { width:80px; font-size:11px; font-weight:600; color:#94a3b8; flex-shrink:0; text-align:right; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .btrk { flex:1; height:26px; background:rgba(20,30,50,0.8); border-radius:5px; overflow:hidden; }
+  .bfill { height:100%; border-radius:5px; display:flex; align-items:center; justify-content:flex-end; padding-right:8px; font-size:11px; font-weight:700; color:#fff; }
+  .bg1 { background:linear-gradient(90deg,#E8C45A,#B8922E); }
+  .bg2 { background:linear-gradient(90deg,#60a5fa,#3b82f6); }
+  .bg3 { background:linear-gradient(90deg,#a78bfa,#7c3aed); }
+  .bg4 { background:linear-gradient(90deg,#34d399,#059669); }
+  .bg5 { background:linear-gradient(90deg,#f472b6,#db2777); }
+  .bg-bench { background:linear-gradient(90deg,#475569,#334155); }
+
+  /* STAT GRID */
+  .stat-row { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-bottom:28px; }
+  .stat-box { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:14px; padding:18px; text-align:center; }
+  .stat-box .sv { font-size:28px; font-weight:900; margin-bottom:4px; }
+  .stat-box .sl { font-size:11px; color:#94a3b8; line-height:1.4; }
+
+  /* BENEFITS GRID */
+  .benefits-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:28px; }
+  .benefit-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:14px; padding:20px; }
+  .benefit-card h4 { font-size:13px; font-weight:700; color:#E8C45A; margin-bottom:10px; }
+  .benefit-card p { font-size:12px; color:#94a3b8; line-height:1.5; }
+
+  /* LEGEND */
+  .legend-row { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; margin-bottom:20px; }
+  .leg-item { display:flex; align-items:center; gap:6px; font-size:12px; color:#94a3b8; }
+  .leg-dot { width:10px; height:10px; border-radius:3px; }
+
+  /* FOOTER */
+  .footer { text-align:center; padding:24px 20px; border-top:2px solid rgba(232,196,90,0.15); margin-top:12px; }
+  .footer-brand { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px; }
+  .footer-name { font-size:16px; font-weight:700; letter-spacing:4px; color:#94a3b8; }
+  .footer-sub  { font-size:11px; font-weight:300; letter-spacing:3px; color:#64748b; }
+  .footer .disc { font-size:11px; color:#475569; line-height:1.6; }
+
+  /* TOOLTIP */
+  .info { cursor:help; border-bottom:1px dashed #64748b; }
+
+  @media(max-width:900px) {
+    .bar-section { grid-template-columns:1fr; }
+    .stat-row { grid-template-columns:repeat(2,1fr); }
+    .benefits-grid { grid-template-columns:repeat(2,1fr); }
+    .fh-stats { flex-direction:column; }
+    .hdr h1 { font-size:24px; }
+  }
+
+/* ===== GLOBAL NAV ===== */
+.sa-nav{position:sticky;top:0;z-index:9999;background:rgba(10,15,30,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(232,196,90,0.1);padding:0 20px;}
+.sa-nav-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.sa-nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.sa-nav-logo svg{width:32px;height:32px;}
+.sa-nav-logo-text{display:flex;flex-direction:column;}
+.sa-nav-logo-name{font-size:16px;font-weight:800;letter-spacing:4px;color:#f1f5f9;line-height:1;}
+.sa-nav-logo-sub{font-size:8px;font-weight:400;letter-spacing:2px;color:#7A8599;line-height:1;margin-top:2px;}
+.sa-nav-links{display:flex;align-items:center;gap:4px;}
+.sa-nav-link{font-size:12px;font-weight:600;color:#94a3b8;text-decoration:none;padding:6px 12px;border-radius:8px;transition:all 0.2s;letter-spacing:0.3px;white-space:nowrap;}
+.sa-nav-link:hover{color:#f1f5f9;background:rgba(232,196,90,0.08);}
+.sa-nav-link.active{color:#E8C45A;background:rgba(232,196,90,0.1);border:1px solid rgba(232,196,90,0.2);}
+.sa-nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:10001;}
+.sa-nav-hamburger span{width:22px;height:2px;background:#E8C45A;border-radius:2px;transition:all 0.3s;}
+.sa-nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(10,15,30,0.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(232,196,90,0.15);padding:12px 20px;flex-direction:column;gap:4px;z-index:9998;}
+.sa-nav-mobile .sa-nav-link{padding:10px 16px;font-size:13px;border-radius:10px;display:block;}
+@media(max-width:860px){
+  .sa-nav-links{display:none;}
+  .sa-nav-hamburger{display:flex;}
+  .sa-nav-mobile.open{display:flex;}
+}
+
+/* ===== PAGE NAVIGATION ===== */
+.page-nav{max-width:1160px;margin:0 auto 32px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+.pn-link{text-decoration:none;padding:16px 24px;background:linear-gradient(145deg,#131b30,#111827);border:1px solid rgba(99,102,241,0.12);border-radius:14px;transition:all 0.3s;flex:1;max-width:280px;}
+.pn-link:hover{border-color:rgba(232,196,90,0.3);transform:translateY(-2px);box-shadow:0 8px 20px rgba(0,0,0,0.2);}
+.pn-prev{text-align:left;}
+.pn-next{text-align:right;}
+.pn-dir{display:block;font-size:11px;color:#64748b;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px;}
+.pn-name{display:block;font-size:15px;font-weight:700;color:#E8C45A;}
+.pn-home{text-decoration:none;font-size:13px;font-weight:700;color:#94a3b8;padding:10px 20px;border:1px solid rgba(99,102,241,0.15);border-radius:10px;transition:all 0.2s;flex-shrink:0;}
+.pn-home:hover{color:#E8C45A;border-color:rgba(232,196,90,0.3);background:rgba(232,196,90,0.05);}
+@media(max-width:640px){.pn-link{padding:12px 16px;}.page-nav{flex-wrap:wrap;justify-content:center;}}
+
+</style>
+</head>
+<body>
+<!-- GLOBAL NAVIGATION -->
+<nav class="sa-nav">
+  <div class="sa-nav-inner">
+    <a href="index.html" class="sa-nav-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <defs><linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#E8C45A"/><stop offset="100%" style="stop-color:#B8922E"/></linearGradient></defs>
+        <polygon points="50,0 93,25 93,75 50,100 7,75 7,25" fill="#1B2A4A" stroke="url(#ng)" stroke-width="3"/>
+        <polyline points="22,70 38,50 55,58 78,28" stroke="url(#ng)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="78" cy="28" r="6" fill="url(#ng)"/>
+      </svg>
+      <div class="sa-nav-logo-text">
+        <span class="sa-nav-logo-name">SAI ASSETS</span>
+        <span class="sa-nav-logo-sub">MF ADVISORY</span>
+      </div>
+    </a>
+    <div class="sa-nav-links">
+      <a href="index.html" class="sa-nav-link">Home</a>
+          <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
+          <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
+          <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
+          <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
+          <a href="#" class="sa-nav-link active">International</a>
+          <a href="sip-date-analysis.html" class="sa-nav-link">SIP Analysis</a>
+    </div>
+    <button class="sa-nav-hamburger" onclick="document.querySelector('.sa-nav-mobile').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="sa-nav-mobile">
+  <a href="index.html" class="sa-nav-link">Home</a>
+        <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
+        <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
+        <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
+        <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
+        <a href="#" class="sa-nav-link active">International</a>
+        <a href="sip-date-analysis.html" class="sa-nav-link">SIP Analysis</a>
+</div>
+
+<div class="ctr">
+
+  </div>
+
+  <!-- ==================== FUND 1 ==================== -->
+  <div class="fund-hero">
+    <div class="fh-top">
+      <div class="fh-rank r1">1</div>
+      <div class="fh-info">
+        <div class="fh-name">Nippon India Taiwan Equity Fund</div>
+        <div class="fh-mgr">Fund Manager: Kinjal Desai &nbsp;|&nbsp; Since Jun 2023</div>
+        <div class="fh-badge">
+          <span class="badge-gold">Highest 1-Year Return</span>
+          <span class="badge-red">Very High Risk</span>
+          <span class="badge-blue">AUM: ₹519 Cr</span>
+          <span class="badge-green">Expense: 0.98%</span>
+        </div>
+      </div>
+    </div>
+    <div class="fh-stats">
+      <div class="fh-stat"><div class="val gold">140.39%</div><div class="lbl">1-Year</div></div>
+      <div class="fh-stat"><div class="val green">47.92%</div><div class="lbl">3-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val">—</div><div class="lbl">5-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val">—</div><div class="lbl">10-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val gold">~45%</div><div class="lbl">Since Inception</div></div>
+      <div class="fh-stat"><div class="val gold">Taiwan/TSMC</div><div class="lbl">Geographic Focus</div></div>
+      <div class="fh-stat"><div class="val">₹26.34</div><div class="lbl">NAV (₹)</div></div>
+      <div class="fh-stat"><div class="val gold">Semiconductors</div><div class="lbl">Sector Focus</div></div>
+    </div>
+  </div>
+
+  <!-- ==================== FUND 2 ==================== -->
+  <div class="fund-hero">
+    <div class="fh-top">
+      <div class="fh-rank r2">2</div>
+      <div class="fh-info">
+        <div class="fh-name">Edelweiss US Technology Equity FoF</div>
+        <div class="fh-mgr">Fund Manager: Bhavesh Jain &nbsp;|&nbsp; Since Apr 2013</div>
+        <div class="fh-badge">
+          <span class="badge-gold">US Tech Exposure</span>
+          <span class="badge-blue">AUM: ₹3,349 Cr</span>
+          <span class="badge-green">Expense: 0.73%</span>
+        </div>
+      </div>
+    </div>
+    <div class="fh-stats">
+      <div class="fh-stat"><div class="val">28.26%</div><div class="lbl">1-Year</div></div>
+      <div class="fh-stat"><div class="val green">29.17%</div><div class="lbl">3-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val green">13.39%</div><div class="lbl">5-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val">—</div><div class="lbl">10-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val gold">~14.5%</div><div class="lbl">Since Inception</div></div>
+      <div class="fh-stat"><div class="val">0.85</div><div class="lbl">Sharpe Ratio</div></div>
+      <div class="fh-stat"><div class="val">₹33.02</div><div class="lbl">NAV (₹)</div></div>
+      <div class="fh-stat"><div class="val gold">USA</div><div class="lbl">Geographic Focus</div></div>
+    </div>
+  </div>
+
+  <!-- ==================== FUND 3 ==================== -->
+  <div class="fund-hero">
+    <div class="fh-top">
+      <div class="fh-rank r3">3</div>
+      <div class="fh-info">
+        <div class="fh-name">Franklin US Opportunities Equity Active FoF</div>
+        <div class="fh-mgr">Fund Manager: Srikesh Nair &nbsp;|&nbsp; Since Apr 2013 &nbsp;|&nbsp; Longest track record (13 years)</div>
+        <div class="fh-badge">
+          <span class="badge-gold">Lowest Expense</span>
+          <span class="badge-blue">AUM: ₹4,461 Cr</span>
+          <span class="badge-green">Expense: 0.61%</span>
+        </div>
+      </div>
+    </div>
+    <div class="fh-stats">
+      <div class="fh-stat"><div class="val">16.86%</div><div class="lbl">1-Year</div></div>
+      <div class="fh-stat"><div class="val green">22.35%</div><div class="lbl">3-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val green">11.11%</div><div class="lbl">5-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val green">16.16%</div><div class="lbl">10-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val gold">~15.2%</div><div class="lbl">Since Inception</div></div>
+      <div class="fh-stat"><div class="val">₹89.05</div><div class="lbl">NAV (₹)</div></div>
+      <div class="fh-stat"><div class="val gold">USA</div><div class="lbl">Geographic Focus</div></div>
+      <div class="fh-stat"><div class="val">Growth</div><div class="lbl">Strategy</div></div>
+    </div>
+  </div>
+
+  <!-- ==================== FUND 4 ==================== -->
+  <div class="fund-hero">
+    <div class="fh-top">
+      <div class="fh-rank r4">4</div>
+      <div class="fh-info">
+        <div class="fh-name">Axis Global Equity Alpha FoF</div>
+        <div class="fh-mgr">Fund Manager: R Sivakumar &nbsp;|&nbsp; Since Feb 2020</div>
+        <div class="fh-badge">
+          <span class="badge-gold">Diversified Global</span>
+          <span class="badge-blue">AUM: ₹1,894 Cr</span>
+          <span class="badge-green">Expense: 0.77%</span>
+        </div>
+      </div>
+    </div>
+    <div class="fh-stats">
+      <div class="fh-stat"><div class="val">25.76%</div><div class="lbl">1-Year</div></div>
+      <div class="fh-stat"><div class="val green">21.98%</div><div class="lbl">3-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val green">15.30%</div><div class="lbl">5-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val">—</div><div class="lbl">10-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val gold">~16.0%</div><div class="lbl">Since Inception</div></div>
+      <div class="fh-stat"><div class="val">₹23.19</div><div class="lbl">NAV (₹)</div></div>
+      <div class="fh-stat"><div class="val gold">Global</div><div class="lbl">Geographic Focus</div></div>
+      <div class="fh-stat"><div class="val">Developed Mkts</div><div class="lbl">Focus</div></div>
+    </div>
+  </div>
+
+  <!-- ==================== FUND 5 ==================== -->
+  <div class="fund-hero">
+    <div class="fh-top">
+      <div class="fh-rank r5">5</div>
+      <div class="fh-info">
+        <div class="fh-name">Edelweiss Europe Dynamic Equity Offshore Fund</div>
+        <div class="fh-mgr">Fund Managers: Gautam Kaul, Rahul Dedhia &nbsp;|&nbsp; Since Sep 2013</div>
+        <div class="fh-badge">
+          <span class="badge-gold">European Market</span>
+          <span class="badge-blue">AUM: ₹224 Cr</span>
+          <span class="badge-green">Expense: 0.58%</span>
+        </div>
+      </div>
+    </div>
+    <div class="fh-stats">
+      <div class="fh-stat"><div class="val gold">31.27%</div><div class="lbl">1-Year</div></div>
+      <div class="fh-stat"><div class="val green">21.73%</div><div class="lbl">3-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val green">15.82%</div><div class="lbl">5-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val green">12.30%</div><div class="lbl">10-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val gold">~11.5%</div><div class="lbl">Since Inception</div></div>
+      <div class="fh-stat"><div class="val">₹31.04</div><div class="lbl">NAV (₹)</div></div>
+      <div class="fh-stat"><div class="val gold">Europe</div><div class="lbl">Geographic Focus</div></div>
+      <div class="fh-stat"><div class="val">Dynamic</div><div class="lbl">Strategy</div></div>
+    </div>
+  </div>
+
+  <!-- ==================== COMPARATIVE TABLE ==================== -->
+  <div class="card" style="margin-top:8px;">
+    <h3>Side-by-Side: All Parameters at a Glance</h3>
+    <div class="sub">Direct Plans &bull; Returns as of Mar 2026 &bull; Fund of Funds investing in international equities</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Parameter</th>
+          <th style="color:#E8C45A;">Taiwan</th>
+          <th style="color:#c0c0c0;">US Tech</th>
+          <th style="color:#cd7f32;">US Oppty</th>
+          <th style="color:#60a5fa;">Global</th>
+          <th style="color:#a78bfa;">Europe</th>
+          <th>Benchmark</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>NAV (₹)</td><td>26.34</td><td>33.02</td><td>89.05</td><td>23.19</td><td>31.04</td><td class="muted">—</td></tr>
+        <tr><td>AUM (₹ Cr)</td><td>519</td><td>3,349</td><td class="best-cell">4,461</td><td>1,894</td><td>224</td><td class="muted">—</td></tr>
+        <tr><td>Expense Ratio</td><td>0.98%</td><td>0.73%</td><td class="best-cell">0.61%</td><td>0.77%</td><td>0.58%</td><td class="muted">—</td></tr>
+        <tr><td>1-Year Return</td><td class="best-cell">140.39%</td><td>28.26%</td><td>16.86%</td><td>25.76%</td><td>31.27%</td><td>~18%</td></tr>
+        <tr><td>3-Year CAGR</td><td class="best-cell">47.92%</td><td>29.17%</td><td>22.35%</td><td>21.98%</td><td>21.73%</td><td>~16%</td></tr>
+        <tr><td>5-Year CAGR</td><td class="muted">—</td><td class="best-cell">13.39%</td><td>11.11%</td><td>15.30%</td><td>15.82%</td><td>~12%</td></tr>
+        <tr><td>10-Year CAGR</td><td class="muted">—</td><td class="muted">—</td><td class="best-cell">16.16%</td><td class="muted">—</td><td>12.30%</td><td class="muted">—</td></tr>
+        <tr><td>Since Inception</td><td>~45%</td><td>~14.5%</td><td class="best-cell">~15.2%</td><td>~16.0%</td><td>~11.5%</td><td class="muted">—</td></tr>
+        <tr><td>Sharpe Ratio</td><td class="muted">—</td><td>0.85</td><td class="muted">—</td><td class="muted">—</td><td class="muted">—</td><td class="muted">—</td></tr>
+        <tr><td>Min SIP</td><td>₹1,000</td><td>₹100</td><td>₹100</td><td>₹100</td><td>₹100</td><td class="muted">—</td></tr>
+        <tr><td>Exit Load</td><td colspan="5" style="color:#94a3b8;">Typically 1% if redeemed within 1 year (varies by fund)</td><td class="muted">—</td></tr>
+        <tr><td>Geographic Focus</td><td style="color:#E8C45A;">Taiwan (TSMC)</td><td style="color:#c0c0c0;">USA Tech</td><td style="color:#cd7f32;">USA Growth</td><td style="color:#60a5fa;">Global Dev Mkts</td><td style="color:#a78bfa;">Europe</td><td class="muted">Global</td></tr>
+        <tr><td>Fund Type</td><td colspan="5" style="color:#94a3b8;">Fund of Funds (invests in offshore/international funds)</td><td class="muted">Index</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- BAR COMPARISONS -->
+  <div class="legend-row">
+    <div class="leg-item"><div class="leg-dot" style="background:linear-gradient(135deg,#E8C45A,#B8922E);"></div>Taiwan Equity</div>
+    <div class="leg-item"><div class="leg-dot" style="background:linear-gradient(135deg,#c0c0c0,#8a8a8a);"></div>US Technology</div>
+    <div class="leg-item"><div class="leg-dot" style="background:linear-gradient(135deg,#cd7f32,#a0522d);"></div>US Opportunities</div>
+    <div class="leg-item"><div class="leg-dot" style="background:linear-gradient(135deg,#60a5fa,#3b82f6);"></div>Global Equity</div>
+    <div class="leg-item"><div class="leg-dot" style="background:linear-gradient(135deg,#a78bfa,#7c3aed);"></div>Europe Dynamic</div>
+    <div class="leg-item"><div class="leg-dot" style="background:#475569;"></div>Benchmark</div>
+  </div>
+
+  <div class="bar-section">
+    <!-- 3-Year CAGR -->
+    <div class="bar-card">
+      <h4>3-Year CAGR (%)</h4>
+      <div class="bsub">Ranking metric for this list</div>
+      <div class="brow"><div class="blbl">Taiwan</div><div class="btrk"><div class="bfill bg1" style="width:100%;">47.92%</div></div></div>
+      <div class="brow"><div class="blbl">US Tech</div><div class="btrk"><div class="bfill bg2" style="width:60%;">29.17%</div></div></div>
+      <div class="brow"><div class="blbl">US Oppty</div><div class="btrk"><div class="bfill bg3" style="width:46%;">22.35%</div></div></div>
+      <div class="brow"><div class="blbl">Global</div><div class="btrk"><div class="bfill bg4" style="width:45%;">21.98%</div></div></div>
+      <div class="brow"><div class="blbl">Europe</div><div class="btrk"><div class="bfill bg5" style="width:45%;">21.73%</div></div></div>
+      <div class="brow"><div class="blbl" style="color:#64748b;">Benchmark</div><div class="btrk"><div class="bfill bg-bench" style="width:33%;">~16%</div></div></div>
+    </div>
+
+    <!-- 1-Year Return -->
+    <div class="bar-card">
+      <h4>1-Year Return (%)</h4>
+      <div class="bsub">Short-term performance</div>
+      <div class="brow"><div class="blbl">Taiwan</div><div class="btrk"><div class="bfill bg1" style="width:100%;">140.39%</div></div></div>
+      <div class="brow"><div class="blbl">Europe</div><div class="btrk"><div class="bfill bg5" style="width:22%;">31.27%</div></div></div>
+      <div class="brow"><div class="blbl">US Tech</div><div class="btrk"><div class="bfill bg2" style="width:20%;">28.26%</div></div></div>
+      <div class="brow"><div class="blbl">Global</div><div class="btrk"><div class="bfill bg4" style="width:18%;">25.76%</div></div></div>
+      <div class="brow"><div class="blbl">US Oppty</div><div class="btrk"><div class="bfill bg3" style="width:12%;">16.86%</div></div></div>
+      <div class="brow"><div class="blbl" style="color:#64748b;">Benchmark</div><div class="btrk"><div class="bfill bg-bench" style="width:13%;">~18%</div></div></div>
+    </div>
+
+    <!-- Expense Ratio -->
+    <div class="bar-card">
+      <h4>Expense Ratio (%)</h4>
+      <div class="bsub">Lower is better — direct impact on returns</div>
+      <div class="brow"><div class="blbl">Europe</div><div class="btrk"><div class="bfill bg5" style="width:58%;">0.58%</div></div></div>
+      <div class="brow"><div class="blbl">US Oppty</div><div class="btrk"><div class="bfill bg3" style="width:61%;">0.61%</div></div></div>
+      <div class="brow"><div class="blbl">US Tech</div><div class="btrk"><div class="bfill bg2" style="width:73%;">0.73%</div></div></div>
+      <div class="brow"><div class="blbl">Global</div><div class="btrk"><div class="bfill bg4" style="width:77%;">0.77%</div></div></div>
+      <div class="brow"><div class="blbl">Taiwan</div><div class="btrk"><div class="bfill bg1" style="width:98%;">0.98%</div></div></div>
+    </div>
+
+    <!-- AUM -->
+    <div class="bar-card">
+      <h4>Assets Under Management (₹ Cr)</h4>
+      <div class="bsub">Larger AUM = more stable, but may limit flexibility</div>
+      <div class="brow"><div class="blbl">US Oppty</div><div class="btrk"><div class="bfill bg3" style="width:100%;">4,461 Cr</div></div></div>
+      <div class="brow"><div class="blbl">US Tech</div><div class="btrk"><div class="bfill bg2" style="width:75%;">3,349 Cr</div></div></div>
+      <div class="brow"><div class="blbl">Global</div><div class="btrk"><div class="bfill bg4" style="width:42%;">1,894 Cr</div></div></div>
+      <div class="brow"><div class="blbl">Taiwan</div><div class="btrk"><div class="bfill bg1" style="width:11%;">519 Cr</div></div></div>
+      <div class="brow"><div class="blbl">Europe</div><div class="btrk"><div class="bfill bg5" style="width:5%;">224 Cr</div></div></div>
+    </div>
+  </div>
+
+  <!-- STAT HIGHLIGHTS -->
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="sv gold">47.92%</div>
+      <div class="sl">Highest 3-Year CAGR<br><strong>Taiwan Equity</strong></div>
+    </div>
+    <div class="stat-box">
+      <div class="sv" style="color:#4ade80;">0.58%</div>
+      <div class="sl">Lowest Expense Ratio<br><strong>Europe Dynamic</strong></div>
+    </div>
+    <div class="stat-box">
+      <div class="sv" style="color:#60a5fa;">₹4,461 Cr</div>
+      <div class="sl">Largest AUM<br><strong>US Opportunities</strong></div>
+    </div>
+    <div class="stat-box">
+      <div class="sv" style="color:#f472b6;">0.85</div>
+      <div class="sl">Sharpe Ratio<br><strong>US Technology</strong></div>
+    </div>
+    <div class="stat-box">
+      <div class="sv" style="color:#a78bfa;">140.39%</div>
+      <div class="sl">Explosive 1-Year Return<br><strong>Taiwan Equity</strong></div>
+    </div>
+  </div>
+
+  <!-- WHY INTERNATIONAL FUNDS -->
+  <div class="card">
+    <h3>Why International Funds? 4 Key Benefits</h3>
+    <div class="sub">Global diversification offers advantages not available in India-only investing</div>
+  </div>
+
+  <div class="benefits-grid">
+    <div class="benefit-card">
+      <h4>Geographic Diversification</h4>
+      <p>Reduce dependence on Indian economy &amp; markets. Gain exposure to US, European, Asian developed markets with different growth cycles &amp; resilience.</p>
+    </div>
+    <div class="benefit-card">
+      <h4>Currency Appreciation (INR Depreciation)</h4>
+      <p>As INR weakens, overseas investments become more valuable in rupee terms. Both dividend payouts &amp; capital appreciation benefit from currency tailwinds.</p>
+    </div>
+    <div class="benefit-card">
+      <h4>Access to Global Innovation</h4>
+      <p>Invest in world-class tech companies (TSMC, Apple, Microsoft, NVIDIA), pharma (Novo Nordisk), luxury brands (LVMH) unavailable in direct India exposure.</p>
+    </div>
+    <div class="benefit-card">
+      <h4>Portfolio Risk Reduction</h4>
+      <p>Low correlation between Indian &amp; global markets. Adding 10-20% international exposure can reduce overall portfolio volatility while boosting returns.</p>
+    </div>
+  </div>
+
+  <!-- IMPORTANT NOTES -->
+  <div class="card" style="border-color:rgba(248,113,113,0.25);">
+    <h3 style="color:#f87171;">Important Notes — International Fund Reality Check</h3>
+    <div class="sub">Read before investing</div>
+    <table>
+      <thead>
+        <tr><th style="text-align:left;">Consideration</th><th style="text-align:left;">Impact</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>SEBI Restrictions</td><td style="text-align:left; color:#94a3b8;">Fresh investments in some international funds suspended periodically due to FX shortage. Check SEBI website &amp; fund prospectus before investing.</td></tr>
+        <tr><td>Expense Layering (FoF)</td><td style="text-align:left; color:#94a3b8;">Fund of Funds have higher expenses (0.58-0.98%) vs direct international investments, due to underlying fund fees + FoF fees. Compare with direct offshore funds if available.</td></tr>
+        <tr><td>Currency Risk</td><td style="text-align:left; color:#94a3b8;">While INR depreciation is a benefit, sudden strengthening of INR can hurt returns. Most funds are unhedged, exposing you to currency fluctuations.</td></tr>
+        <tr><td>Taxation — DEBT TREATMENT</td><td style="text-align:left; color:#f87171; font-weight:700;">International funds are taxed as DEBT funds, NOT equity funds. All gains taxed at income tax slab rate (0-43%) regardless of holding period. No LTCG exemption or indexation benefit.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- JARGON BUSTER -->
+  <div class="card">
+    <h3>Jargon Buster — International Fund Terminology</h3>
+    <div class="sub">Understanding key concepts specific to global investing</div>
+    <table>
+      <thead>
+        <tr><th style="text-align:left; width:130px;">Term</th><th style="text-align:left;">Explanation</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>FoF (Fund of Funds)</td><td style="text-align:left; color:#94a3b8;">A fund that invests in other mutual funds rather than directly in stocks. Offers diversification but comes with extra fees.</td></tr>
+        <tr><td>Currency Risk</td><td style="text-align:left; color:#94a3b8;">Volatility in USD/EUR/JPY exchange rates affects your INR returns. INR weakness = gains, INR strength = losses in currency conversion.</td></tr>
+        <tr><td>MSCI World Index</td><td style="text-align:left; color:#94a3b8;">Index of 1,500+ large-cap stocks from 23 developed markets worldwide. Global benchmark for international funds.</td></tr>
+        <tr><td>Expense Layering</td><td style="text-align:left; color:#94a3b8;">FoF charge management fee (0.5-1%) on top of the underlying fund fee (0.1-0.5%), doubling the cost of investing internationally.</td></tr>
+        <tr><td>Offshore Fund</td><td style="text-align:left; color:#94a3b8;">Fund registered &amp; domiciled outside India (like Singapore/Mauritius), investing in global markets. Subject to SEBI restrictions for Indian investors.</td></tr>
+        <tr><td>Hedged vs Unhedged</td><td style="text-align:left; color:#94a3b8;">Hedged = currency fluctuations neutralized (stable returns). Unhedged = benefit/suffer from INR movements (volatile but potential upside).</td></tr>
+        <tr><td>Repatriation Risk</td><td style="text-align:left; color:#94a3b8;">Risk of being unable to transfer money back to India due to FX controls or government restrictions (rare but possible).</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- TAXATION -->
+  <div class="card" style="border-color:rgba(248,113,113,0.25);">
+    <h3 style="color:#f87171;">Tax Treatment — Critical: Debt Fund Taxation</h3>
+    <div class="sub">International mutual funds classified as DEBT for tax purposes — NOT equity</div>
+    <table>
+      <thead>
+        <tr><th style="text-align:left;">Holding Period</th><th>Tax Classification</th><th style="color:#f87171;">Tax Rate</th><th>Special Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Any duration</td><td>Debt Fund (as per Income Tax Act)</td><td style="color:#f87171; font-weight:700;">Income Tax Slab Rate (0% to 43%)</td><td style="color:#f87171;"><strong>NO LTCG benefit</strong> — Even if held 10+ years, taxed at slab rate</td></tr>
+        <tr><td>Less than 2 years</td><td>Short Term Capital Gains</td><td style="color:#f87171; font-weight:700;">As per slab</td><td class="muted">100% gains taxed</td></tr>
+        <tr><td>More than 2 years</td><td>Long Term Capital Gains</td><td style="color:#f87171; font-weight:700;">As per slab (no reduction)</td><td style="color:#f87171;">Indexation benefit NOT available for international funds</td></tr>
+      </tbody>
+    </table>
+    <div style="margin-top:16px; padding:16px; background:rgba(248,113,113,0.08); border-left:4px solid #f87171; border-radius:6px;">
+      <strong style="color:#f87171;">Example:</strong> If you're in 30% slab &amp; earn ₹1 Lakh profit, you pay ₹30,000 tax. Hold for 20 years, profit becomes ₹10 Lakhs — still taxed at 30%, not the 12.5% LTCG rate available to equity funds. This is a significant tax disadvantage.
+    </div>
+  </div>
+
+  <!-- PAGE NAVIGATION -->
+<div class="page-nav">
+  <a href="top5-flexicap-funds.html" class="pn-link pn-prev">
+    <span class="pn-dir">&larr; Previous</span>
+    <span class="pn-name">Flexi Cap</span>
+  </a>
+  <a href="index.html" class="pn-home">&#8962; Home</a>
+  <a href="sip-date-analysis.html" class="pn-link pn-next">
+    <span class="pn-dir">Next &rarr;</span>
+    <span class="pn-name">SIP Analysis</span>
+  </a>
+</div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="30" height="30">
+        <defs><linearGradient id="g6f" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#E8C45A"/><stop offset="100%" style="stop-color:#B8922E"/></linearGradient></defs>
+        <polygon points="50,0 93,25 93,75 50,100 7,75 7,25" fill="#1B2A4A" stroke="url(#g6f)" stroke-width="3"/>
+        <polyline points="22,70 38,50 55,58 78,28" stroke="url(#g6f)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="78" cy="28" r="6" fill="url(#g6f)"/>
+      </svg>
+      <div>
+        <span class="footer-name">SAI ASSETS</span><br>
+        <span class="footer-sub">MF ADVISORY &amp; FINANCIAL LITERACY</span>
+      </div>
+    </div>
+    <p class="disc">
+      Data Sources: Fund Factsheets, AMFI, Groww, Advisorkhoj (Mar 2026) &bull; All returns are for Direct Growth plans &bull; International funds classified as DEBT for taxation<br>
+      Past performance is not indicative of future returns. International investing involves currency, geopolitical &amp; market risks. This is for educational purposes only — not financial advice.<br>
+      Consult a SEBI-registered advisor &amp; your CA before investing in international funds to understand tax implications.
+    </p>
+  </div>
+
+</div>
+</body>
+</html>
