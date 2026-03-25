@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>₹50,000/month SIP Portfolio — Aggressive Growth Plan | Sai Assets</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:#0a0f1e; color:#e2e8f0; min-height:100vh; padding:64px 16px 40px 16px; }
+  .ctr { max-width:1160px; margin:0 auto; }
+
+  /* ===== GLOBAL NAV ===== */
+  .sa-nav{position:sticky;top:0;z-index:9999;background:rgba(10,15,30,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(232,196,90,0.1);padding:0 20px;}
+  .sa-nav-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;}
+  .sa-nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+  .sa-nav-logo svg{width:32px;height:32px;}
+  .sa-nav-logo-text{display:flex;flex-direction:column;}
+  .sa-nav-logo-name{font-size:16px;font-weight:800;letter-spacing:4px;color:#f1f5f9;line-height:1;}
+  .sa-nav-logo-sub{font-size:8px;font-weight:400;letter-spacing:2px;color:#7A8599;line-height:1;margin-top:2px;}
+  .sa-nav-links{display:flex;align-items:center;gap:4px;}
+  .sa-nav-link{font-size:12px;font-weight:600;color:#94a3b8;text-decoration:none;padding:6px 12px;border-radius:8px;transition:all 0.2s;letter-spacing:0.3px;white-space:nowrap;}
+  .sa-nav-link:hover{color:#f1f5f9;background:rgba(232,196,90,0.08);}
+  .sa-nav-link.active{color:#E8C45A;background:rgba(232,196,90,0.1);border:1px solid rgba(232,196,90,0.2);}
+  .sa-nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:10001;}
+  .sa-nav-hamburger span{width:22px;height:2px;background:#E8C45A;border-radius:2px;transition:all 0.3s;}
+  .sa-nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(10,15,30,0.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(232,196,90,0.15);padding:12px 20px;flex-direction:column;gap:4px;z-index:9998;}
+  .sa-nav-mobile .sa-nav-link{padding:10px 16px;font-size:13px;border-radius:10px;display:block;}
+  @media(max-width:860px){
+    .sa-nav-links{display:none;}
+    .sa-nav-hamburger{display:flex;}
+    .sa-nav-mobile.open{display:flex;}
+  }
+
+  /* ===== THEME SYSTEM ===== */
+  :root {
+    --t-bg: #0a0f1e;
+    --t-bg2: #0f172a;
+    --t-card: #131b30;
+    --t-card-alt: #111827;
+    --t-text: #e2e8f0;
+    --t-text2: #f1f5f9;
+    --t-muted: #94a3b8;
+    --t-dim: #64748b;
+    --t-border: rgba(99,102,241,0.12);
+    --t-border2: rgba(51,65,85,0.4);
+    --t-gold: #E8C45A;
+    --t-gold-dark: #B8922E;
+    --t-navy: #1B2A4A;
+    --t-nav-bg: rgba(10,15,30,0.92);
+    --t-card-hover: rgba(232,196,90,0.03);
+    --t-bar-track: rgba(30,41,59,0.8);
+    --t-th-bg: rgba(232,196,90,0.08);
+    --t-best-bg: rgba(232,196,90,0.12);
+    --t-highlight-shadow: rgba(232,196,90,0.4);
+    --t-verdict-bg: linear-gradient(135deg, rgba(232,196,90,0.08), rgba(184,146,46,0.05));
+    --t-verdict-border: rgba(232,196,90,0.25);
+    --t-green: #4ade80;
+    --t-red: #f87171;
+    --t-footer-border: rgba(232,196,90,0.15);
+    --t-code-bg: rgba(232,196,90,0.06);
+    --t-invert: 0;
+  }
+
+  [data-theme="light"] {
+    --t-bg: #f8f9fc;
+    --t-bg2: #f1f3f8;
+    --t-card: #ffffff;
+    --t-card-alt: #f8f9fc;
+    --t-text: #1e293b;
+    --t-text2: #0f172a;
+    --t-muted: #64748b;
+    --t-dim: #94a3b8;
+    --t-border: rgba(0,0,0,0.08);
+    --t-border2: rgba(0,0,0,0.06);
+    --t-gold: #B8922E;
+    --t-gold-dark: #96750F;
+    --t-navy: #1B2A4A;
+    --t-nav-bg: rgba(255,255,255,0.92);
+    --t-card-hover: rgba(184,146,46,0.04);
+    --t-bar-track: rgba(241,245,249,0.9);
+    --t-th-bg: rgba(184,146,46,0.08);
+    --t-best-bg: rgba(184,146,46,0.1);
+    --t-highlight-shadow: rgba(184,146,46,0.25);
+    --t-verdict-bg: linear-gradient(135deg, rgba(184,146,46,0.06), rgba(184,146,46,0.03));
+    --t-verdict-border: rgba(184,146,46,0.2);
+    --t-green: #16a34a;
+    --t-red: #dc2626;
+    --t-footer-border: rgba(184,146,46,0.15);
+    --t-code-bg: rgba(184,146,46,0.04);
+    --t-invert: 1;
+  }
+
+  /* THEME TOGGLE BUTTON */
+  .theme-toggle {
+    width: 38px; height: 38px; border-radius: 10px;
+    border: 1px solid rgba(232,196,90,0.2);
+    background: rgba(232,196,90,0.08);
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    transition: all 0.3s; flex-shrink: 0; margin-left: 8px;
+    color: var(--t-gold); font-size: 18px;
+  }
+  .theme-toggle:hover {
+    background: rgba(232,196,90,0.15);
+    border-color: rgba(232,196,90,0.4);
+    transform: scale(1.05);
+  }
+  .theme-toggle .sun { display: none; }
+  .theme-toggle .moon { display: block; }
+  [data-theme="light"] .theme-toggle .sun { display: block; }
+  [data-theme="light"] .theme-toggle .moon { display: none; }
+
+  /* HEADER */
+  .hdr { text-align:center; margin-bottom:36px; }
+  .tag { display:inline-block; background:linear-gradient(135deg,#E8C45A,#B8922E); color:#1B2A4A; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:6px 18px; border-radius:20px; margin-bottom:14px; }
+  .hdr h1 { font-size:34px; font-weight:900; background:linear-gradient(135deg,#E8C45A,#f5e6a3,#B8922E); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1.25; margin-bottom:10px; }
+  .hdr p { font-size:15px; color:#94a3b8; max-width:680px; margin:0 auto; line-height:1.6; }
+  .hdr .period { display:inline-block; margin-top:12px; background:rgba(232,196,90,0.1); border:1px solid rgba(232,196,90,0.25); padding:6px 16px; border-radius:8px; font-size:12px; color:#E8C45A; font-weight:600; }
+
+  /* CARDS */
+  .card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.15); border-radius:18px; padding:28px; margin-bottom:28px; overflow-x:auto; }
+  .card h3 { font-size:18px; font-weight:700; color:#f1f5f9; margin-bottom:4px; }
+  .card .sub { font-size:12px; color:#64748b; margin-bottom:20px; }
+
+  /* PROFILE CARD */
+  .profile-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.15); border-radius:18px; padding:28px; margin-bottom:28px; display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:24px; }
+  .profile-item { text-align:center; }
+  .profile-label { font-size:11px; color:#64748b; text-transform:uppercase; letter-spacing:0.5px; margin-bottom:8px; }
+  .profile-value { font-size:20px; font-weight:900; color:#f1f5f9; margin-bottom:4px; }
+  .profile-sub { font-size:11px; color:#94a3b8; }
+
+  /* RISK METER */
+  .risk-meter { display:flex; align-items:center; gap:4px; justify-content:center; margin-top:8px; }
+  .rm-seg { width:20px; height:8px; border-radius:2px; }
+  .rm-high { background:#f87171; }
+  .rm-vhigh { background:#dc2626; }
+
+  /* PIE CHART */
+  .pie-section { margin-bottom:28px; }
+  .pie-wrapper { display:grid; grid-template-columns:280px 1fr; gap:32px; align-items:center; }
+  .pie { width:240px; height:240px; border-radius:50%; background: conic-gradient(
+    #a78bfa 0% 26%,
+    #E8C45A 26% 50%,
+    #2dd4bf 50% 70%,
+    #34d399 70% 86%,
+    #60a5fa 86% 100%
+  ); margin:0 auto; box-shadow:0 8px 32px rgba(0,0,0,0.3); }
+  .pie-legend { display:flex; flex-direction:column; gap:12px; }
+  .pie-item { display:flex; align-items:center; gap:10px; font-size:13px; }
+  .pie-dot { width:12px; height:12px; border-radius:3px; flex-shrink:0; }
+  .pie-label { color:#94a3b8; }
+  .pie-val { font-weight:700; color:#f1f5f9; margin-left:auto; }
+
+  /* TABLE */
+  table { width:100%; border-collapse:separate; border-spacing:0; font-size:13px; }
+  thead th { background:rgba(232,196,90,0.08); color:#E8C45A; font-weight:700; padding:12px 10px; text-align:center; font-size:11.5px; letter-spacing:.4px; white-space:nowrap; }
+  thead th:first-child { text-align:left; border-radius:8px 0 0 8px; }
+  thead th:last-child { border-radius:0 8px 8px 0; }
+  tbody td { padding:12px 10px; text-align:center; border-bottom:1px solid rgba(51,65,85,0.4); font-weight:500; }
+  tbody td:first-child { text-align:left; font-weight:700; color:#cbd5e1; }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody tr:hover { background:rgba(232,196,90,0.03); }
+  .gold { color:#E8C45A; font-weight:800; }
+  .green { color:#4ade80; }
+  .red   { color:#f87171; }
+  .muted { color:#64748b; }
+  .best-cell { background:rgba(232,196,90,0.12); color:#E8C45A; font-weight:800; border-radius:5px; padding:3px 7px; }
+
+  /* FUND HERO CARDS */
+  .fund-grid { display:grid; grid-template-columns:1fr; gap:24px; margin-bottom:28px; }
+  .fund-hero { background:linear-gradient(145deg,#131b30,#111827); border-radius:18px; overflow:hidden; border:1px solid rgba(99,102,241,0.12); }
+  .fh-top { padding:24px 28px 16px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; }
+  .fh-rank { width:44px; height:44px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:900; color:#1B2A4A; flex-shrink:0; background:linear-gradient(135deg,#E8C45A,#B8922E); }
+  .fh-info { flex:1; min-width:200px; }
+  .fh-name { font-size:18px; font-weight:800; color:#f1f5f9; margin-bottom:2px; }
+  .fh-mgr  { font-size:12px; color:#94a3b8; }
+  .fh-badge { display:flex; gap:8px; flex-wrap:wrap; margin-top:6px; }
+  .fh-badge span { font-size:10px; padding:3px 10px; border-radius:12px; font-weight:600; }
+  .badge-gold { background:rgba(232,196,90,0.12); color:#E8C45A; border:1px solid rgba(232,196,90,0.25); }
+  .badge-blue { background:rgba(96,165,250,0.12); color:#60a5fa; border:1px solid rgba(96,165,250,0.25); }
+  .badge-green { background:rgba(74,222,128,0.12); color:#4ade80; border:1px solid rgba(74,222,128,0.25); }
+  .fh-stats { display:flex; flex-wrap:wrap; gap:0; border-top:1px solid rgba(51,65,85,0.3); }
+  .fh-stat { flex:1; min-width:100px; padding:14px 16px; text-align:center; border-right:1px solid rgba(51,65,85,0.2); }
+  .fh-stat:last-child { border-right:none; }
+  .fh-stat .val { font-size:18px; font-weight:800; color:#f1f5f9; }
+  .fh-stat .lbl { font-size:10px; color:#64748b; margin-top:2px; letter-spacing:.3px; }
+
+  /* (calendar section removed) */
+
+  /* SIP SCHEDULE TABLE */
+  .sip-schedule { display:grid; grid-template-columns:repeat(2, 1fr); gap:14px; margin-top:4px; }
+  .sip-slot { display:flex; align-items:flex-start; gap:14px; padding:18px; background:rgba(51,65,85,0.12); border:1px solid rgba(99,102,241,0.1); border-radius:14px; transition:all 0.3s; }
+  .sip-slot:hover { border-color:rgba(232,196,90,0.25); background:rgba(232,196,90,0.04); }
+  .sip-date-circle { width:46px; height:46px; border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:19px; font-weight:900; color:#1B2A4A; flex-shrink:0; margin-top:2px; }
+  .sip-slot-info { flex:1; min-width:0; }
+  .sip-slot-fund { font-size:13px; font-weight:700; color:#f1f5f9; }
+  .sip-slot-cat { font-size:11px; color:#E8C45A; margin-top:2px; font-weight:600; }
+  .sip-slot-why { font-size:11px; color:#94a3b8; margin-top:6px; line-height:1.5; font-style:italic; }
+  .sip-slot-amt { font-size:13px; font-weight:800; color:#E8C45A; white-space:nowrap; }
+  .dc-purple { background:linear-gradient(135deg,#a78bfa,#7c3aed); }
+  .dc-gold { background:linear-gradient(135deg,#E8C45A,#B8922E); }
+  .dc-teal { background:linear-gradient(135deg,#2dd4bf,#0d9488); }
+  .dc-green { background:linear-gradient(135deg,#34d399,#059669); }
+  .dc-blue { background:linear-gradient(135deg,#60a5fa,#3b82f6); }
+  @media(max-width:700px) { .sip-schedule { grid-template-columns:1fr; } }
+
+  [data-theme="light"] .sip-slot { background:rgba(0,0,0,0.03); border-color:rgba(0,0,0,0.06); }
+  [data-theme="light"] .sip-slot:hover { background:rgba(184,146,46,0.04); border-color:rgba(184,146,46,0.2); }
+  [data-theme="light"] .sip-slot-fund { color:#0f172a; }
+  [data-theme="light"] .sip-slot-cat { color:#96750F; }
+  [data-theme="light"] .sip-slot-why { color:#64748b; }
+  [data-theme="light"] .sip-slot-amt { color:#96750F; }
+
+  /* PROJECTION CARDS */
+  .projection-row { display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; margin-bottom:28px; }
+  .projection-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:18px; padding:28px; text-align:center; }
+  .proj-tag { font-size:11px; color:#E8C45A; text-transform:uppercase; letter-spacing:1px; font-weight:700; margin-bottom:12px; }
+  .proj-cagr { font-size:14px; font-weight:700; color:#94a3b8; margin-bottom:16px; }
+  .proj-corpus { font-size:28px; font-weight:900; color:#f1f5f9; margin-bottom:4px; }
+  .proj-gain { font-size:13px; color:#4ade80; margin-bottom:12px; }
+  .proj-mult { font-size:16px; font-weight:800; color:#E8C45A; }
+  .proj-label { font-size:11px; color:#64748b; margin-top:4px; }
+
+  /* MILESTONE TABLE */
+  .milestone-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:18px; padding:28px; margin-bottom:28px; overflow-x:auto; }
+  .milestone-card h3 { font-size:18px; font-weight:700; color:#f1f5f9; margin-bottom:4px; }
+  .milestone-card .sub { font-size:12px; color:#64748b; margin-bottom:20px; }
+
+  /* BAR VIZ */
+  .bar-section { display:grid; grid-template-columns:1fr; gap:22px; margin-bottom:28px; }
+  .bar-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:16px; padding:22px; }
+  .bar-card h4 { font-size:14px; font-weight:700; color:#f1f5f9; margin-bottom:3px; }
+  .bar-card .bsub { font-size:11px; color:#64748b; margin-bottom:16px; }
+  .brow { display:flex; align-items:center; margin-bottom:8px; gap:8px; }
+  .blbl { width:140px; font-size:11px; font-weight:600; color:#94a3b8; flex-shrink:0; text-align:right; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .btrk { flex:1; height:26px; background:rgba(20,30,50,0.8); border-radius:5px; overflow:hidden; }
+  .bfill { height:100%; border-radius:5px; display:flex; align-items:center; justify-content:flex-end; padding-right:8px; font-size:11px; font-weight:700; color:#fff; }
+  .bg-sc { background:linear-gradient(90deg,#a78bfa,#7c3aed); }
+  .bg-mc { background:linear-gradient(90deg,#E8C45A,#B8922E); }
+  .bg-int { background:linear-gradient(90deg,#2dd4bf,#0d9488); }
+  .bg-fc { background:linear-gradient(90deg,#34d399,#059669); }
+  .bg-lc { background:linear-gradient(90deg,#60a5fa,#3b82f6); }
+
+  /* PRINCIPLE CARDS */
+  .principle-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-bottom:28px; }
+  .principle-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:16px; padding:22px; }
+  .principle-card h4 { font-size:14px; font-weight:700; color:#f1f5f9; margin-bottom:8px; }
+  .principle-card p { font-size:12px; color:#94a3b8; line-height:1.6; }
+
+  /* TAX SECTION */
+  .tax-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:18px; padding:28px; margin-bottom:28px; }
+  .tax-card h3 { font-size:18px; font-weight:700; color:#f1f5f9; margin-bottom:4px; }
+  .tax-card .sub { font-size:12px; color:#64748b; margin-bottom:20px; }
+  .tax-row { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:20px; }
+  .tax-item h4 { font-size:13px; font-weight:700; color:#E8C45A; margin-bottom:10px; }
+  .tax-item p { font-size:12px; color:#94a3b8; line-height:1.6; }
+
+  /* DISCLAIMER */
+  .disclaimer-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:18px; padding:28px; margin-bottom:28px; }
+  .disclaimer-card h3 { font-size:18px; font-weight:700; color:#f1f5f9; margin-bottom:4px; }
+  .disclaimer-card .sub { font-size:12px; color:#64748b; margin-bottom:16px; }
+  .disclaimer-card ul { margin-left:20px; }
+  .disclaimer-card li { font-size:12px; color:#94a3b8; line-height:1.8; margin-bottom:8px; }
+
+  /* FOOTER */
+  .footer { text-align:center; padding:24px 20px; border-top:2px solid rgba(232,196,90,0.15); margin-top:12px; }
+  .footer-brand { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px; }
+  .footer-name { font-size:16px; font-weight:700; letter-spacing:4px; color:#94a3b8; }
+  .footer-sub  { font-size:11px; font-weight:300; letter-spacing:3px; color:#64748b; }
+  .footer .disc { font-size:11px; color:#475569; line-height:1.6; }
+
+  /* THEME OVERRIDES */
+  body { background: var(--t-bg) !important; color: var(--t-text) !important; transition: background 0.4s, color 0.4s; }
+  .sa-nav { background: var(--t-nav-bg) !important; border-bottom-color: var(--t-footer-border) !important; }
+  .sa-nav-logo-name { color: var(--t-text2) !important; }
+  .sa-nav-link { color: var(--t-muted) !important; }
+  .sa-nav-link:hover { color: var(--t-text2) !important; background: var(--t-card-hover) !important; }
+  .sa-nav-link.active { color: var(--t-gold) !important; background: var(--t-best-bg) !important; border-color: rgba(184,146,46,0.2) !important; }
+  .sa-nav-mobile { background: var(--t-nav-bg) !important; }
+  .card, .fund-hero, .profile-card, .projection-card, .bar-card, .principle-card, .tax-card, .disclaimer-card, .milestone-card {
+    background: linear-gradient(145deg, var(--t-card), var(--t-card-alt)) !important;
+    border-color: var(--t-border) !important;
+    transition: background 0.4s, border-color 0.4s;
+  }
+  [data-theme="light"] .card, [data-theme="light"] .fund-hero, [data-theme="light"] .profile-card,
+  [data-theme="light"] .projection-card, [data-theme="light"] .bar-card, [data-theme="light"] .principle-card,
+  [data-theme="light"] .tax-card, [data-theme="light"] .disclaimer-card, [data-theme="light"] .milestone-card {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  }
+  .card h3, .fh-name, .hdr h1, .bar-card h4, .principle-card h4, .fh-stat .val, .tax-card h3, .disclaimer-card h3, .milestone-card h3 { color: var(--t-text2) !important; }
+  .card .sub, .hdr p, .bsub, .fh-mgr, .tax-card .sub, .disclaimer-card .sub, .milestone-card .sub { color: var(--t-muted) !important; }
+  .muted, .profile-sub, .pie-label, .calendar-day { color: var(--t-dim) !important; }
+  .profile-value, .pie-val { color: var(--t-text2) !important; }
+  tbody td:first-child { color: var(--t-text) !important; }
+  tbody td { border-bottom-color: var(--t-border2) !important; }
+  tbody tr:hover { background: var(--t-card-hover) !important; }
+  thead th { background: var(--t-th-bg) !important; color: var(--t-gold) !important; }
+  .best-cell { background: var(--t-best-bg) !important; color: var(--t-gold) !important; }
+  .gold { color: var(--t-gold) !important; }
+  .green { color: var(--t-green) !important; }
+  .red { color: var(--t-red) !important; }
+  .hdr .period { background: rgba(184,146,46,0.08) !important; border-color: rgba(184,146,46,0.2) !important; color: var(--t-gold) !important; }
+  .tag { color: var(--t-navy) !important; }
+  .badge-gold { background: var(--t-best-bg) !important; color: var(--t-gold) !important; border-color: rgba(184,146,46,0.25) !important; }
+  .footer { border-top-color: var(--t-footer-border) !important; }
+  .footer-name { color: var(--t-muted) !important; }
+  .footer-sub { color: var(--t-dim) !important; }
+  .footer .disc { color: var(--t-dim) !important; }
+  .pie { box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important; }
+  .calendar-day { background: var(--t-bar-track) !important; color: var(--t-muted) !important; }
+  .proj-tag { color: var(--t-gold) !important; }
+  .proj-cagr { color: var(--t-muted) !important; }
+  .proj-corpus { color: var(--t-text2) !important; }
+  .proj-label { color: var(--t-muted) !important; }
+  .blbl { color: var(--t-muted) !important; }
+  .principle-card p, .tax-item p { color: var(--t-muted) !important; }
+  .tax-item h4 { color: var(--t-gold) !important; }
+  .disclaimer-card li { color: var(--t-muted) !important; }
+
+  @media(max-width:900px) {
+    .profile-card { grid-template-columns:repeat(2,1fr); }
+    .projection-row { grid-template-columns:1fr; }
+    .pie-wrapper { grid-template-columns:1fr; }
+    .tax-row { grid-template-columns:1fr; }
+    .principle-grid { grid-template-columns:1fr; }
+    .hdr h1 { font-size:24px; }
+  }
+  @media(max-width:640px) {
+    .profile-card { grid-template-columns:1fr; }
+  }
+
+  /* Smooth transition for everything */
+  *, *::before, *::after { transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s; }
+
+  /* RISK PROFILE SWITCH */
+  .risk-switch { display:flex; gap:0; background:rgba(51,65,85,0.3); border-radius:14px; padding:4px; margin:0 auto 28px; max-width:600px; border:1px solid rgba(99,102,241,0.1); }
+  .risk-btn { flex:1; padding:12px 16px; text-align:center; font-size:13px; font-weight:700; color:#94a3b8; background:transparent; border:none; border-radius:11px; cursor:pointer; transition:all 0.3s; font-family:inherit; letter-spacing:0.3px; }
+  .risk-btn:hover { color:#f1f5f9; background:rgba(232,196,90,0.06); }
+  .risk-btn.active { background:linear-gradient(135deg,#E8C45A,#B8922E); color:#1B2A4A; box-shadow:0 2px 12px rgba(232,196,90,0.3); }
+  .risk-btn .risk-btn-sub { font-size:9px; font-weight:500; opacity:0.7; margin-top:2px; display:block; }
+  [data-theme="light"] .risk-switch { background:rgba(0,0,0,0.04); border-color:rgba(0,0,0,0.08); }
+  [data-theme="light"] .risk-btn { color:#64748b; }
+  [data-theme="light"] .risk-btn:hover { color:#0f172a; background:rgba(184,146,46,0.06); }
+  [data-theme="light"] .risk-btn.active { color:#1B2A4A; }
+
+</style>
+</head>
+<body>
+
+<!-- GLOBAL NAVIGATION -->
+<nav class="sa-nav">
+  <div class="sa-nav-inner">
+    <a href="index.html" class="sa-nav-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <defs><linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#E8C45A"/><stop offset="100%" style="stop-color:#B8922E"/></linearGradient></defs>
+        <polygon points="50,0 93,25 93,75 50,100 7,75 7,25" fill="#1B2A4A" stroke="url(#ng)" stroke-width="3"/>
+        <polyline points="22,70 38,50 55,58 78,28" stroke="url(#ng)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="78" cy="28" r="6" fill="url(#ng)"/>
+      </svg>
+      <div class="sa-nav-logo-text">
+        <span class="sa-nav-logo-name">SAI ASSETS</span>
+        <span class="sa-nav-logo-sub">MF ADVISORY</span>
+      </div>
+    </a>
+    <div class="sa-nav-links">
+      <a href="index.html" class="sa-nav-link">Home</a>
+      <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
+      <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
+      <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
+      <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
+      <a href="top5-international-funds.html" class="sa-nav-link">International</a>
+      <a href="sip-date-analysis.html" class="sa-nav-link">SIP Analysis</a>
+      <a href="sip-portfolio-50k.html" class="sa-nav-link active">SIP Portfolio</a>
+    </div>
+    <button class="sa-nav-hamburger" onclick="document.querySelector('.sa-nav-mobile').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <span class="moon">&#9790;</span>
+      <span class="sun">&#9728;</span>
+    </button>
+  </div>
+</nav>
+<div class="sa-nav-mobile">
+  <a href="index.html" class="sa-nav-link">Home</a>
+  <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
+  <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
+  <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
+  <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
+  <a href="top5-international-funds.html" class="sa-nav-link">International</a>
+  <a href="sip-date-analysis.html" class="sa-nav-link">SIP Analysis</a>
+  <a href="sip-portfolio-50k.html" class="sa-nav-link active">SIP Portfolio</a>
+</div>
+
+<div class="ctr">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="tag">Personalized Portfolio</div>
+    <h1 id="hdr-title">Your ₹50,000/month Aggressive SIP Plan</h1>
+    <p id="hdr-desc">A 20-year wealth creation strategy designed for maximum growth. ₹1.2 Crore invested. ₹17.96 Crore potential corpus.</p>
+    <div class="period" id="hdr-period">20-Year Duration | 8 Funds | High Risk Profile</div>
+  </div>
+
+  <!-- RISK PROFILE SWITCH -->
+  <div class="risk-switch" id="risk-switch">
+    <button class="risk-btn" onclick="switchProfile('low')">Low<span class="risk-btn-sub">~12% CAGR</span></button>
+    <button class="risk-btn" onclick="switchProfile('medium')">Medium<span class="risk-btn-sub">~15% CAGR</span></button>
+    <button class="risk-btn" onclick="switchProfile('high')">High<span class="risk-btn-sub">~17% CAGR</span></button>
+    <button class="risk-btn active" onclick="switchProfile('aggressive')">Aggressive<span class="risk-btn-sub">~19% CAGR</span></button>
+  </div>
+
+  <!-- PROFILE CARD -->
+  <div class="profile-card" id="profile-card">
+    <div class="profile-item">
+      <div class="profile-label">Risk Profile</div>
+      <div class="profile-value" style="color:#f87171;">HIGH</div>
+      <div class="risk-meter">
+        <div class="rm-seg rm-high"></div>
+        <div class="rm-seg rm-high"></div>
+        <div class="rm-seg rm-high"></div>
+        <div class="rm-seg rm-vhigh"></div>
+        <div class="rm-seg rm-vhigh"></div>
+      </div>
+    </div>
+    <div class="profile-item">
+      <div class="profile-label">Duration</div>
+      <div class="profile-value">20 Years</div>
+      <div class="profile-sub">Long horizon = volatility comfort</div>
+    </div>
+    <div class="profile-item">
+      <div class="profile-label">Monthly SIP</div>
+      <div class="profile-value gold">₹50,000</div>
+      <div class="profile-sub">₹6 Lakhs annually</div>
+    </div>
+    <div class="profile-item">
+      <div class="profile-label">Total Investment</div>
+      <div class="profile-value gold">₹1.2 Cr</div>
+      <div class="profile-sub">Over 20 years</div>
+    </div>
+  </div>
+
+  <!-- ALLOCATION PIE CHART -->
+  <div class="pie-section" id="pie-section">
+    <div class="card">
+      <h3>Portfolio Allocation by Category</h3>
+      <div class="sub">₹50,000 monthly breakdown across 8 funds</div>
+    </div>
+    <div style="padding:0 28px;">
+      <div class="pie-wrapper">
+        <div>
+          <div class="pie"></div>
+        </div>
+        <div class="pie-legend">
+          <div class="pie-item">
+            <div class="pie-dot" style="background:#a78bfa;"></div>
+            <span class="pie-label">Small Cap</span>
+            <span class="pie-val">26%</span>
+          </div>
+          <div class="pie-item">
+            <div class="pie-dot" style="background:#E8C45A;"></div>
+            <span class="pie-label">Mid Cap</span>
+            <span class="pie-val">24%</span>
+          </div>
+          <div class="pie-item">
+            <div class="pie-dot" style="background:#2dd4bf;"></div>
+            <span class="pie-label">International</span>
+            <span class="pie-val">20%</span>
+          </div>
+          <div class="pie-item">
+            <div class="pie-dot" style="background:#34d399;"></div>
+            <span class="pie-label">Flexi Cap</span>
+            <span class="pie-val">16%</span>
+          </div>
+          <div class="pie-item">
+            <div class="pie-dot" style="background:#60a5fa;"></div>
+            <span class="pie-label">Large Cap</span>
+            <span class="pie-val">14%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FUND ALLOCATION TABLE -->
+  <div class="card">
+    <h3>All 8 Funds — Complete Breakdown</h3>
+    <div class="sub">Direct Plans | Monthly SIP allocation, expected returns, and timing strategy</div>
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Fund Name</th>
+          <th>Category</th>
+          <th>Monthly SIP</th>
+          <th>%</th>
+          <th>Expected CAGR</th>
+          <th>SIP Date</th>
+          <th>Stars</th>
+        </tr>
+      </thead>
+      <tbody id="alloc-table">
+        <tr>
+          <td style="font-weight:900;">1</td>
+          <td style="font-weight:800;color:#a78bfa;">Nippon India Small Cap Fund</td>
+          <td>Small Cap</td>
+          <td class="gold">₹8,000</td>
+          <td>16%</td>
+          <td>18-20%</td>
+          <td class="gold">5th</td>
+          <td>★★★★★</td>
+        </tr>
+        <tr>
+          <td style="font-weight:900;">2</td>
+          <td style="font-weight:800;color:#a78bfa;">Quant Small Cap Fund</td>
+          <td>Small Cap</td>
+          <td class="gold">₹5,000</td>
+          <td>10%</td>
+          <td>19-22%</td>
+          <td class="gold">15th</td>
+          <td>★★★★★</td>
+        </tr>
+        <tr>
+          <td style="font-weight:900;">3</td>
+          <td style="font-weight:800;color:#E8C45A;">Edelweiss Mid Cap Fund</td>
+          <td>Mid Cap</td>
+          <td class="gold">₹7,000</td>
+          <td>14%</td>
+          <td>17-19%</td>
+          <td class="gold">10th</td>
+          <td>★★★★★</td>
+        </tr>
+        <tr>
+          <td style="font-weight:900;">4</td>
+          <td style="font-weight:800;color:#E8C45A;">HDFC Mid Cap Fund</td>
+          <td>Mid Cap</td>
+          <td class="gold">₹5,000</td>
+          <td>10%</td>
+          <td>16-18%</td>
+          <td class="gold">25th</td>
+          <td>★★★★★</td>
+        </tr>
+        <tr>
+          <td style="font-weight:900;">5</td>
+          <td style="font-weight:800;color:#34d399;">Parag Parikh Flexi Cap Fund</td>
+          <td>Flexi Cap</td>
+          <td class="gold">₹8,000</td>
+          <td>16%</td>
+          <td>16-18%</td>
+          <td class="gold">1st</td>
+          <td>★★★★★</td>
+        </tr>
+        <tr>
+          <td style="font-weight:900;">6</td>
+          <td style="font-weight:800;color:#60a5fa;">Nippon India Large Cap Fund</td>
+          <td>Large Cap</td>
+          <td class="gold">₹7,000</td>
+          <td>14%</td>
+          <td>14-16%</td>
+          <td class="gold">20th</td>
+          <td>★★★★★</td>
+        </tr>
+        <tr>
+          <td style="font-weight:900;">7</td>
+          <td style="font-weight:800;color:#2dd4bf;">Edelweiss US Technology Equity FoF</td>
+          <td>International</td>
+          <td class="gold">₹5,000</td>
+          <td>10%</td>
+          <td>13-15%</td>
+          <td class="gold">8th</td>
+          <td>★★★★</td>
+        </tr>
+        <tr>
+          <td style="font-weight:900;">8</td>
+          <td style="font-weight:800;color:#2dd4bf;">Motilal Oswal Nasdaq 100 FoF</td>
+          <td>International</td>
+          <td class="gold">₹5,000</td>
+          <td>10%</td>
+          <td>14-16%</td>
+          <td class="gold">18th</td>
+          <td>★★★★</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- FUND HERO CARDS -->
+  <div class="fund-grid" id="fund-grid">
+    <!-- Fund 1 -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank">1</div>
+        <div class="fh-info">
+          <div class="fh-name">Nippon India Small Cap Fund</div>
+          <div class="fh-mgr">Monthly: ₹8,000 | SIP Date: 5th | 10-Yr CAGR: 21.1%</div>
+          <div class="fh-badge">
+            <span class="badge-gold">★ 5-Star</span>
+            <span class="badge-blue">Growth Engine</span>
+            <span class="badge-green">₹50K Cr AUM</span>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat"><div class="lbl">Expected CAGR</div><div class="val">18-20%</div></div>
+        <div class="fh-stat"><div class="lbl">10-Yr CAGR (Actual)</div><div class="val gold">21.1%</div></div>
+        <div class="fh-stat"><div class="lbl">Allocation %</div><div class="val">16%</div></div>
+        <div class="fh-stat"><div class="lbl">Rationale</div><div class="val" style="font-size:11px;font-weight:600;">Largest small cap, highest returns, aggressive growth</div></div>
+      </div>
+    </div>
+
+    <!-- Fund 2 -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank">2</div>
+        <div class="fh-info">
+          <div class="fh-name">Quant Small Cap Fund</div>
+          <div class="fh-mgr">Monthly: ₹5,000 | SIP Date: 15th | 10-Yr CAGR: 21.8%</div>
+          <div class="fh-badge">
+            <span class="badge-gold">★ 5-Star</span>
+            <span class="badge-blue">Quant Driven</span>
+            <span class="badge-green">Alpha Generator</span>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat"><div class="lbl">Expected CAGR</div><div class="val">19-22%</div></div>
+        <div class="fh-stat"><div class="lbl">10-Yr CAGR (Actual)</div><div class="val gold">21.8%</div></div>
+        <div class="fh-stat"><div class="lbl">Allocation %</div><div class="val">10%</div></div>
+        <div class="fh-stat"><div class="lbl">Rationale</div><div class="val" style="font-size:11px;font-weight:600;">Highest cat returns, systematic scoring, pure alpha</div></div>
+      </div>
+    </div>
+
+    <!-- Fund 3 -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank">3</div>
+        <div class="fh-info">
+          <div class="fh-name">Edelweiss Mid Cap Fund</div>
+          <div class="fh-mgr">Monthly: ₹7,000 | SIP Date: 10th | 10-Yr CAGR: 19.48%</div>
+          <div class="fh-badge">
+            <span class="badge-gold">★ 5-Star</span>
+            <span class="badge-blue">#1 Ranked</span>
+            <span class="badge-green">Strong Alpha</span>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat"><div class="lbl">Expected CAGR</div><div class="val">17-19%</div></div>
+        <div class="fh-stat"><div class="lbl">10-Yr CAGR (Actual)</div><div class="val gold">19.48%</div></div>
+        <div class="fh-stat"><div class="lbl">Allocation %</div><div class="val">14%</div></div>
+        <div class="fh-stat"><div class="lbl">Rationale</div><div class="val" style="font-size:11px;font-weight:600;">Top-ranked midcap, 5.16 alpha, consistent outperformer</div></div>
+      </div>
+    </div>
+
+    <!-- Fund 4 -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank">4</div>
+        <div class="fh-info">
+          <div class="fh-name">HDFC Mid Cap Fund</div>
+          <div class="fh-mgr">Monthly: ₹5,000 | SIP Date: 25th | 10-Yr CAGR: 18.64%</div>
+          <div class="fh-badge">
+            <span class="badge-gold">★ 5-Star</span>
+            <span class="badge-blue">Largest AUM</span>
+            <span class="badge-green">Stability</span>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat"><div class="lbl">Expected CAGR</div><div class="val">16-18%</div></div>
+        <div class="fh-stat"><div class="lbl">10-Yr CAGR (Actual)</div><div class="val gold">18.64%</div></div>
+        <div class="fh-stat"><div class="lbl">Allocation %</div><div class="val">10%</div></div>
+        <div class="fh-stat"><div class="lbl">Rationale</div><div class="val" style="font-size:11px;font-weight:600;">₹94K Cr AUM, lowest beta (0.85), portfolio stabilizer</div></div>
+      </div>
+    </div>
+
+    <!-- Fund 5 -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank">5</div>
+        <div class="fh-info">
+          <div class="fh-name">Parag Parikh Flexi Cap Fund</div>
+          <div class="fh-mgr">Monthly: ₹8,000 | SIP Date: 1st | 10-Yr CAGR: 20.4%</div>
+          <div class="fh-badge">
+            <span class="badge-gold">★ 5-Star</span>
+            <span class="badge-blue">Largest Flexi</span>
+            <span class="badge-green">Dynamic</span>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat"><div class="lbl">Expected CAGR</div><div class="val">16-18%</div></div>
+        <div class="fh-stat"><div class="lbl">10-Yr CAGR (Actual)</div><div class="val gold">20.4%</div></div>
+        <div class="fh-stat"><div class="lbl">Allocation %</div><div class="val">16%</div></div>
+        <div class="fh-stat"><div class="lbl">Rationale</div><div class="val" style="font-size:11px;font-weight:600;">India's largest flexi cap, ~30% US exposure, tactical allocation</div></div>
+      </div>
+    </div>
+
+    <!-- Fund 6 -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank">6</div>
+        <div class="fh-info">
+          <div class="fh-name">Nippon India Large Cap Fund</div>
+          <div class="fh-mgr">Monthly: ₹7,000 | SIP Date: 20th | 10-Yr CAGR: 16.8%</div>
+          <div class="fh-badge">
+            <span class="badge-gold">★ 5-Star</span>
+            <span class="badge-blue">Stability</span>
+            <span class="badge-green">Compounder</span>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat"><div class="lbl">Expected CAGR</div><div class="val">14-16%</div></div>
+        <div class="fh-stat"><div class="lbl">10-Yr CAGR (Actual)</div><div class="val gold">16.8%</div></div>
+        <div class="fh-stat"><div class="lbl">Allocation %</div><div class="val">14%</div></div>
+        <div class="fh-stat"><div class="lbl">Rationale</div><div class="val" style="font-size:11px;font-weight:600;">Top large cap, portfolio anchor, downside protection</div></div>
+      </div>
+    </div>
+
+    <!-- Fund 7 -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank">7</div>
+        <div class="fh-info">
+          <div class="fh-name">Edelweiss US Technology Equity FoF</div>
+          <div class="fh-mgr">Monthly: ₹5,000 | SIP Date: 8th | MSCI World +10%</div>
+          <div class="fh-badge">
+            <span class="badge-gold">★ 4-Star</span>
+            <span class="badge-blue">US Tech</span>
+            <span class="badge-green">Diversification</span>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat"><div class="lbl">Expected CAGR</div><div class="val">13-15%</div></div>
+        <div class="fh-stat"><div class="lbl">Focus</div><div class="val gold">US Tech Exposure</div></div>
+        <div class="fh-stat"><div class="lbl">Allocation %</div><div class="val">10%</div></div>
+        <div class="fh-stat"><div class="lbl">Rationale</div><div class="val" style="font-size:11px;font-weight:600;">Currency hedge, geographic diversification, tech upside</div></div>
+      </div>
+    </div>
+
+    <!-- Fund 8 -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank">8</div>
+        <div class="fh-info">
+          <div class="fh-name">Motilal Oswal Nasdaq 100 FoF</div>
+          <div class="fh-mgr">Monthly: ₹5,000 | SIP Date: 18th | Nasdaq +15%</div>
+          <div class="fh-badge">
+            <span class="badge-gold">★ 4-Star</span>
+            <span class="badge-blue">Direct Nasdaq</span>
+            <span class="badge-green">Growth</span>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat"><div class="lbl">Expected CAGR</div><div class="val">14-16%</div></div>
+        <div class="fh-stat"><div class="lbl">Focus</div><div class="val gold">Nasdaq 100</div></div>
+        <div class="fh-stat"><div class="lbl">Allocation %</div><div class="val">10%</div></div>
+        <div class="fh-stat"><div class="lbl">Rationale</div><div class="val" style="font-size:11px;font-weight:600;">Direct index exposure, high-growth global tech, FoF structure</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIP DATE SCHEDULE -->
+  <div class="card" style="overflow-x:hidden;">
+    <h3>Your Monthly SIP Schedule</h3>
+    <div class="sub" style="margin-bottom:20px;">8 SIPs spread across the month to micro-diversify NAV entry points &mdash; set once, forget for 20 years</div>
+
+    <div class="sip-schedule" id="sip-schedule">
+      <div class="sip-slot">
+        <div class="sip-date-circle dc-green">1</div>
+        <div class="sip-slot-info">
+          <div class="sip-slot-fund">Parag Parikh Flexi Cap</div>
+          <div class="sip-slot-cat">Flexi Cap &bull; &#9733;5 &bull; &#8377;8,000</div>
+          <div class="sip-slot-why">Month-start salary inflow; flexi cap's global diversification smooths early-month volatility</div>
+        </div>
+      </div>
+
+      <div class="sip-slot">
+        <div class="sip-date-circle dc-purple">5</div>
+        <div class="sip-slot-info">
+          <div class="sip-slot-fund">Nippon India Small Cap</div>
+          <div class="sip-slot-cat">Small Cap &bull; &#9733;5 &bull; &#8377;8,000</div>
+          <div class="sip-slot-why">Small caps see higher volatility in early week; 5th captures post-settlement dips after month-start buying</div>
+        </div>
+      </div>
+
+      <div class="sip-slot">
+        <div class="sip-date-circle dc-teal">8</div>
+        <div class="sip-slot-info">
+          <div class="sip-slot-fund">Edelweiss US Tech Equity FoF</div>
+          <div class="sip-slot-cat">International &bull; US Tech &bull; &#8377;5,000</div>
+          <div class="sip-slot-why">US markets settle T+1; 8th aligns with post-US payroll data release — NAVs often correct briefly</div>
+        </div>
+      </div>
+
+      <div class="sip-slot">
+        <div class="sip-date-circle dc-gold">10</div>
+        <div class="sip-slot-info">
+          <div class="sip-slot-fund">Edelweiss Mid Cap Fund</div>
+          <div class="sip-slot-cat">Mid Cap &bull; &#9733;5 &bull; &#8377;7,000</div>
+          <div class="sip-slot-why">Mid-caps historically show lower NAVs around 10th due to institutional rebalancing window</div>
+        </div>
+      </div>
+
+      <div class="sip-slot">
+        <div class="sip-date-circle dc-purple">15</div>
+        <div class="sip-slot-info">
+          <div class="sip-slot-fund">Quant Small Cap Fund</div>
+          <div class="sip-slot-cat">Small Cap &bull; &#9733;4 &bull; &#8377;5,000</div>
+          <div class="sip-slot-why">Mid-month separates from 5th SIP; small-cap NAVs dip around F&amp;O expiry weeks — 15th captures pre-expiry lows</div>
+        </div>
+      </div>
+
+      <div class="sip-slot">
+        <div class="sip-date-circle dc-teal">18</div>
+        <div class="sip-slot-info">
+          <div class="sip-slot-fund">Motilal Oswal Nasdaq 100 FoF</div>
+          <div class="sip-slot-cat">International &bull; Nasdaq &bull; &#8377;5,000</div>
+          <div class="sip-slot-why">US Fed meetings typically mid-month; 18th captures post-announcement corrections in tech-heavy Nasdaq</div>
+        </div>
+      </div>
+
+      <div class="sip-slot">
+        <div class="sip-date-circle dc-blue">20</div>
+        <div class="sip-slot-info">
+          <div class="sip-slot-fund">Nippon India Large Cap Fund</div>
+          <div class="sip-slot-cat">Large Cap &bull; &#9733;5 &bull; &#8377;7,000</div>
+          <div class="sip-slot-why">Large caps are stable anchors; 20th avoids early-month FII rush and benefits from pre-expiry discount window</div>
+        </div>
+      </div>
+
+      <div class="sip-slot">
+        <div class="sip-date-circle dc-gold">25</div>
+        <div class="sip-slot-info">
+          <div class="sip-slot-fund">HDFC Mid Cap Fund</div>
+          <div class="sip-slot-cat">Mid Cap &bull; &#9733;5 &bull; &#8377;5,000</div>
+          <div class="sip-slot-why">Month-end rebalancing by fund houses often depresses mid-cap NAVs; 25th captures this window before month close</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEALTH PROJECTIONS -->
+  <div class="card">
+    <h3>20-Year Wealth Projections</h3>
+    <div class="sub">Three scenarios using SIP compound interest formula | Conservative | Expected | Aggressive</div>
+  </div>
+  <div class="projection-row" id="projection-row">
+    <div class="projection-card">
+      <div class="proj-tag">Conservative Scenario</div>
+      <div class="proj-cagr">14% CAGR</div>
+      <div class="proj-corpus">₹6.07 Cr</div>
+      <div class="proj-gain green">Gain: ₹4.87 Cr</div>
+      <div class="proj-mult">5.06x Multiplier</div>
+      <div class="proj-label">Your ₹1.2 Cr becomes ₹6 Crore+</div>
+    </div>
+    <div class="projection-card">
+      <div class="proj-tag" style="color:#f1f5f9;background:rgba(232,196,90,0.2);padding:6px 12px;border-radius:6px;">EXPECTED SCENARIO</div>
+      <div class="proj-cagr">17% CAGR</div>
+      <div class="proj-corpus gold">₹10.34 Cr</div>
+      <div class="proj-gain green">Gain: ₹9.14 Cr</div>
+      <div class="proj-mult">8.62x Multiplier</div>
+      <div class="proj-label">Your ₹1.2 Cr becomes ₹10+ Crore</div>
+    </div>
+    <div class="projection-card">
+      <div class="proj-tag">Aggressive Scenario</div>
+      <div class="proj-cagr">20% CAGR</div>
+      <div class="proj-corpus">₹17.96 Cr</div>
+      <div class="proj-gain green">Gain: ₹16.76 Cr</div>
+      <div class="proj-mult">14.97x Multiplier</div>
+      <div class="proj-label">Your ₹1.2 Cr becomes ₹18 Crore+</div>
+    </div>
+  </div>
+
+  <!-- MILESTONE TABLE -->
+  <div class="milestone-card">
+    <h3>Year-by-Year Milestone: Corpus by Duration</h3>
+    <div class="sub">Projected wealth at key milestones | 3 scenarios</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Duration</th>
+          <th>Conservative (14%)</th>
+          <th>Expected (17%)</th>
+          <th>Aggressive (20%)</th>
+        </tr>
+      </thead>
+      <tbody id="milestone-tbody">
+        <tr>
+          <td style="font-weight:800;">Year 5</td>
+          <td>₹32.2 L</td>
+          <td class="best-cell">₹37.8 L</td>
+          <td>₹44.1 L</td>
+        </tr>
+        <tr>
+          <td style="font-weight:800;">Year 10</td>
+          <td>₹74.3 L</td>
+          <td class="best-cell">₹94.2 L</td>
+          <td>₹1.21 Cr</td>
+        </tr>
+        <tr>
+          <td style="font-weight:800;">Year 15</td>
+          <td>₹1.39 Cr</td>
+          <td class="best-cell">₹2.08 Cr</td>
+          <td>₹3.15 Cr</td>
+        </tr>
+        <tr>
+          <td style="font-weight:800;">Year 20</td>
+          <td>₹6.07 Cr</td>
+          <td class="best-cell">₹10.34 Cr</td>
+          <td>₹17.96 Cr</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- CATEGORY ALLOCATION BAR CHART -->
+  <div class="bar-card" id="bar-chart">
+    <h4>Category Allocation Breakdown</h4>
+    <div class="bsub">How the ₹50,000 monthly SIP is distributed across equity categories</div>
+    <div class="brow">
+      <div class="blbl">Small Cap</div>
+      <div class="btrk"><div class="bfill bg-sc" style="width:26%;">26% | ₹13,000</div></div>
+    </div>
+    <div class="brow">
+      <div class="blbl">Mid Cap</div>
+      <div class="btrk"><div class="bfill bg-mc" style="width:24%;">24% | ₹12,000</div></div>
+    </div>
+    <div class="brow">
+      <div class="blbl">International</div>
+      <div class="btrk"><div class="bfill bg-int" style="width:20%;">20% | ₹10,000</div></div>
+    </div>
+    <div class="brow">
+      <div class="blbl">Flexi Cap</div>
+      <div class="btrk"><div class="bfill bg-fc" style="width:16%;">16% | ₹8,000</div></div>
+    </div>
+    <div class="brow">
+      <div class="blbl">Large Cap</div>
+      <div class="btrk"><div class="bfill bg-lc" style="width:14%;">14% | ₹7,000</div></div>
+    </div>
+  </div>
+
+  <!-- WHY THIS MIX -->
+  <div class="card">
+    <h3>The 5 Key Principles Behind This Mix</h3>
+    <div class="sub">Why this portfolio is designed for maximum wealth creation over 20 years</div>
+  </div>
+  <div class="principle-grid" id="principle-grid">
+    <div class="principle-card">
+      <h4>1. Small + Mid Cap Heavy (50%)</h4>
+      <p>With 20 years ahead, you can absorb volatility. Small and mid caps are the growth engines — historically delivering 19-22% returns. Smaller funds = bigger wealth multiplication over two decades.</p>
+    </div>
+    <div class="principle-card">
+      <h4>2. Flexi Cap for Tactical Flex</h4>
+      <p>Parag Parikh can rotate between large, mid, small based on valuations. Includes ~30% US exposure already. The fund manager picks opportunities wherever they appear — not locked into one category.</p>
+    </div>
+    <div class="principle-card">
+      <h4>3. Large Cap Anchor (14%)</h4>
+      <p>Nippon Large Cap isn't the flashy part of your portfolio. It's the stabilizer. During bear markets, it'll fall less. Your portfolio needs downside protection, not just upside.</p>
+    </div>
+    <div class="principle-card">
+      <h4>4. International = Diversification + Hedge</h4>
+      <p>20% in US tech (Nasdaq 100, Edelweiss US Tech). You get geographic diversification AND a natural INR depreciation hedge. Global tech has structural growth tailwinds for 20 years.</p>
+    </div>
+    <div class="principle-card">
+      <h4>5. SIP Dates = NAV Averaging</h4>
+      <p>Spreading your ₹50,000 across 8 different dates (1st to 25th) averages out market entry points. You're never fully exposed to one NAV level — micro-diversification of timing.</p>
+    </div>
+    <div class="principle-card">
+      <h4>Rebalancing: Annually</h4>
+      <p>Review this allocation once a year. If Small Cap grows to 35% of corpus, trim back and rebalance to 26%. Rebalancing forces you to "sell high, buy low" — the golden rule of investing.</p>
+    </div>
+  </div>
+
+  <!-- TAX SECTION -->
+  <div class="tax-card">
+    <h3>Equity Funds Tax Treatment (India)</h3>
+    <div class="sub">Understanding how your gains will be taxed after 20 years</div>
+    <div class="tax-row">
+      <div class="tax-item">
+        <h4>Short-Term Capital Gains (STCG)</h4>
+        <p><strong>If held < 12 months:</strong> Taxed at 20% + applicable surcharge + cess</p>
+        <p style="margin-top:8px;color:#f87171;font-size:11px;">Strategy: Don't sell within 1 year of purchase. With monthly SIP, your older units will always be long-term.</p>
+      </div>
+      <div class="tax-item">
+        <h4>Long-Term Capital Gains (LTCG)</h4>
+        <p><strong>If held > 12 months:</strong> 12.5% flat on gains above ₹1.25 Lakhs annual exemption</p>
+        <p style="margin-top:8px;color:#4ade80;font-size:11px;">With ₹17.96 Cr corpus & ₹16.76 Cr gain, LTCG = ~₹2.1 Cr tax. Effective rate: ~12.5%.</p>
+      </div>
+    </div>
+    <div class="tax-row">
+      <div class="tax-item">
+        <h4>International Funds (US Tech, Nasdaq 100)</h4>
+        <p><strong>Taxed at:</strong> Your income slab rate (10%, 20%, or 30%)</p>
+        <p style="margin-top:8px;">These are FoF structures, not direct equity funds. Short-term = slab rate. Long-term = 20% (not 12.5%).</p>
+      </div>
+      <div class="tax-item">
+        <h4>Tax-Saving Strategy</h4>
+        <p><strong>Highest priority:</strong> Hold every investment for 12+ months.</p>
+        <p style="margin-top:8px;">With 20-year horizon, this is automatic. Sell oldest units first (FIFO). Book losses in bear markets (loss harvesting).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCLAIMERS -->
+  <div class="disclaimer-card">
+    <h3>Important Disclaimers & Notes</h3>
+    <div class="sub">Please read carefully before implementation</div>
+    <ul>
+      <li><strong>Past Performance:</strong> 10-year CAGR figures are historical. Future returns may differ. Markets are unpredictable. This portfolio is not a guarantee of ₹17.96 Cr — it's a projection based on assumed 20% CAGR.</li>
+      <li><strong>High Risk:</strong> 50% in small + mid caps = volatile. Expect -30% to -40% drawdowns in bear markets (see 2008, 2020). Only invest if you have 20-year conviction and won't panic-sell.</li>
+      <li><strong>SEBI Advisor Requirement:</strong> Before implementing any portfolio > ₹25 Lakhs, consult a SEBI-registered investment advisor. This page is educational, not personalized advice.</li>
+      <li><strong>Rebalance Annually:</strong> Don't set and forget. Every year, review allocations. If Small Cap drifts to 40%, reduce back to 26%. Rebalancing captures gains and maintains risk.</li>
+      <li><strong>Emergency Fund First:</strong> Before starting ₹50,000/month SIP, ensure you have 12 months expenses in liquid savings (not in SIP). Never invest borrowed money.</li>
+      <li><strong>Market Timing Irrelevant:</strong> SIP works regardless of bull/bear cycles. Whether markets drop 20% or rise 20% tomorrow, stick to your ₹50,000/month. Consistency > Prediction.</li>
+      <li><strong>Inflation Impact:</strong> ₹17.96 Cr in 20 years ≠ ₹17.96 Cr in today's purchasing power. With 5% inflation, real value is ~₹6.8 Cr today's money. Still a 5.7x real multiplier.</li>
+      <li><strong>Data Accuracy:</strong> All fund returns, AUM, expense ratios are as of March 2026. Verify current data before investing via AMFI or fund websites.</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="40" height="40">
+      <defs><linearGradient id="gf" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#E8C45A"/><stop offset="100%" style="stop-color:#B8922E"/></linearGradient></defs>
+      <polygon points="50,0 93,25 93,75 50,100 7,75 7,25" fill="#1B2A4A" stroke="url(#gf)" stroke-width="2"/>
+      <polyline points="22,70 38,50 55,58 78,28" stroke="url(#gf)" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="78" cy="28" r="4" fill="url(#gf)"/>
+    </svg>
+    <div>
+      <div class="footer-name">SAI ASSETS</div>
+      <div class="footer-sub">MF Advisory</div>
+    </div>
+  </div>
+  <div class="disc">Data as of March 2026 | Direct Plans | This analysis is educational, not personalized financial advice | Consult a SEBI-registered advisor</div>
+</div>
+
+<script>
+function toggleTheme(){
+  var html = document.documentElement;
+  var current = html.getAttribute('data-theme') || 'dark';
+  var next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('sai-theme', next);
+}
+
+// Load saved theme on page load
+(function(){
+  var saved = localStorage.getItem('sai-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+})();
+
+// ===== RISK PROFILE DATA & SWITCHING ENGINE =====
+const profileData = {
+  low: {
+    headerTitle: 'Your ₹50,000/month Conservative SIP Plan',
+    headerDesc: 'A 20-year wealth creation strategy designed for stability with steady growth. ₹1.2 Crore invested. ₹3.46 Crore potential corpus.',
+    headerPeriod: '20-Year Duration | 8 Funds | Low Risk Profile',
+    riskLabel: 'LOW',
+    riskColor: '#4ade80',
+    riskSegments: 2,
+    pieGradient: 'conic-gradient(#60a5fa 0% 40%, #34d399 40% 56%, #a78bfa 56% 66%, #f472b6 66% 91%, #2dd4bf 91% 100%)',
+    pieData: [
+      { label: 'Large Cap', value: '40%', color: '#60a5fa' },
+      { label: 'Flexi Cap', value: '16%', color: '#34d399' },
+      { label: 'Mid Cap', value: '10%', color: '#a78bfa' },
+      { label: 'Hybrid', value: '25%', color: '#f472b6' },
+      { label: 'International', value: '9%', color: '#2dd4bf' }
+    ],
+    funds: [
+      { rank: 1, name: 'HDFC Index Nifty 50', category: 'Large Cap Index', monthly: '₹10,000', pct: '20%', cagr: '12-14%', date: '1st', stars: '★★★★★', color: '#60a5fa', rationale: 'Lowest-cost Nifty 50 exposure; salary-day auto-invest for maximum compounding' },
+      { rank: 2, name: 'Nippon India Large Cap', category: 'Large Cap', monthly: '₹7,000', pct: '14%', cagr: '13-15%', date: '5th', stars: '★★★★★', color: '#60a5fa', rationale: '5-star rated, consistent performer with lowest drawdowns in category' },
+      { rank: 3, name: 'UTI Nifty Next 50 Index', category: 'Large Cap', monthly: '₹3,000', pct: '6%', cagr: '12-14%', date: '8th', stars: '★★★★★', color: '#60a5fa', rationale: 'Next 50 blue-chips graduating to Nifty; passive, low expense ratio' },
+      { rank: 4, name: 'Parag Parikh Flexi Cap', category: 'Flexi Cap', monthly: '₹8,000', pct: '16%', cagr: '13-15%', date: '10th', stars: '★★★★★', color: '#34d399', rationale: 'Global diversification with ~30% US exposure; auto-hedges INR risk' },
+      { rank: 5, name: 'ICICI Pru Balanced Advantage', category: 'Hybrid', monthly: '₹7,500', pct: '15%', cagr: '11-13%', date: '15th', stars: '★★★★★', color: '#f472b6', rationale: 'Dynamic equity-debt allocation; auto-reduces equity in expensive markets' },
+      { rank: 6, name: 'HDFC Mid Cap Opportunities', category: 'Mid Cap', monthly: '₹5,000', pct: '10%', cagr: '12-14%', date: '18th', stars: '★★★★★', color: '#a78bfa', rationale: 'Largest AUM mid cap, beta 0.85; adds growth without excessive risk' },
+      { rank: 7, name: 'Edelweiss Balanced Advantage', category: 'Hybrid', monthly: '₹5,000', pct: '10%', cagr: '10-12%', date: '20th', stars: '★★★★★', color: '#f472b6', rationale: 'Secondary balanced fund for stability; different model from ICICI' },
+      { rank: 8, name: 'Motilal Oswal Nasdaq 100 FoF', category: 'International', monthly: '₹4,500', pct: '9%', cagr: '11-13%', date: '25th', stars: '★★★★', color: '#2dd4bf', rationale: '10% global tech for geographic diversification and INR hedge' }
+    ],
+    sipSchedule: [
+      { date: 1, color: 'dc-blue', fund: 'HDFC Index Nifty 50', cat: 'Large Cap Index • ★5 • ₹10,000', why: 'Month-start salary inflow; passive index exposure provides stability from day one' },
+      { date: 5, color: 'dc-gold', fund: 'Nippon India Large Cap', cat: 'Large Cap • ★5 • ₹7,000', why: 'Large caps see stability in early week; 5th captures steady entry after month-start FII flows' },
+      { date: 8, color: 'dc-teal', fund: 'UTI Nifty Next 50 Index', cat: 'Large Cap • ★5 • ₹3,000', why: 'Secondary large-cap index exposure; post-settlement stability window' },
+      { date: 10, color: 'dc-purple', fund: 'Parag Parikh Flexi Cap', cat: 'Flexi Cap • ★5 • ₹8,000', why: 'Tactical allocation with global diversification smooths volatility mid-month' },
+      { date: 15, color: 'dc-gold', fund: 'ICICI Pru Balanced Advantage', cat: 'Hybrid • ★5 • ₹7,500', why: 'Dynamic rebalancing fund provides downside protection during market corrections' },
+      { date: 18, color: 'dc-purple', fund: 'HDFC Mid Cap Opportunities', cat: 'Mid Cap • ★5 • ₹5,000', why: 'Controlled mid-cap growth for extra returns without excessive volatility' },
+      { date: 20, color: 'dc-green', fund: 'Edelweiss Balanced Advantage', cat: 'Hybrid • ★5 • ₹5,000', why: 'Stability anchor; avoids concentrated risk with second balanced fund' },
+      { date: 25, color: 'dc-teal', fund: 'Motilal Oswal Nasdaq 100 FoF', cat: 'International • Nasdaq • ₹4,500', why: 'Month-end diversification; global tech exposure with INR hedge' }
+    ],
+    projections: [
+      { tag: 'Conservative Scenario', cagr: '10% CAGR', corpus: '₹3.46 Cr', gain: 'Gain: ₹2.26 Cr', mult: '2.88x Multiplier', label: 'Your ₹1.2 Cr becomes ₹3.5 Crore+' },
+      { tag: 'EXPECTED SCENARIO', cagr: '12% CAGR', corpus: '₹4.99 Cr', gain: 'Gain: ₹3.79 Cr', mult: '4.16x Multiplier', label: 'Your ₹1.2 Cr becomes ₹5 Crore', highlight: true },
+      { tag: 'Aggressive Scenario', cagr: '14% CAGR', corpus: '₹6.07 Cr', gain: 'Gain: ₹4.87 Cr', mult: '5.06x Multiplier', label: 'Your ₹1.2 Cr becomes ₹6 Crore+' }
+    ],
+    milestones: [
+      { year: 'Year 5', conservative: '₹20.1 L', expected: '₹23.2 L', aggressive: '₹27.0 L' },
+      { year: 'Year 10', conservative: '₹41.8 L', expected: '₹54.1 L', aggressive: '₹70.1 L' },
+      { year: 'Year 15', conservative: '₹85.9 L', expected: '₹1.29 Cr', aggressive: '₹1.95 Cr' },
+      { year: 'Year 20', conservative: '₹3.46 Cr', expected: '₹4.99 Cr', aggressive: '₹6.07 Cr' }
+    ],
+    barChart: [
+      { label: 'Large Cap', pct: 40, amount: '₹20,000' },
+      { label: 'Flexi Cap', pct: 16, amount: '₹8,000' },
+      { label: 'Mid Cap', pct: 10, amount: '₹5,000' },
+      { label: 'Hybrid', pct: 25, amount: '₹12,500' },
+      { label: 'International', pct: 9, amount: '₹4,500' }
+    ],
+    principles: [
+      { title: '1. Large + Flexi Cap Heavy (56%)', text: 'With 20 years, you prioritize stability over volatility. Large and flexi caps deliver steady 12-14% returns. Lower risk = lower drawdowns = disciplined holding through cycles.' },
+      { title: '2. Hybrid Funds for Auto-Rebalancing', text: 'ICICI & Edelweiss balanced funds automatically reduce equity when markets are expensive. You get hedge built-in without active management.' },
+      { title: '3. Mid Cap for Growth Kicker (10%)', text: 'Only 10% in mid caps for controlled growth. This isn\'t a gamble — it\'s a spice. Largest AUM mid cap with beta 0.85 means less volatility.' },
+      { title: '4. International = Diversification + Hedge', text: '9% in US tech (Nasdaq 100). You get geographic diversification AND a natural INR depreciation hedge. Low-volatility defensive exposure.' },
+      { title: '5. SIP Dates = Steady Entry Points', text: 'Spreading ₹50,000 across 8 dates reduces timing risk. You\'re never fully exposed to one NAV level — consistent compounding regardless of market conditions.' },
+      { title: 'Rebalancing: Annually', text: 'Review this allocation once a year. If Large Cap grows to 50% of corpus, trim back and rebalance to 40%. Rebalancing forces you to "sell high, buy low."' }
+    ]
+  },
+  medium: {
+    headerTitle: 'Your ₹50,000/month Balanced Growth SIP Plan',
+    headerDesc: 'A 20-year wealth creation strategy with balanced growth. ₹1.2 Crore invested. ₹7.57 Crore potential corpus.',
+    headerPeriod: '20-Year Duration | 8 Funds | Medium Risk Profile',
+    riskLabel: 'MEDIUM',
+    riskColor: '#fbbf24',
+    riskSegments: 3,
+    pieGradient: 'conic-gradient(#60a5fa 0% 25%, #a78bfa 25% 45%, #a78bfa 45% 55%, #34d399 55% 75%, #2dd4bf 75% 90%, #f472b6 90% 100%)',
+    pieData: [
+      { label: 'Large Cap', value: '25%', color: '#60a5fa' },
+      { label: 'Mid Cap', value: '20%', color: '#a78bfa' },
+      { label: 'Small Cap', value: '10%', color: '#a78bfa' },
+      { label: 'Flexi Cap', value: '20%', color: '#34d399' },
+      { label: 'International', value: '15%', color: '#2dd4bf' },
+      { label: 'Hybrid', value: '10%', color: '#f472b6' }
+    ],
+    funds: [
+      { rank: 1, name: 'Parag Parikh Flexi Cap', category: 'Flexi Cap', monthly: '₹10,000', pct: '20%', cagr: '14-16%', date: '1st', stars: '★★★★★', color: '#34d399', rationale: 'Core holding; global diversification with tactical large/mid/small allocation' },
+      { rank: 2, name: 'Nippon India Large Cap', category: 'Large Cap', monthly: '₹7,000', pct: '14%', cagr: '13-15%', date: '5th', stars: '★★★★★', color: '#60a5fa', rationale: 'Portfolio anchor; 5-star, lowest volatility large cap compounder' },
+      { rank: 3, name: 'Edelweiss Mid Cap', category: 'Mid Cap', monthly: '₹5,500', pct: '11%', cagr: '15-17%', date: '8th', stars: '★★★★★', color: '#a78bfa', rationale: '#1 ranked mid cap with 5.16 alpha; growth engine with control' },
+      { rank: 4, name: 'HDFC Mid Cap Opportunities', category: 'Mid Cap', monthly: '₹4,500', pct: '9%', cagr: '13-15%', date: '10th', stars: '★★★★★', color: '#a78bfa', rationale: 'Largest AUM, lowest beta (0.85); stability within mid-cap space' },
+      { rank: 5, name: 'Nippon India Small Cap', category: 'Small Cap', monthly: '₹5,000', pct: '10%', cagr: '16-18%', date: '15th', stars: '★★★★★', color: '#a78bfa', rationale: 'Largest small cap fund; proven track record across cycles' },
+      { rank: 6, name: 'ICICI Pru Balanced Advantage', category: 'Hybrid', monthly: '₹5,000', pct: '10%', cagr: '12-14%', date: '18th', stars: '★★★★★', color: '#f472b6', rationale: 'Dynamic hedge; auto-reduces equity in expensive markets' },
+      { rank: 7, name: 'UTI Nifty Next 50 Index', category: 'Large Cap', monthly: '₹5,500', pct: '11%', cagr: '12-14%', date: '20th', stars: '★★★★★', color: '#60a5fa', rationale: 'Passive exposure to emerging blue-chips; low cost' },
+      { rank: 8, name: 'Motilal Oswal Nasdaq 100 FoF', category: 'International', monthly: '₹7,500', pct: '15%', cagr: '13-15%', date: '25th', stars: '★★★★', color: '#2dd4bf', rationale: 'Nasdaq 100 for tech growth + currency diversification' }
+    ],
+    sipSchedule: [
+      { date: 1, color: 'dc-green', fund: 'Parag Parikh Flexi Cap', cat: 'Flexi Cap • ★5 • ₹10,000', why: 'Month-start salary inflow; flexi cap\'s tactical allocation smooths early-month volatility' },
+      { date: 5, color: 'dc-blue', fund: 'Nippon India Large Cap', cat: 'Large Cap • ★5 • ₹7,000', why: 'Large caps provide stability anchor; 5th captures post-settlement pricing' },
+      { date: 8, color: 'dc-purple', fund: 'Edelweiss Mid Cap', cat: 'Mid Cap • ★5 • ₹5,500', why: 'Mid-caps with strong alpha; 8th aligns with post-global cues window' },
+      { date: 10, color: 'dc-gold', fund: 'HDFC Mid Cap Opportunities', cat: 'Mid Cap • ★5 • ₹4,500', why: 'Stable mid-cap with lowest beta; reduces portfolio volatility' },
+      { date: 15, color: 'dc-purple', fund: 'Nippon India Small Cap', cat: 'Small Cap • ★5 • ₹5,000', why: 'Growth driver diversified from mid-caps; mid-month entry' },
+      { date: 18, color: 'dc-gold', fund: 'ICICI Pru Balanced Advantage', cat: 'Hybrid • ★5 • ₹5,000', why: 'Defensive rebalancing fund provides downside protection' },
+      { date: 20, color: 'dc-teal', fund: 'UTI Nifty Next 50 Index', cat: 'Large Cap • ★5 • ₹5,500', why: 'Emerging large-cap index; stable entry point pre-month-end' },
+      { date: 25, color: 'dc-teal', fund: 'Motilal Oswal Nasdaq 100 FoF', cat: 'International • Nasdaq • ₹7,500', why: 'Global tech exposure at month-end for geographic diversification' }
+    ],
+    projections: [
+      { tag: 'Conservative Scenario', cagr: '12% CAGR', corpus: '₹4.99 Cr', gain: 'Gain: ₹3.79 Cr', mult: '4.16x Multiplier', label: 'Your ₹1.2 Cr becomes ₹5 Crore+' },
+      { tag: 'EXPECTED SCENARIO', cagr: '15% CAGR', corpus: '₹7.57 Cr', gain: 'Gain: ₹6.37 Cr', mult: '6.31x Multiplier', label: 'Your ₹1.2 Cr becomes ₹7.5+ Crore', highlight: true },
+      { tag: 'Aggressive Scenario', cagr: '18% CAGR', corpus: '₹11.70 Cr', gain: 'Gain: ₹10.50 Cr', mult: '9.75x Multiplier', label: 'Your ₹1.2 Cr becomes ₹11.7 Crore+' }
+    ],
+    milestones: [
+      { year: 'Year 5', conservative: '₹23.2 L', expected: '₹29.2 L', aggressive: '₹37.1 L' },
+      { year: 'Year 10', conservative: '₹54.1 L', expected: '₹82.8 L', aggressive: '₹1.29 Cr' },
+      { year: 'Year 15', conservative: '₹1.29 Cr', expected: '₹2.36 Cr', aggressive: '₹4.49 Cr' },
+      { year: 'Year 20', conservative: '₹4.99 Cr', expected: '₹7.57 Cr', aggressive: '₹11.70 Cr' }
+    ],
+    barChart: [
+      { label: 'Large Cap', pct: 25, amount: '₹12,500' },
+      { label: 'Mid Cap', pct: 20, amount: '₹10,000' },
+      { label: 'Small Cap', pct: 10, amount: '₹5,000' },
+      { label: 'Flexi Cap', pct: 20, amount: '₹10,000' },
+      { label: 'International', pct: 15, amount: '₹7,500' },
+      { label: 'Hybrid', pct: 10, amount: '₹5,000' }
+    ],
+    principles: [
+      { title: '1. Large + Mid + Small Balanced (55%)', text: 'Perfect growth+stability mix. 25% large caps anchor you, 30% mid/small caps drive growth. This blend historically delivers 14-16% returns with manageable volatility.' },
+      { title: '2. Flexi Cap as Tactical Amplifier (20%)', text: 'Parag Parikh rotates across caps and geographies. ~30% US exposure gives you diversification. The fund manager makes the calls — you just SIP.' },
+      { title: '3. Hybrid Fund for Auto-Hedging (10%)', text: 'ICICI Balanced Advantage reduces equity in expensive markets automatically. Downside protection without sacrificing upside during rallies.' },
+      { title: '4. International for True Diversification (15%)', text: '15% in Nasdaq 100 (pure US tech index). Long-term structural tailwind for tech + natural INR depreciation hedge. 20-year bet on global tech growth.' },
+      { title: '5. SIP Dates = Micro-Diversification', text: 'Spreading ₹50,000 across 8 dates = 8 different NAV entry points per month. Over 20 years, you\'ll have 2,400+ different entry points. Volatility is your friend.' },
+      { title: 'Rebalancing: Annually', text: 'This allocation can drift — small caps grow faster. Rebalance annually to lock in gains. Sell your 40% small-cap position back to 30%, redeploy to large caps.' }
+    ]
+  },
+  high: {
+    headerTitle: 'Your ₹50,000/month Aggressive Growth SIP Plan',
+    headerDesc: 'A 20-year wealth creation strategy designed for maximum growth. ₹1.2 Crore invested. ₹10.34 Crore potential corpus.',
+    headerPeriod: '20-Year Duration | 8 Funds | High Risk Profile',
+    riskLabel: 'HIGH',
+    riskColor: '#fb923c',
+    riskSegments: 4,
+    pieGradient: 'conic-gradient(#a78bfa 0% 26%, #E8C45A 26% 50%, #2dd4bf 50% 70%, #34d399 70% 86%, #60a5fa 86% 100%)',
+    pieData: [
+      { label: 'Small Cap', value: '26%', color: '#a78bfa' },
+      { label: 'Mid Cap', value: '24%', color: '#E8C45A' },
+      { label: 'International', value: '20%', color: '#2dd4bf' },
+      { label: 'Flexi Cap', value: '16%', color: '#34d399' },
+      { label: 'Large Cap', value: '14%', color: '#60a5fa' }
+    ],
+    funds: [
+      { rank: 1, name: 'Parag Parikh Flexi Cap', category: 'Flexi Cap', monthly: '₹8,000', pct: '16%', cagr: '16-18%', date: '1st', stars: '★★★★★', color: '#34d399', rationale: 'Month-start salary inflow; flexi cap\'s global diversification smooths early-month volatility' },
+      { rank: 2, name: 'Nippon India Small Cap', category: 'Small Cap', monthly: '₹8,000', pct: '16%', cagr: '18-20%', date: '5th', stars: '★★★★★', color: '#a78bfa', rationale: 'Small caps see higher volatility in early week; 5th captures post-settlement dips' },
+      { rank: 3, name: 'Edelweiss US Tech Equity FoF', category: 'International', monthly: '₹5,000', pct: '10%', cagr: '13-15%', date: '8th', stars: '★★★★', color: '#2dd4bf', rationale: 'US markets settle T+1; 8th aligns with post-US payroll data release' },
+      { rank: 4, name: 'Edelweiss Mid Cap', category: 'Mid Cap', monthly: '₹7,000', pct: '14%', cagr: '17-19%', date: '10th', stars: '★★★★★', color: '#E8C45A', rationale: 'Mid-caps historically show lower NAVs around 10th due to institutional rebalancing' },
+      { rank: 5, name: 'Quant Small Cap', category: 'Small Cap', monthly: '₹5,000', pct: '10%', cagr: '19-22%', date: '15th', stars: '★★★★★', color: '#a78bfa', rationale: 'Mid-month diversifies from 5th SIP; captures pre-F&O expiry lows' },
+      { rank: 6, name: 'Motilal Oswal Nasdaq 100 FoF', category: 'International', monthly: '₹5,000', pct: '10%', cagr: '14-16%', date: '18th', stars: '★★★★', color: '#2dd4bf', rationale: 'Post-Fed meeting corrections in tech-heavy Nasdaq' },
+      { rank: 7, name: 'Nippon India Large Cap', category: 'Large Cap', monthly: '₹7,000', pct: '14%', cagr: '14-16%', date: '20th', stars: '★★★★★', color: '#60a5fa', rationale: 'Stability anchor; avoids early-month FII rush' },
+      { rank: 8, name: 'HDFC Mid Cap', category: 'Mid Cap', monthly: '₹5,000', pct: '10%', cagr: '16-18%', date: '25th', stars: '★★★★★', color: '#E8C45A', rationale: 'Month-end rebalancing by fund houses depresses mid-cap NAVs' }
+    ],
+    sipSchedule: [
+      { date: 1, color: 'dc-green', fund: 'Parag Parikh Flexi Cap', cat: 'Flexi Cap • ★5 • ₹8,000', why: 'Month-start salary inflow; flexi cap\'s global diversification smooths early-month volatility' },
+      { date: 5, color: 'dc-purple', fund: 'Nippon India Small Cap', cat: 'Small Cap • ★5 • ₹8,000', why: 'Small caps see higher volatility in early week; 5th captures post-settlement dips after month-start buying' },
+      { date: 8, color: 'dc-teal', fund: 'Edelweiss US Tech Equity FoF', cat: 'International • US Tech • ₹5,000', why: 'US markets settle T+1; 8th aligns with post-US payroll data release — NAVs often correct briefly' },
+      { date: 10, color: 'dc-gold', fund: 'Edelweiss Mid Cap Fund', cat: 'Mid Cap • ★5 • ₹7,000', why: 'Mid-caps historically show lower NAVs around 10th due to institutional rebalancing window' },
+      { date: 15, color: 'dc-purple', fund: 'Quant Small Cap Fund', cat: 'Small Cap • ★5 • ₹5,000', why: 'Mid-month separates from 5th SIP; small-cap NAVs dip around F&O expiry weeks' },
+      { date: 18, color: 'dc-teal', fund: 'Motilal Oswal Nasdaq 100 FoF', cat: 'International • Nasdaq • ₹5,000', why: 'US Fed meetings typically mid-month; 18th captures post-announcement corrections in tech-heavy Nasdaq' },
+      { date: 20, color: 'dc-blue', fund: 'Nippon India Large Cap Fund', cat: 'Large Cap • ★5 • ₹7,000', why: 'Large caps are stable anchors; 20th avoids early-month FII rush and benefits from pre-expiry discount window' },
+      { date: 25, color: 'dc-gold', fund: 'HDFC Mid Cap Fund', cat: 'Mid Cap • ★5 • ₹5,000', why: 'Month-end rebalancing by fund houses often depresses mid-cap NAVs; 25th captures this window before month close' }
+    ],
+    projections: [
+      { tag: 'Conservative Scenario', cagr: '14% CAGR', corpus: '₹6.07 Cr', gain: 'Gain: ₹4.87 Cr', mult: '5.06x Multiplier', label: 'Your ₹1.2 Cr becomes ₹6 Crore+' },
+      { tag: 'EXPECTED SCENARIO', cagr: '17% CAGR', corpus: '₹10.34 Cr', gain: 'Gain: ₹9.14 Cr', mult: '8.62x Multiplier', label: 'Your ₹1.2 Cr becomes ₹10+ Crore', highlight: true },
+      { tag: 'Aggressive Scenario', cagr: '20% CAGR', corpus: '₹17.96 Cr', gain: 'Gain: ₹16.76 Cr', mult: '14.97x Multiplier', label: 'Your ₹1.2 Cr becomes ₹18 Crore+' }
+    ],
+    milestones: [
+      { year: 'Year 5', conservative: '₹32.2 L', expected: '₹37.8 L', aggressive: '₹44.1 L' },
+      { year: 'Year 10', conservative: '₹74.3 L', expected: '₹94.2 L', aggressive: '₹1.21 Cr' },
+      { year: 'Year 15', conservative: '₹1.39 Cr', expected: '₹2.08 Cr', aggressive: '₹3.15 Cr' },
+      { year: 'Year 20', conservative: '₹6.07 Cr', expected: '₹10.34 Cr', aggressive: '₹17.96 Cr' }
+    ],
+    barChart: [
+      { label: 'Small Cap', pct: 26, amount: '₹13,000' },
+      { label: 'Mid Cap', pct: 24, amount: '₹12,000' },
+      { label: 'International', pct: 20, amount: '₹10,000' },
+      { label: 'Flexi Cap', pct: 16, amount: '₹8,000' },
+      { label: 'Large Cap', pct: 14, amount: '₹7,000' }
+    ],
+    principles: [
+      { title: '1. Small + Mid Cap Heavy (50%)', text: 'With 20 years ahead, you can absorb volatility. Small and mid caps are the growth engines — historically delivering 19-22% returns. Smaller funds = bigger wealth multiplication over two decades.' },
+      { title: '2. Flexi Cap for Tactical Flex', text: 'Parag Parikh can rotate between large, mid, small based on valuations. Includes ~30% US exposure already. The fund manager picks opportunities wherever they appear.' },
+      { title: '3. Large Cap Anchor (14%)', text: 'Nippon Large Cap isn\'t the flashy part of your portfolio. It\'s the stabilizer. During bear markets, it\'ll fall less. Your portfolio needs downside protection, not just upside.' },
+      { title: '4. International = Diversification + Hedge', text: '20% in US tech (Nasdaq 100, Edelweiss US Tech). You get geographic diversification AND a natural INR depreciation hedge. Global tech has structural growth tailwinds.' },
+      { title: '5. SIP Dates = NAV Averaging', text: 'Spreading your ₹50,000 across 8 different dates (1st to 25th) averages out market entry points. You\'re never fully exposed to one NAV level — micro-diversification of timing.' },
+      { title: 'Rebalancing: Annually', text: 'Review this allocation once a year. If Small Cap grows to 35% of corpus, trim back and rebalance to 26%. Rebalancing forces you to "sell high, buy low" — the golden rule of investing.' }
+    ]
+  },
+  aggressive: {
+    headerTitle: 'Your ₹50,000/month Aggressively High SIP Plan',
+    headerDesc: 'A 20-year wealth creation strategy designed for maximum growth. ₹1.2 Crore invested. ₹17.96 Crore potential corpus.',
+    headerPeriod: '20-Year Duration | 8 Funds | Aggressively High Risk Profile',
+    riskLabel: 'AGGRESSIVELY HIGH',
+    riskColor: '#ef4444',
+    riskSegments: 5,
+    pieGradient: 'conic-gradient(#a78bfa 0% 50%, #2dd4bf 50% 76%, #E8C45A 76% 92%, #34d399 92% 100%)',
+    pieData: [
+      { label: 'Small Cap', value: '50%', color: '#a78bfa' },
+      { label: 'International', value: '26%', color: '#2dd4bf' },
+      { label: 'Mid Cap', value: '16%', color: '#E8C45A' },
+      { label: 'Flexi Cap', value: '8%', color: '#34d399' }
+    ],
+    funds: [
+      { rank: 1, name: 'Quant Small Cap', category: 'Small Cap', monthly: '₹10,000', pct: '20%', cagr: '21-24%', date: '1st', stars: '★★★★★', color: '#a78bfa', rationale: 'Highest CAGR in category (21.8%); salary-day deploy into highest-alpha fund' },
+      { rank: 2, name: 'Nippon India Small Cap', category: 'Small Cap', monthly: '₹10,000', pct: '20%', cagr: '18-20%', date: '5th', stars: '★★★★★', color: '#a78bfa', rationale: 'Largest AUM small cap; ₹50K Cr fund handles liquidity despite high allocation' },
+      { rank: 3, name: 'Edelweiss US Tech Equity FoF', category: 'International', monthly: '₹7,000', pct: '14%', cagr: '13-15%', date: '8th', stars: '★★★★', color: '#2dd4bf', rationale: 'US tech has 20-year structural tailwind; currency hedge against INR depreciation' },
+      { rank: 4, name: 'Tata Small Cap', category: 'Small Cap', monthly: '₹5,000', pct: '10%', cagr: '20-22%', date: '10th', stars: '★★★★★', color: '#a78bfa', rationale: 'Concentrated high-conviction picks; complements Nippon/Quant\'s broader approach' },
+      { rank: 5, name: 'Motilal Oswal Nasdaq 100 FoF', category: 'International', monthly: '₹6,000', pct: '12%', cagr: '14-16%', date: '15th', stars: '★★★★', color: '#2dd4bf', rationale: 'Pure Nasdaq 100 index; captures FAANG+ mega-cap tech compounding' },
+      { rank: 6, name: 'Edelweiss Mid Cap', category: 'Mid Cap', monthly: '₹5,000', pct: '10%', cagr: '17-19%', date: '18th', stars: '★★★★★', color: '#E8C45A', rationale: '#1 ranked mid cap, 5.16 alpha; balances the small cap dominance' },
+      { rank: 7, name: 'Parag Parikh Flexi Cap', category: 'Flexi Cap', monthly: '₹4,000', pct: '8%', cagr: '16-18%', date: '20th', stars: '★★★★★', color: '#34d399', rationale: 'Tactical allocation across caps; ~30% US exposure adds international layer' },
+      { rank: 8, name: 'HDFC Mid Cap Opportunities', category: 'Mid Cap', monthly: '₹3,000', pct: '6%', cagr: '16-18%', date: '25th', stars: '★★★★★', color: '#E8C45A', rationale: 'Lowest beta mid cap (0.85); minimal stability cushion for extreme portfolio' }
+    ],
+    sipSchedule: [
+      { date: 1, color: 'dc-purple', fund: 'Quant Small Cap', cat: 'Small Cap • ★5 • ₹10,000', why: 'Highest CAGR small cap fund; salary-day deploy into maximum alpha generator' },
+      { date: 5, color: 'dc-purple', fund: 'Nippon India Small Cap', cat: 'Small Cap • ★5 • ₹10,000', why: 'Largest AUM small cap; 5th captures post-settlement dips for maximum compounding' },
+      { date: 8, color: 'dc-teal', fund: 'Edelweiss US Tech Equity FoF', cat: 'International • US Tech • ₹7,000', why: 'US tech upside with INR hedge; 8th aligns with post-payroll release volatility' },
+      { date: 10, color: 'dc-purple', fund: 'Tata Small Cap', cat: 'Small Cap • ★5 • ₹5,000', why: 'Concentrated high-conviction small cap; third small-cap diversification point' },
+      { date: 15, color: 'dc-teal', fund: 'Motilal Oswal Nasdaq 100 FoF', cat: 'International • Nasdaq • ₹6,000', why: 'Direct Nasdaq 100 index exposure; mid-month entry captures volatility' },
+      { date: 18, color: 'dc-gold', fund: 'Edelweiss Mid Cap', cat: 'Mid Cap • ★5 • ₹5,000', why: 'Top-ranked mid cap with highest alpha; balances portfolio concentration' },
+      { date: 20, color: 'dc-green', fund: 'Parag Parikh Flexi Cap', cat: 'Flexi Cap • ★5 • ₹4,000', why: 'Tactical global allocation; minimal allocation to control dilution' },
+      { date: 25, color: 'dc-gold', fund: 'HDFC Mid Cap Opportunities', cat: 'Mid Cap • ★5 • ₹3,000', why: 'Low-beta mid cap; month-end entry captures rebalancing-induced dips' }
+    ],
+    projections: [
+      { tag: 'Conservative Scenario', cagr: '16% CAGR', corpus: '₹8.64 Cr', gain: 'Gain: ₹7.44 Cr', mult: '7.20x Multiplier', label: 'Your ₹1.2 Cr becomes ₹8.6 Crore+' },
+      { tag: 'EXPECTED SCENARIO', cagr: '20% CAGR', corpus: '₹17.96 Cr', gain: 'Gain: ₹16.76 Cr', mult: '14.97x Multiplier', label: 'Your ₹1.2 Cr becomes ₹18 Crore', highlight: true },
+      { tag: 'Aggressive Scenario', cagr: '24% CAGR', corpus: '₹37.28 Cr', gain: 'Gain: ₹36.08 Cr', mult: '31.07x Multiplier', label: 'Your ₹1.2 Cr becomes ₹37+ Crore' }
+    ],
+    milestones: [
+      { year: 'Year 5', conservative: '₹39.1 L', expected: '₹48.3 L', aggressive: '₹60.2 L' },
+      { year: 'Year 10', conservative: '₹1.02 Cr', expected: '₹1.49 Cr', aggressive: '₹2.30 Cr' },
+      { year: 'Year 15', conservative: '₹2.22 Cr', expected: '₹4.22 Cr', aggressive: '₹8.06 Cr' },
+      { year: 'Year 20', conservative: '₹8.64 Cr', expected: '₹17.96 Cr', aggressive: '₹37.28 Cr' }
+    ],
+    barChart: [
+      { label: 'Small Cap', pct: 50, amount: '₹25,000' },
+      { label: 'International', pct: 26, amount: '₹13,000' },
+      { label: 'Mid Cap', pct: 16, amount: '₹8,000' },
+      { label: 'Flexi Cap', pct: 8, amount: '₹4,000' }
+    ],
+    principles: [
+      { title: '1. Small Cap Dominance (50%)', text: 'You\'re in it for wealth creation, not comfort. 50% small caps = highest growth potential. Quant, Nippon, Tata — three different small-cap strategies for diversification within high-growth.' },
+      { title: '2. International = 26% Allocation', text: 'Over 1/4 of portfolio in US tech (Nasdaq + US Tech FoF). Structural 20-year tech upside + INR hedge. Your wealth grows with both India\'s growth AND global tech appreciation.' },
+      { title: '3. Mid Cap Balancer (16%)', text: 'Two mid-cap funds provide only control. Edelweiss (#1 ranked) + HDFC (lowest beta) give you growth with measured volatility. Not stability — just the least-volatile small-cap zone.' },
+      { title: '4. Flexi Cap as Tactical Tool (8%)', text: 'Minimal allocation to Parag Parikh. It\'s not your core — your core is small caps. This 8% is for manager\'s tactical calls on micro-cap/international opportunities.' },
+      { title: '5. SIP Dates = Maximum Timing Arbitrage', text: 'Spreading ₹50,000 across 8 dates in a high-volatility portfolio captures the most entry-point variation. Small-cap NAVs swing 5-10% monthly — your 8 dates capture peaks and troughs.' },
+      { title: 'Rebalancing: 6-Monthly (Aggressive)', text: 'This portfolio drifts fast. Every 6 months, check allocations. If Small Cap grows to 60%, trim 10% back and rebalance to mid/large caps. You\'re locking gains constantly.' }
+    ]
+  }
+};
+
+function buildPieSection(profile) {
+  const pieItems = profile.pieData.map(item => `
+    <div class="pie-item">
+      <div class="pie-dot" style="background:${item.color};"></div>
+      <span class="pie-label">${item.label}</span>
+      <span class="pie-val">${item.value}</span>
+    </div>
+  `).join('');
+
+  return `
+    <div class="card">
+      <h3>Portfolio Allocation by Category</h3>
+      <div class="sub">₹50,000 monthly breakdown across 8 funds</div>
+    </div>
+    <div style="padding:0 28px;">
+      <div class="pie-wrapper">
+        <div>
+          <div class="pie" style="background:${profile.pieGradient};"></div>
+        </div>
+        <div class="pie-legend">
+          ${pieItems}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function buildAllocationTable(profile) {
+  const rows = profile.funds.map(f => `
+    <tr>
+      <td style="font-weight:900;">${f.rank}</td>
+      <td style="font-weight:800;color:${f.color};">${f.name}</td>
+      <td>${f.category}</td>
+      <td class="gold">${f.monthly}</td>
+      <td>${f.pct}</td>
+      <td>${f.cagr}</td>
+      <td class="gold">${f.date}</td>
+      <td>${f.stars}</td>
+    </tr>
+  `).join('');
+  return rows;
+}
+
+function buildFundGrid(profile) {
+  const cards = profile.funds.map(f => `
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank">${f.rank}</div>
+        <div class="fh-info">
+          <div class="fh-name">${f.name}</div>
+          <div class="fh-mgr">Monthly: ${f.monthly} | SIP Date: ${f.date}</div>
+          <div class="fh-badge">
+            <span class="badge-gold">${f.stars.includes('5') ? '★ 5-Star' : '★ 4-Star'}</span>
+            <span class="badge-blue">${f.category}</span>
+            <span class="badge-green">${f.cagr}</span>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat"><div class="lbl">Expected CAGR</div><div class="val">${f.cagr}</div></div>
+        <div class="fh-stat"><div class="lbl">Allocation %</div><div class="val">${f.pct}</div></div>
+        <div class="fh-stat"><div class="lbl">Monthly SIP</div><div class="val gold">${f.monthly}</div></div>
+        <div class="fh-stat"><div class="lbl">Rationale</div><div class="val" style="font-size:11px;font-weight:600;">${f.rationale}</div></div>
+      </div>
+    </div>
+  `).join('');
+  return cards;
+}
+
+function buildSipSchedule(profile) {
+  const slots = profile.sipSchedule.map(s => `
+    <div class="sip-slot">
+      <div class="sip-date-circle ${s.color}">${s.date}</div>
+      <div class="sip-slot-info">
+        <div class="sip-slot-fund">${s.fund}</div>
+        <div class="sip-slot-cat">${s.cat}</div>
+        <div class="sip-slot-why">${s.why}</div>
+      </div>
+    </div>
+  `).join('');
+  return slots;
+}
+
+function buildProjections(profile) {
+  const projections = profile.projections.map(p => {
+    const tagStyle = p.highlight ? ' style="color:#f1f5f9;background:rgba(232,196,90,0.2);padding:6px 12px;border-radius:6px;"' : '';
+    return `
+      <div class="projection-card">
+        <div class="proj-tag"${tagStyle}>${p.tag.toUpperCase()}</div>
+        <div class="proj-cagr">${p.cagr}</div>
+        <div class="proj-corpus${p.highlight ? ' gold' : ''}">${p.corpus}</div>
+        <div class="proj-gain green">${p.gain}</div>
+        <div class="proj-mult">${p.mult}</div>
+        <div class="proj-label">${p.label}</div>
+      </div>
+    `;
+  }).join('');
+  return projections;
+}
+
+function buildMilestones(profile) {
+  const rows = profile.milestones.map(m => `
+    <tr>
+      <td style="font-weight:800;">${m.year}</td>
+      <td>${m.conservative}</td>
+      <td class="best-cell">${m.expected}</td>
+      <td>${m.aggressive}</td>
+    </tr>
+  `).join('');
+  return rows;
+}
+
+function buildBarChart(profile) {
+  const rows = profile.barChart.map((b, idx) => {
+    const bgClass = ['bg-lc', 'bg-mc', 'bg-sc', 'bg-int', 'bg-fc'];
+    const colorMap = { 'Large Cap': 'bg-lc', 'Mid Cap': 'bg-mc', 'Small Cap': 'bg-sc', 'International': 'bg-int', 'Flexi Cap': 'bg-fc' };
+    const bg = colorMap[b.label] || bgClass[idx % bgClass.length];
+    return `
+      <div class="brow">
+        <div class="blbl">${b.label}</div>
+        <div class="btrk"><div class="bfill ${bg}" style="width:${b.pct}%;">${b.pct}% | ${b.amount}</div></div>
+      </div>
+    `;
+  }).join('');
+  return rows;
+}
+
+function buildPrinciples(profile) {
+  const cards = profile.principles.map(p => `
+    <div class="principle-card">
+      <h4>${p.title}</h4>
+      <p>${p.text}</p>
+    </div>
+  `).join('');
+  return cards;
+}
+
+function buildRiskMeter(segments) {
+  const colors = ['#4ade80', '#4ade80', '#fbbf24', '#fb923c', '#ef4444'];
+  let html = '';
+  for (let i = 0; i < 5; i++) {
+    if (i < segments) {
+      html += `<div class="rm-seg" style="background:${colors[i]};"></div>`;
+    } else {
+      html += `<div class="rm-seg rm-dim"></div>`;
+    }
+  }
+  return html;
+}
+
+function switchProfile(profile) {
+  const data = profileData[profile];
+  if (!data) return;
+
+  // Update active button
+  document.querySelectorAll('.risk-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+  localStorage.setItem('sip-risk-profile', profile);
+
+  // Fade in animation
+  const contentElements = [
+    document.getElementById('hdr-title'),
+    document.getElementById('hdr-desc'),
+    document.getElementById('hdr-period'),
+    document.getElementById('profile-card'),
+    document.getElementById('pie-section'),
+    document.getElementById('alloc-table'),
+    document.getElementById('fund-grid'),
+    document.getElementById('sip-schedule'),
+    document.getElementById('projection-row'),
+    document.getElementById('milestone-tbody'),
+    document.getElementById('bar-chart'),
+    document.getElementById('principle-grid')
+  ];
+
+  contentElements.forEach(el => {
+    if (el) el.style.opacity = '0.6';
+  });
+
+  setTimeout(() => {
+    // Update header
+    document.getElementById('hdr-title').textContent = data.headerTitle;
+    document.getElementById('hdr-desc').textContent = data.headerDesc;
+    document.getElementById('hdr-period').textContent = data.headerPeriod;
+
+    // Update profile card
+    const profileCard = document.getElementById('profile-card');
+    profileCard.innerHTML = `
+      <div class="profile-item">
+        <div class="profile-label">Risk Profile</div>
+        <div class="profile-value" style="color:${data.riskColor};">${data.riskLabel}</div>
+        <div class="risk-meter">
+          ${buildRiskMeter(data.riskSegments)}
+        </div>
+      </div>
+      <div class="profile-item">
+        <div class="profile-label">Duration</div>
+        <div class="profile-value">20 Years</div>
+        <div class="profile-sub">Long horizon = volatility comfort</div>
+      </div>
+      <div class="profile-item">
+        <div class="profile-label">Monthly SIP</div>
+        <div class="profile-value gold">₹50,000</div>
+        <div class="profile-sub">₹6 Lakhs annually</div>
+      </div>
+      <div class="profile-item">
+        <div class="profile-label">Total Investment</div>
+        <div class="profile-value gold">₹1.2 Cr</div>
+        <div class="profile-sub">Over 20 years</div>
+      </div>
+    `;
+
+    // Update pie section
+    document.getElementById('pie-section').innerHTML = buildPieSection(data);
+
+    // Update allocation table
+    document.getElementById('alloc-table').innerHTML = buildAllocationTable(data);
+
+    // Update fund grid
+    document.getElementById('fund-grid').innerHTML = buildFundGrid(data);
+
+    // Update SIP schedule
+    document.getElementById('sip-schedule').innerHTML = buildSipSchedule(data);
+
+    // Update projections
+    document.getElementById('projection-row').innerHTML = buildProjections(data);
+
+    // Update milestones
+    document.getElementById('milestone-tbody').innerHTML = buildMilestones(data);
+
+    // Update bar chart
+    document.getElementById('bar-chart').innerHTML = `
+      <h4>Category Allocation Breakdown</h4>
+      <div class="bsub">How the ₹50,000 monthly SIP is distributed across equity categories</div>
+      ${buildBarChart(data)}
+    `;
+
+    // Update principles
+    document.getElementById('principle-grid').innerHTML = buildPrinciples(data);
+
+    contentElements.forEach(el => {
+      if (el) el.style.opacity = '1';
+    });
+
+    // Scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, 150);
+}
+
+// Load saved profile on page load
+(function() {
+  const saved = localStorage.getItem('sip-risk-profile') || 'aggressive';
+  const buttons = document.querySelectorAll('.risk-btn');
+  buttons.forEach((btn, idx) => {
+    const profiles = ['low', 'medium', 'high', 'aggressive'];
+    if (profiles[idx] === saved) {
+      btn.classList.add('active');
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
