@@ -7,17 +7,16 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
   * { margin:0; padding:0; box-sizing:border-box; }
-  body { font-family:'Inter',sans-serif; background:#0a0f1e; color:#e2e8f0; min-height:100vh; padding:72px 16px 40px 16px; }
+  body { font-family:'Inter',sans-serif; background:#0a0f1e; color:#e2e8f0; min-height:100vh; padding:64px 16px 40px 16px; }
   .ctr { max-width:1160px; margin:0 auto; }
 
-  /* BRAND */
-  .brand-bar { display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:32px; padding-bottom:24px; border-bottom:1px solid rgba(232,196,90,0.15); }
-  .brand-bar svg { flex-shrink:0; }
-  .brand-text { display:flex; flex-direction:column; }
-  .brand-name { font-size:34px; font-weight:700; letter-spacing:8px; color:#f1f5f9; }
-  .brand-sub  { font-size:20px; font-weight:200; letter-spacing:8px; color:#cbd5e1; margin-top:-2px; }
-  .brand-line { width:100%; height:1.5px; background:linear-gradient(90deg,#E8C45A,#B8922E); margin:6px 0 4px; border-radius:1px; }
-  .brand-tagline { font-size:10px; font-weight:400; letter-spacing:3px; color:#7A8599; }
+  
+  
+  
+  
+  
+  
+  
 
   /* HEADER */
   .hdr { text-align:center; margin-bottom:36px; }
@@ -152,6 +151,209 @@
 .pn-home:hover{color:#E8C45A;border-color:rgba(232,196,90,0.3);background:rgba(232,196,90,0.05);}
 @media(max-width:640px){.pn-link{padding:12px 16px;}.page-nav{flex-wrap:wrap;justify-content:center;}}
 
+
+/* ===== THEME SYSTEM ===== */
+:root {
+  --t-bg: #0a0f1e;
+  --t-bg2: #0f172a;
+  --t-card: #131b30;
+  --t-card-alt: #111827;
+  --t-text: #e2e8f0;
+  --t-text2: #f1f5f9;
+  --t-muted: #94a3b8;
+  --t-dim: #64748b;
+  --t-border: rgba(99,102,241,0.12);
+  --t-border2: rgba(51,65,85,0.4);
+  --t-gold: #E8C45A;
+  --t-gold-dark: #B8922E;
+  --t-navy: #1B2A4A;
+  --t-nav-bg: rgba(10,15,30,0.92);
+  --t-card-hover: rgba(232,196,90,0.03);
+  --t-bar-track: rgba(30,41,59,0.8);
+  --t-th-bg: rgba(232,196,90,0.08);
+  --t-best-bg: rgba(232,196,90,0.12);
+  --t-highlight-shadow: rgba(232,196,90,0.4);
+  --t-verdict-bg: linear-gradient(135deg, rgba(232,196,90,0.08), rgba(184,146,46,0.05));
+  --t-verdict-border: rgba(232,196,90,0.25);
+  --t-green: #4ade80;
+  --t-red: #f87171;
+  --t-footer-border: rgba(232,196,90,0.15);
+  --t-code-bg: rgba(232,196,90,0.06);
+  --t-invert: 0;
+}
+
+[data-theme="light"] {
+  --t-bg: #f8f9fc;
+  --t-bg2: #f1f3f8;
+  --t-card: #ffffff;
+  --t-card-alt: #f8f9fc;
+  --t-text: #1e293b;
+  --t-text2: #0f172a;
+  --t-muted: #64748b;
+  --t-dim: #94a3b8;
+  --t-border: rgba(0,0,0,0.08);
+  --t-border2: rgba(0,0,0,0.06);
+  --t-gold: #B8922E;
+  --t-gold-dark: #96750F;
+  --t-navy: #1B2A4A;
+  --t-nav-bg: rgba(255,255,255,0.92);
+  --t-card-hover: rgba(184,146,46,0.04);
+  --t-bar-track: rgba(241,245,249,0.9);
+  --t-th-bg: rgba(184,146,46,0.08);
+  --t-best-bg: rgba(184,146,46,0.1);
+  --t-highlight-shadow: rgba(184,146,46,0.25);
+  --t-verdict-bg: linear-gradient(135deg, rgba(184,146,46,0.06), rgba(184,146,46,0.03));
+  --t-verdict-border: rgba(184,146,46,0.2);
+  --t-green: #16a34a;
+  --t-red: #dc2626;
+  --t-footer-border: rgba(184,146,46,0.15);
+  --t-code-bg: rgba(184,146,46,0.04);
+  --t-invert: 1;
+}
+
+/* THEME TOGGLE BUTTON */
+.theme-toggle {
+  width: 38px; height: 38px; border-radius: 10px;
+  border: 1px solid rgba(232,196,90,0.2);
+  background: rgba(232,196,90,0.08);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s; flex-shrink: 0; margin-left: 8px;
+  color: var(--t-gold); font-size: 18px;
+}
+.theme-toggle:hover {
+  background: rgba(232,196,90,0.15);
+  border-color: rgba(232,196,90,0.4);
+  transform: scale(1.05);
+}
+.theme-toggle .sun { display: none; }
+.theme-toggle .moon { display: block; }
+[data-theme="light"] .theme-toggle .sun { display: block; }
+[data-theme="light"] .theme-toggle .moon { display: none; }
+
+/* ===== THEME OVERRIDES — body, cards, text ===== */
+body { background: var(--t-bg) !important; color: var(--t-text) !important; transition: background 0.4s, color 0.4s; }
+
+.sa-nav { background: var(--t-nav-bg) !important; border-bottom-color: var(--t-footer-border) !important; }
+.sa-nav-logo-name { color: var(--t-text2) !important; }
+.sa-nav-link { color: var(--t-muted) !important; }
+.sa-nav-link:hover { color: var(--t-text2) !important; background: var(--t-card-hover) !important; }
+.sa-nav-link.active { color: var(--t-gold) !important; background: var(--t-best-bg) !important; border-color: rgba(184,146,46,0.2) !important; }
+.sa-nav-mobile { background: var(--t-nav-bg) !important; }
+
+/* Cards */
+.card, .fund-hero, .chart-card, .bar-card, .take-card, .stat-box, .table-card {
+  background: linear-gradient(145deg, var(--t-card), var(--t-card-alt)) !important;
+  border-color: var(--t-border) !important;
+  transition: background 0.4s, border-color 0.4s;
+}
+[data-theme="light"] .card, [data-theme="light"] .fund-hero, [data-theme="light"] .chart-card,
+[data-theme="light"] .bar-card, [data-theme="light"] .take-card, [data-theme="light"] .stat-box,
+[data-theme="light"] .table-card {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* Text colors */
+.card h3, .fh-name, .hdr h1, .bar-card h4, .chart-card h4, .fh-stat .val { color: var(--t-text2) !important; }
+.card .sub, .hdr p, .chart-sub, .bsub, .fh-mgr { color: var(--t-muted) !important; }
+.muted, .card-fund-count { color: var(--t-dim) !important; }
+tbody td:first-child { color: var(--t-text) !important; }
+tbody td { border-bottom-color: var(--t-border2) !important; }
+tbody tr:hover { background: var(--t-card-hover) !important; }
+thead th { background: var(--t-th-bg) !important; color: var(--t-gold) !important; }
+
+/* Gold accent */
+.best-cell, .best { background: var(--t-best-bg) !important; color: var(--t-gold) !important; }
+.gold, .num.blue, .num.purple, .num.green { color: var(--t-gold) !important; }
+[data-theme="light"] .num.blue { color: #2563eb !important; }
+[data-theme="light"] .num.purple { color: #7c3aed !important; }
+[data-theme="light"] .num.green { color: #16a34a !important; }
+.green { color: var(--t-green) !important; }
+.red { color: var(--t-red) !important; }
+
+.hdr .period, .header .period { background: rgba(184,146,46,0.08) !important; border-color: rgba(184,146,46,0.2) !important; color: var(--t-gold) !important; }
+.tag { color: var(--t-navy) !important; }
+
+/* Verdict / highlight cards */
+.verdict { background: var(--t-verdict-bg) !important; border-color: var(--t-verdict-border) !important; }
+.verdict h2 { color: var(--t-gold) !important; }
+.verdict p { color: var(--t-gold) !important; opacity: 0.85; }
+
+/* Bar tracks */
+.btrk, .bar-track { background: var(--t-bar-track) !important; }
+.bar-fill.highlight, .bfill.highlight { box-shadow: 0 0 12px var(--t-highlight-shadow) !important; }
+
+/* Fund hero stats */
+.fh-stats { border-top-color: var(--t-border2) !important; }
+.fh-stat { border-right-color: var(--t-border2) !important; }
+.fh-stat .lbl, .take-card .label, .stat-box .sl, .blbl, .bar-label { color: var(--t-muted) !important; }
+
+/* Badges */
+.badge-gold { background: var(--t-best-bg) !important; color: var(--t-gold) !important; border-color: rgba(184,146,46,0.25) !important; }
+
+/* Footer */
+.footer { border-top-color: var(--t-footer-border) !important; }
+.footer-name { color: var(--t-muted) !important; }
+.footer-sub { color: var(--t-dim) !important; }
+.footer .disclaimer, .footer .disc, .footer-copy { color: var(--t-dim) !important; }
+
+/* Page nav */
+.pn-link { background: linear-gradient(145deg, var(--t-card), var(--t-card-alt)) !important; border-color: var(--t-border) !important; }
+.pn-home { color: var(--t-muted) !important; border-color: var(--t-border) !important; }
+.pn-dir { color: var(--t-dim) !important; }
+.pn-name { color: var(--t-gold) !important; }
+
+/* Legend */
+.legend-item, .leg-item { color: var(--t-muted) !important; }
+
+/* Disclaimer */
+.disclaimer-inner { background: var(--t-code-bg) !important; border-color: var(--t-footer-border) !important; }
+.disclaimer-inner p { color: var(--t-dim) !important; }
+.disclaimer-inner strong { color: var(--t-muted) !important; }
+
+/* About card */
+.about-card { background: linear-gradient(145deg, var(--t-card), var(--t-card-alt)) !important; border-color: var(--t-border) !important; }
+.about-left h3 { color: var(--t-text2) !important; }
+.about-left p { color: var(--t-muted) !important; }
+.val-item { background: var(--t-code-bg) !important; border-color: var(--t-footer-border) !important; }
+.val-text { color: var(--t-text) !important; }
+
+/* Page cards (index) */
+.page-card { background: linear-gradient(145deg, var(--t-card), var(--t-card-alt)) !important; border-color: var(--t-border) !important; }
+[data-theme="light"] .page-card { box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+.page-card:hover { border-color: rgba(184,146,46,0.3) !important; }
+.card-title { color: var(--t-text2) !important; }
+.card-desc { color: var(--t-muted) !important; }
+.card-tags span { background: var(--t-code-bg) !important; color: var(--t-gold) !important; border-color: var(--t-footer-border) !important; }
+.card-foot { border-top-color: var(--t-border2) !important; }
+
+/* Featured card (index) */
+.featured-card { background: linear-gradient(145deg, var(--t-card), var(--t-card-alt)) !important; border-color: rgba(184,146,46,0.2) !important; }
+[data-theme="light"] .featured-card { box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+.featured-title { color: var(--t-text2) !important; }
+.featured-desc { color: var(--t-muted) !important; }
+.featured-right { background: var(--t-code-bg) !important; }
+.viz-label, .viz-sub { color: var(--t-dim) !important; }
+
+/* Section header */
+.section-hdr h2 { color: var(--t-text2) !important; }
+.section-hdr p { color: var(--t-muted) !important; }
+
+/* Hero (index) */
+.hero { background: radial-gradient(ellipse at 50% 0%, rgba(184,146,46,0.06) 0%, transparent 60%), var(--t-bg) !important; }
+.hero-brand { color: var(--t-text2) !important; -webkit-text-fill-color: var(--t-text2) !important; }
+.hero-sub { color: var(--t-muted) !important; }
+.hero-desc { color: var(--t-muted) !important; }
+.stat .sl { color: var(--t-dim) !important; }
+.cta-text { color: var(--t-dim) !important; }
+.scroll-hint span { color: var(--t-dim) !important; }
+
+/* Stats row — keep gold gradient for .sv */
+[data-theme="light"] .hero-brand { background: linear-gradient(135deg, #96750F, #B8922E, #96750F) !important; -webkit-background-clip: text !important; -webkit-text-fill-color: transparent !important; }
+[data-theme="light"] .hero-sub { color: #64748b !important; }
+
+/* Smooth transition for everything */
+*, *::before, *::after { transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s; }
+
 </style>
 </head>
 <body>
@@ -182,6 +384,10 @@
     <button class="sa-nav-hamburger" onclick="document.querySelector('.sa-nav-mobile').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
     </button>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <span class="moon">&#9790;</span>
+      <span class="sun">&#9728;</span>
+    </button>
   </div>
 </nav>
 <div class="sa-nav-mobile">
@@ -196,6 +402,24 @@
 
 <div class="ctr">
 
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="tag">Comprehensive Fund Analysis</div>
+    <h1>Top 5 Large Cap Funds — Stability Meets Growth</h1>
+    <p>A data-driven comparison of India&#8217;s best-performing large cap mutual funds ranked by 10-year CAGR, with every metric you need for an informed decision.</p>
+    <div class="period">Data as of March 2026 &nbsp;|&nbsp; Direct Plans &nbsp;|&nbsp; Benchmark: Nifty 50 TRI</div>
+  </div>
+
+  <!-- BENCHMARK CONTEXT -->
+  <div class="card" style="border-color:rgba(232,196,90,0.25);">
+    <h3 style="color:#E8C45A;">Benchmark Context: Nifty 50 TRI</h3>
+    <div class="sub">How the index itself has performed — your funds should beat this</div>
+    <div class="fh-stats" style="border-top:none;">
+      <div class="fh-stat"><div class="val gold">5.10%</div><div class="lbl">1-Year</div></div>
+      <div class="fh-stat"><div class="val gold">14.85%</div><div class="lbl">3-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val gold">16.20%</div><div class="lbl">5-Year CAGR</div></div>
+      <div class="fh-stat"><div class="val gold">13.50%</div><div class="lbl">10-Year CAGR</div></div>
+    </div>
   </div>
 
   <!-- ==================== FUND 1 ==================== -->
@@ -578,5 +802,18 @@
   </div>
 
 </div>
+<script>
+(function(){
+  var saved = localStorage.getItem('sai-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+})();
+function toggleTheme(){
+  var html = document.documentElement;
+  var current = html.getAttribute('data-theme') || 'dark';
+  var next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('sai-theme', next);
+}
+</script>
 </body>
 </html>
