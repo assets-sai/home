@@ -1,0 +1,1361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top 10 Small Cap Stocks – Hidden Gems Inside Funds | Sai Assets</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:#0a0f1e; color:#e2e8f0; min-height:100vh; padding:64px 16px 40px 16px; }
+  .ctr { max-width:1160px; margin:0 auto; }
+
+  /* HEADER */
+  .hdr { text-align:center; margin-bottom:48px; }
+  .tag { display:inline-block; background:linear-gradient(135deg,#E8C45A,#B8922E); color:#1B2A4A; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:6px 18px; border-radius:20px; margin-bottom:14px; }
+  .hdr h1 { font-size:42px; font-weight:900; background:linear-gradient(135deg,#E8C45A,#f5e6a3,#B8922E); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1.2; margin-bottom:14px; }
+  .hdr p { font-size:16px; color:#94a3b8; max-width:720px; margin:0 auto; line-height:1.65; }
+  .hdr .period { display:inline-block; margin-top:16px; background:rgba(232,196,90,0.1); border:1px solid rgba(232,196,90,0.25); padding:8px 20px; border-radius:8px; font-size:12px; color:#E8C45A; font-weight:600; }
+
+  /* CARDS */
+  .card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.15); border-radius:18px; padding:28px; margin-bottom:28px; overflow-x:auto; }
+  .card h3 { font-size:18px; font-weight:700; color:#f1f5f9; margin-bottom:4px; }
+  .card .sub { font-size:12px; color:#64748b; margin-bottom:20px; }
+
+  /* STAT GRID */
+  .stat-row { display:grid; grid-template-columns:repeat(5,1fr); gap:16px; margin-bottom:36px; }
+  .stat-box { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:14px; padding:20px; text-align:center; }
+  .stat-box .sv { font-size:32px; font-weight:900; margin-bottom:6px; }
+  .stat-box .sl { font-size:11px; color:#94a3b8; line-height:1.4; }
+
+  /* HEATMAP */
+  .heatmap-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(232,196,90,0.2); border-radius:18px; padding:28px; margin-bottom:36px; overflow-x:auto; position:relative; }
+  .heatmap-card::before { content:''; position:absolute; top:0; left:0; right:0; bottom:0; border-radius:18px; background:linear-gradient(90deg,transparent 0%,rgba(232,196,90,0.02) 50%,transparent 100%); pointer-events:none; }
+  .heatmap-card h3 { font-size:18px; font-weight:700; color:#f1f5f9; margin-bottom:6px; position:relative; z-index:1; }
+  .heatmap-card .sub { font-size:12px; color:#64748b; margin-bottom:24px; position:relative; z-index:1; }
+  .heatmap-table { width:100%; border-collapse:separate; border-spacing:8px; font-size:11px; position:relative; z-index:1; }
+  .heatmap-table th, .heatmap-table td { text-align:center; padding:8px; }
+  .heatmap-table th:first-child, .heatmap-table td:first-child { text-align:left; padding-left:0; }
+  .heatmap-table th { color:#E8C45A; font-weight:700; font-size:10px; letter-spacing:0.5px; white-space:nowrap; }
+  .heatmap-table td { color:#94a3b8; font-weight:500; }
+  .heatmap-table td:first-child { color:#f1f5f9; font-weight:700; min-width:120px; }
+  .heatmap-dot { width:20px; height:20px; border-radius:50%; display:flex; align-items:center; justify-content:center; margin:0 auto; font-size:8px; cursor:help; transition:all 0.2s; }
+  .heatmap-dot.high { background:linear-gradient(135deg,#E8C45A,#B8922E); color:#1B2A4A; }
+  .heatmap-dot.med { background:rgba(232,196,90,0.4); border:1.5px solid #E8C45A; color:#E8C45A; }
+  .heatmap-dot.none { background:rgba(99,102,241,0.08); border:1px solid rgba(99,102,241,0.15); color:#64748b; }
+  .heatmap-dot:hover { transform:scale(1.2); }
+
+  /* TABLE */
+  table { width:100%; border-collapse:separate; border-spacing:0; font-size:13px; }
+  thead th { background:rgba(232,196,90,0.08); color:#E8C45A; font-weight:700; padding:12px 10px; text-align:center; font-size:11.5px; letter-spacing:.4px; white-space:nowrap; }
+  thead th:first-child { text-align:left; border-radius:8px 0 0 8px; }
+  thead th:last-child { border-radius:0 8px 8px 0; }
+  tbody td { padding:12px 10px; text-align:center; border-bottom:1px solid rgba(51,65,85,0.4); font-weight:500; }
+  tbody td:first-child { text-align:left; font-weight:700; color:#cbd5e1; }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody tr:hover { background:rgba(232,196,90,0.03); }
+  .gold { color:#E8C45A; font-weight:800; }
+  .green { color:#4ade80; }
+  .red   { color:#f87171; }
+  .muted { color:#64748b; }
+  .best-cell { background:rgba(232,196,90,0.12); color:#E8C45A; font-weight:800; border-radius:5px; padding:3px 7px; }
+  .mini-bar { display:inline-block; height:4px; border-radius:2px; background:linear-gradient(90deg,#E8C45A,#B8922E); margin-right:4px; }
+
+  /* FUND HERO CARDS (for stocks) */
+  .fund-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:20px; margin-bottom:36px; }
+  .fund-hero { background:linear-gradient(145deg,#131b30,#111827); border-radius:18px; overflow:hidden; border:1px solid rgba(99,102,241,0.12); transition:all 0.3s; }
+  .fund-hero:hover { border-color:rgba(232,196,90,0.3); transform:translateY(-2px); }
+  .fh-top { padding:24px 28px 16px; display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; }
+  .fh-rank { width:52px; height:52px; border-radius:14px; display:flex; align-items:center; justify-content:center; font-size:24px; font-weight:900; color:#1B2A4A; flex-shrink:0; }
+  .fh-rank.r1 { background:linear-gradient(135deg,#E8C45A,#B8922E); }
+  .fh-rank.r2 { background:linear-gradient(135deg,#c0c0c0,#8a8a8a); }
+  .fh-rank.r3 { background:linear-gradient(135deg,#cd7f32,#a0522d); }
+  .fh-rank.r4 { background:linear-gradient(135deg,#60a5fa,#3b82f6); }
+  .fh-rank.r5 { background:linear-gradient(135deg,#a78bfa,#7c3aed); }
+  .fh-info { flex:1; min-width:200px; }
+  .fh-name { font-size:18px; font-weight:800; color:#f1f5f9; margin-bottom:3px; }
+  .fh-sector { font-size:12px; color:#94a3b8; font-weight:500; margin-bottom:8px; }
+  .fh-insight { font-size:13px; color:#cbd5e1; line-height:1.5; margin-bottom:6px; }
+  .fh-badge { display:flex; gap:6px; flex-wrap:wrap; align-items:center; margin-top:8px; }
+  .conviction-score { display:inline-flex; align-items:center; gap:4px; font-size:11px; font-weight:700; color:#E8C45A; background:rgba(232,196,90,0.12); padding:4px 12px; border-radius:8px; border:1px solid rgba(232,196,90,0.25); }
+  .conviction-bar { width:40px; height:6px; background:rgba(232,196,90,0.2); border-radius:3px; overflow:hidden; }
+  .conviction-bar span { display:block; height:100%; background:linear-gradient(90deg,#E8C45A,#B8922E); }
+  .fh-stats { display:flex; flex-wrap:wrap; gap:0; border-top:1px solid rgba(51,65,85,0.3); }
+  .fh-stat { flex:1; min-width:100px; padding:14px 12px; text-align:center; border-right:1px solid rgba(51,65,85,0.2); font-size:13px; }
+  .fh-stat:last-child { border-right:none; }
+  .fh-stat .val { font-size:16px; font-weight:800; color:#f1f5f9; }
+  .fh-stat .lbl { font-size:9px; color:#64748b; margin-top:3px; letter-spacing:.3px; text-transform:uppercase; }
+
+  /* BAR VIZ */
+  .bar-section { display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-bottom:36px; }
+  .bar-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:16px; padding:24px; }
+  .bar-card h4 { font-size:16px; font-weight:700; color:#f1f5f9; margin-bottom:4px; }
+  .bar-card .bsub { font-size:11px; color:#64748b; margin-bottom:20px; }
+  .brow { display:flex; align-items:center; margin-bottom:12px; gap:10px; }
+  .blbl { width:90px; font-size:11px; font-weight:600; color:#94a3b8; flex-shrink:0; text-align:right; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .btrk { flex:1; height:28px; background:rgba(20,30,50,0.8); border-radius:6px; overflow:hidden; position:relative; }
+  .bfill { height:100%; border-radius:6px; display:flex; align-items:center; justify-content:flex-end; padding-right:10px; font-size:11px; font-weight:700; color:#fff; }
+  .bg1 { background:linear-gradient(90deg,#E8C45A,#B8922E); }
+  .bg2 { background:linear-gradient(90deg,#c0c0c0,#8a8a8a); }
+  .bg3 { background:linear-gradient(90deg,#cd7f32,#a0522d); }
+  .bg4 { background:linear-gradient(90deg,#60a5fa,#3b82f6); }
+  .bg5 { background:linear-gradient(90deg,#a78bfa,#7c3aed); }
+  .bg6 { background:linear-gradient(90deg,#4ade80,#22c55e); }
+  .bg7 { background:linear-gradient(90deg,#f472b6,#ec4899); }
+  .bg8 { background:linear-gradient(90deg,#2dd4bf,#14b8a6); }
+  .bg9 { background:linear-gradient(90deg,#fb923c,#f97316); }
+  .bg10 { background:linear-gradient(90deg,#8b5cf6,#7c3aed); }
+
+  /* PIE CHART */
+  .chart-section { margin-bottom:36px; }
+  .chart-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:16px; padding:28px; }
+  .chart-card h4 { font-size:16px; font-weight:700; color:#f1f5f9; margin-bottom:4px; }
+  .chart-sub { font-size:11px; color:#64748b; margin-bottom:24px; }
+  .pie-container { display:flex; gap:40px; align-items:center; }
+  .pie { width:220px; height:220px; border-radius:50%; position:relative; flex-shrink:0; }
+  .legend-list { display:flex; flex-direction:column; gap:14px; flex:1; }
+  .legend-item { display:flex; align-items:center; gap:10px; }
+  .legend-dot { width:16px; height:16px; border-radius:4px; flex-shrink:0; }
+  .legend-label { font-size:13px; color:#94a3b8; }
+  .legend-value { font-size:14px; font-weight:700; color:#f1f5f9; }
+
+  /* INSIGHT CARDS */
+  .principle-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; margin-bottom:36px; }
+  .principle-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:14px; padding:24px; }
+  .principle-card h4 { font-size:14px; font-weight:700; color:#E8C45A; margin-bottom:10px; }
+  .principle-card p { font-size:13px; color:#94a3b8; line-height:1.65; }
+
+  /* FOOTER */
+  .footer { text-align:center; padding:28px 20px; border-top:2px solid rgba(232,196,90,0.15); margin-top:20px; }
+  .footer-brand { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px; }
+  .footer-name { font-size:16px; font-weight:700; letter-spacing:4px; color:#94a3b8; }
+  .footer-sub  { font-size:11px; font-weight:300; letter-spacing:3px; color:#64748b; }
+  .footer .disc { font-size:11px; color:#475569; line-height:1.6; margin-top:12px; }
+
+  @media(max-width:900px) {
+    .bar-section { grid-template-columns:1fr; }
+    .stat-row { grid-template-columns:repeat(2,1fr); }
+    .fund-grid { grid-template-columns:1fr; }
+    .hdr h1 { font-size:28px; }
+    .fh-stats { flex-direction:column; }
+    .pie-container { flex-direction:column; gap:24px; }
+    .principle-grid { grid-template-columns:1fr; }
+  }
+
+  @media(max-width:640px) {
+    body { padding:48px 12px 32px 12px; }
+    .hdr { margin-bottom:32px; }
+    .hdr h1 { font-size:22px; }
+    .stat-row { grid-template-columns:1fr; }
+    .heatmap-table { font-size:10px; border-spacing:4px; }
+    .heatmap-dot { width:18px; height:18px; }
+  }
+
+/* ===== GLOBAL NAV ===== */
+.sa-nav{position:sticky;top:0;z-index:9999;background:rgba(10,15,30,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(232,196,90,0.1);padding:0 20px;}
+.sa-nav-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.sa-nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.sa-nav-logo svg{width:32px;height:32px;}
+.sa-nav-logo-text{display:flex;flex-direction:column;}
+.sa-nav-logo-name{font-size:16px;font-weight:800;letter-spacing:4px;color:#f1f5f9;line-height:1;}
+.sa-nav-logo-sub{font-size:8px;font-weight:400;letter-spacing:2px;color:#7A8599;line-height:1;margin-top:2px;}
+.sa-nav-links{display:flex;align-items:center;gap:4px;}
+.sa-nav-link{font-size:12px;font-weight:600;color:#94a3b8;text-decoration:none;padding:6px 12px;border-radius:8px;transition:all 0.2s;letter-spacing:0.3px;white-space:nowrap;}
+.sa-nav-link:hover{color:#f1f5f9;background:rgba(232,196,90,0.08);}
+.sa-nav-link.active{color:#E8C45A;background:rgba(232,196,90,0.1);border:1px solid rgba(232,196,90,0.2);}
+.sa-nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:10001;}
+.sa-nav-hamburger span{width:22px;height:2px;background:#E8C45A;border-radius:2px;transition:all 0.3s;}
+.sa-nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(10,15,30,0.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(232,196,90,0.15);padding:12px 20px;flex-direction:column;gap:4px;z-index:9998;}
+.sa-nav-mobile .sa-nav-link{padding:10px 16px;font-size:13px;border-radius:10px;display:block;}
+@media(max-width:860px){
+  .sa-nav-links{display:none;}
+  .sa-nav-hamburger{display:flex;}
+  .sa-nav-mobile.open{display:flex;}
+}
+
+/* ===== THEME SYSTEM ===== */
+:root {
+  --t-bg: #0a0f1e;
+  --t-bg2: #0f172a;
+  --t-card: #131b30;
+  --t-card-alt: #111827;
+  --t-text: #e2e8f0;
+  --t-text2: #f1f5f9;
+  --t-muted: #94a3b8;
+  --t-dim: #64748b;
+  --t-border: rgba(99,102,241,0.12);
+  --t-border2: rgba(51,65,85,0.4);
+  --t-gold: #E8C45A;
+  --t-gold-dark: #B8922E;
+  --t-navy: #1B2A4A;
+  --t-nav-bg: rgba(10,15,30,0.92);
+  --t-card-hover: rgba(232,196,90,0.03);
+  --t-bar-track: rgba(30,41,59,0.8);
+  --t-th-bg: rgba(232,196,90,0.08);
+  --t-best-bg: rgba(232,196,90,0.12);
+  --t-highlight-shadow: rgba(232,196,90,0.4);
+  --t-verdict-bg: linear-gradient(135deg, rgba(232,196,90,0.08), rgba(184,146,46,0.05));
+  --t-verdict-border: rgba(232,196,90,0.25);
+  --t-green: #4ade80;
+  --t-red: #f87171;
+  --t-footer-border: rgba(232,196,90,0.15);
+  --t-code-bg: rgba(232,196,90,0.06);
+  --t-invert: 0;
+}
+
+[data-theme="light"] {
+  --t-bg: #f8f9fc;
+  --t-bg2: #f1f3f8;
+  --t-card: #ffffff;
+  --t-card-alt: #f8f9fc;
+  --t-text: #1e293b;
+  --t-text2: #0f172a;
+  --t-muted: #64748b;
+  --t-dim: #94a3b8;
+  --t-border: rgba(0,0,0,0.08);
+  --t-border2: rgba(0,0,0,0.06);
+  --t-gold: #B8922E;
+  --t-gold-dark: #96750F;
+  --t-navy: #1B2A4A;
+  --t-nav-bg: rgba(255,255,255,0.92);
+  --t-card-hover: rgba(184,146,46,0.04);
+  --t-bar-track: rgba(241,245,249,0.9);
+  --t-th-bg: rgba(184,146,46,0.08);
+  --t-best-bg: rgba(184,146,46,0.1);
+  --t-highlight-shadow: rgba(184,146,46,0.25);
+  --t-verdict-bg: linear-gradient(135deg, rgba(184,146,46,0.06), rgba(184,146,46,0.03));
+  --t-verdict-border: rgba(184,146,46,0.2);
+  --t-green: #16a34a;
+  --t-red: #dc2626;
+  --t-footer-border: rgba(184,146,46,0.15);
+  --t-code-bg: rgba(184,146,46,0.04);
+  --t-invert: 1;
+}
+
+/* THEME TOGGLE BUTTON */
+.theme-toggle {
+  width: 38px; height: 38px; border-radius: 10px;
+  border: 1px solid rgba(232,196,90,0.2);
+  background: rgba(232,196,90,0.08);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s; flex-shrink: 0; margin-left: 8px;
+  color: var(--t-gold); font-size: 18px;
+}
+.theme-toggle:hover {
+  background: rgba(232,196,90,0.15);
+  border-color: rgba(232,196,90,0.4);
+  transform: scale(1.05);
+}
+.theme-toggle .sun { display: none; }
+.theme-toggle .moon { display: block; }
+[data-theme="light"] .theme-toggle .sun { display: block; }
+[data-theme="light"] .theme-toggle .moon { display: none; }
+
+/* ===== THEME OVERRIDES ===== */
+body { background: var(--t-bg) !important; color: var(--t-text) !important; transition: background 0.4s, color 0.4s; }
+
+.sa-nav { background: var(--t-nav-bg) !important; border-bottom-color: var(--t-footer-border) !important; }
+.sa-nav-logo-name { color: var(--t-text2) !important; }
+.sa-nav-link { color: var(--t-muted) !important; }
+.sa-nav-link:hover { color: var(--t-text2) !important; background: var(--t-card-hover) !important; }
+.sa-nav-link.active { color: var(--t-gold) !important; background: var(--t-best-bg) !important; border-color: rgba(184,146,46,0.2) !important; }
+.sa-nav-mobile { background: var(--t-nav-bg) !important; }
+
+/* Cards */
+.card, .fund-hero, .chart-card, .bar-card, .stat-box, .heatmap-card {
+  background: linear-gradient(145deg, var(--t-card), var(--t-card-alt)) !important;
+  border-color: var(--t-border) !important;
+  transition: background 0.4s, border-color 0.4s;
+}
+[data-theme="light"] .card, [data-theme="light"] .fund-hero, [data-theme="light"] .chart-card,
+[data-theme="light"] .bar-card, [data-theme="light"] .stat-box, [data-theme="light"] .heatmap-card {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* Text colors */
+.card h3, .fh-name, .hdr h1, .bar-card h4, .chart-card h4, .fh-stat .val { color: var(--t-text2) !important; }
+.card .sub, .hdr p, .chart-sub, .bsub, .fh-mgr, .fh-sector, .fh-insight { color: var(--t-muted) !important; }
+.muted { color: var(--t-dim) !important; }
+tbody td:first-child { color: var(--t-text) !important; }
+tbody td { border-bottom-color: var(--t-border2) !important; }
+tbody tr:hover { background: var(--t-card-hover) !important; }
+thead th { background: var(--t-th-bg) !important; color: var(--t-gold) !important; }
+.heatmap-table th { color: var(--t-gold) !important; }
+.heatmap-table td { color: var(--t-muted) !important; }
+.heatmap-table td:first-child { color: var(--t-text) !important; }
+
+/* Gold accent */
+.best-cell, .best { background: var(--t-best-bg) !important; color: var(--t-gold) !important; }
+.gold { color: var(--t-gold) !important; }
+.green { color: var(--t-green) !important; }
+.red { color: var(--t-red) !important; }
+
+.hdr .period, .header .period { background: rgba(184,146,46,0.08) !important; border-color: rgba(184,146,46,0.2) !important; color: var(--t-gold) !important; }
+.tag { color: var(--t-navy) !important; }
+
+/* Bar tracks */
+.btrk { background: var(--t-bar-track) !important; }
+
+/* Fund hero stats */
+.fh-stats { border-top-color: var(--t-border2) !important; }
+.fh-stat { border-right-color: var(--t-border2) !important; }
+.fh-stat .lbl { color: var(--t-muted) !important; }
+
+/* Footer */
+.footer { border-top-color: var(--t-footer-border) !important; }
+.footer-name { color: var(--t-muted) !important; }
+.footer-sub { color: var(--t-dim) !important; }
+.footer .disc { color: var(--t-dim) !important; }
+
+/* Legend */
+.legend-item, .legend-label { color: var(--t-muted) !important; }
+.legend-value { color: var(--t-text2) !important; }
+
+/* Principle cards */
+.principle-card { background: linear-gradient(145deg, var(--t-card), var(--t-card-alt)) !important; border-color: var(--t-border) !important; }
+.principle-card h4 { color: var(--t-gold) !important; }
+.principle-card p { color: var(--t-muted) !important; }
+
+/* Conviction score */
+.conviction-score { background: var(--t-best-bg) !important; color: var(--t-gold) !important; border-color: rgba(184,146,46,0.25) !important; }
+
+/* Smooth transitions */
+*, *::before, *::after { transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s; }
+
+</style>
+</head>
+<body>
+
+<!-- GLOBAL NAVIGATION -->
+<nav class="sa-nav">
+  <div class="sa-nav-inner">
+    <a href="index.html" class="sa-nav-logo">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+        <defs><linearGradient id="ng" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#E8C45A"/><stop offset="100%" style="stop-color:#B8922E"/></linearGradient></defs>
+        <polygon points="50,0 93,25 93,75 50,100 7,75 7,25" fill="#1B2A4A" stroke="url(#ng)" stroke-width="3"/>
+        <polyline points="22,70 38,50 55,58 78,28" stroke="url(#ng)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="78" cy="28" r="6" fill="url(#ng)"/>
+      </svg>
+      <div class="sa-nav-logo-text">
+        <span class="sa-nav-logo-name">SAI ASSETS</span>
+        <span class="sa-nav-logo-sub">MF ADVISORY</span>
+      </div>
+    </a>
+    <div class="sa-nav-links">
+      <a href="index.html" class="sa-nav-link">Home</a>
+      <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
+      <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
+      <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
+      <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
+      <a href="top5-international-funds.html" class="sa-nav-link">International</a>
+      <a href="sip-date-analysis.html" class="sa-nav-link">SIP Analysis</a>
+      <a href="sip-portfolio-50k.html" class="sa-nav-link">SIP Portfolio</a>
+      <a href="top10-smallcap-stocks.html" class="sa-nav-link active">Top Stocks</a>
+    </div>
+    <button class="sa-nav-hamburger" onclick="document.querySelector('.sa-nav-mobile').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme">
+      <span class="moon">&#9790;</span>
+      <span class="sun">&#9728;</span>
+    </button>
+  </div>
+</nav>
+<div class="sa-nav-mobile">
+  <a href="index.html" class="sa-nav-link">Home</a>
+  <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
+  <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
+  <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
+  <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
+  <a href="top5-international-funds.html" class="sa-nav-link">International</a>
+  <a href="sip-date-analysis.html" class="sa-nav-link">SIP Analysis</a>
+  <a href="sip-portfolio-50k.html" class="sa-nav-link">SIP Portfolio</a>
+  <a href="top10-smallcap-stocks.html" class="sa-nav-link active">Top Stocks</a>
+</div>
+
+<!-- MAIN CONTAINER -->
+<div class="ctr">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <span class="tag">Hidden Gems Analysis</span>
+    <h1>Top 10 Stocks — Hidden Gems Inside Small Cap Funds</h1>
+    <p>We analysed the portfolios of India's 10 largest small cap mutual funds (&#8377;1.5 Lakh Cr+ combined AUM) to find the stocks that the smartest fund managers are all betting on.</p>
+    <div class="period">Data as of March 2026 &#8226; 10 Funds Analysed &#8226; &#8377;1.5L Cr+ AUM</div>
+  </div>
+
+  <!-- KEY METRICS -->
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="sv">10</div>
+      <div class="sl">Funds Analysed</div>
+    </div>
+    <div class="stat-box">
+      <div class="sv">&#8377;1.5L</div>
+      <div class="sl">Combined AUM</div>
+    </div>
+    <div class="stat-box">
+      <div class="sv">10</div>
+      <div class="sl">Top Stocks</div>
+    </div>
+    <div class="stat-box">
+      <div class="sv">41%</div>
+      <div class="sl">Avg 3Y CAGR</div>
+    </div>
+    <div class="stat-box">
+      <div class="sv">5+</div>
+      <div class="sl">Sectors</div>
+    </div>
+  </div>
+
+  <!-- HEATMAP: FUND HOLDINGS OVERLAP -->
+  <div class="heatmap-card">
+    <h3>Fund Holdings Overlap</h3>
+    <div class="sub">Which funds hold which stocks &#8226; Darker circles = higher conviction</div>
+    <div style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+      <table class="heatmap-table">
+        <thead>
+          <tr>
+            <th style="min-width:140px;">Stock</th>
+            <th title="Nippon India">NIP</th>
+            <th title="Quant">QUA</th>
+            <th title="SBI">SBI</th>
+            <th title="HDFC">HDFC</th>
+            <th title="Axis">AXIS</th>
+            <th title="Kotak">KOT</th>
+            <th title="Tata">TATA</th>
+            <th title="DSP">DSP</th>
+            <th title="Canara">CAN</th>
+            <th title="ICICI">ICICI</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>MCX</td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+          </tr>
+          <tr>
+            <td>Karur Vysya</td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+          </tr>
+          <tr>
+            <td>KEI Industries</td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+          </tr>
+          <tr>
+            <td>Apar Industries</td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+          </tr>
+          <tr>
+            <td>Kirloskar Bros</td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+          </tr>
+          <tr>
+            <td>IDFC First Bank</td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+          </tr>
+          <tr>
+            <td>Aster DM Healthcare</td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+          </tr>
+          <tr>
+            <td>Tega Industries</td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+          </tr>
+          <tr>
+            <td>CMS Info Systems</td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+          </tr>
+          <tr>
+            <td>Sansera Eng</td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot none" title="Not held">-</div></td>
+            <td><div class="heatmap-dot high" title="High weight">&#8226;</div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- STOCK HERO CARDS -->
+  <div class="fund-grid">
+    <!-- MCX -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank r1">1</div>
+        <div class="fh-info">
+          <div class="fh-name">Multi Commodity Exchange</div>
+          <div class="fh-sector">Financial Services</div>
+          <div class="fh-insight">India's largest commodity exchange with monopoly-like moat</div>
+          <div class="fh-badge">
+            <div class="conviction-score">
+              <span>7/10 Conviction</span>
+              <div class="conviction-bar"><span style="width:70%"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat">
+          <div class="val">&#8377;6,425</div>
+          <div class="lbl">CMP</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">61,683</div>
+          <div class="lbl">M.Cap (Cr)</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">2.8%</div>
+          <div class="lbl">Avg Wt</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">+62%</div>
+          <div class="lbl">1Y Return</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">89%</div>
+          <div class="lbl">3Y CAGR</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Karur Vysya Bank -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank r2">2</div>
+        <div class="fh-info">
+          <div class="fh-name">Karur Vysya Bank</div>
+          <div class="fh-sector">Banking</div>
+          <div class="fh-insight">Lowest NPA in segment with strong NIMs and growth</div>
+          <div class="fh-badge">
+            <div class="conviction-score">
+              <span>7/10 Conviction</span>
+              <div class="conviction-bar"><span style="width:70%"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat">
+          <div class="val">&#8377;264</div>
+          <div class="lbl">CMP</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">27,449</div>
+          <div class="lbl">M.Cap (Cr)</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">1.9%</div>
+          <div class="lbl">Avg Wt</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">+38%</div>
+          <div class="lbl">1Y Return</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">42%</div>
+          <div class="lbl">3Y CAGR</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KEI Industries -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank r3">3</div>
+        <div class="fh-info">
+          <div class="fh-name">KEI Industries</div>
+          <div class="fh-sector">Cables & Wires</div>
+          <div class="fh-insight">Infrastructure capex play with ₹5,000 Cr+ order book</div>
+          <div class="fh-badge">
+            <div class="conviction-score">
+              <span>6/10 Conviction</span>
+              <div class="conviction-bar"><span style="width:60%"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat">
+          <div class="val">&#8377;4,126</div>
+          <div class="lbl">CMP</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">42,800</div>
+          <div class="lbl">M.Cap (Cr)</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">2.4%</div>
+          <div class="lbl">Avg Wt</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">+52%</div>
+          <div class="lbl">1Y Return</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">48%</div>
+          <div class="lbl">3Y CAGR</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Apar Industries -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank r4">4</div>
+        <div class="fh-info">
+          <div class="fh-name">Apar Industries</div>
+          <div class="fh-sector">Electrical Equipment</div>
+          <div class="fh-insight">Global conductor leader with 60%+ export revenue</div>
+          <div class="fh-badge">
+            <div class="conviction-score">
+              <span>6/10 Conviction</span>
+              <div class="conviction-bar"><span style="width:60%"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat">
+          <div class="val">&#8377;8,989</div>
+          <div class="lbl">CMP</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">36,107</div>
+          <div class="lbl">M.Cap (Cr)</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">1.8%</div>
+          <div class="lbl">Avg Wt</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">+35%</div>
+          <div class="lbl">1Y Return</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">64%</div>
+          <div class="lbl">3Y CAGR</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kirloskar Brothers -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank r5">5</div>
+        <div class="fh-info">
+          <div class="fh-name">Kirloskar Brothers</div>
+          <div class="fh-sector">Fluid Management</div>
+          <div class="fh-insight">Water infra beneficiary and Jal Jeevan Mission play</div>
+          <div class="fh-badge">
+            <div class="conviction-score">
+              <span>5/10 Conviction</span>
+              <div class="conviction-bar"><span style="width:50%"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat">
+          <div class="val">&#8377;1,646</div>
+          <div class="lbl">CMP</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">13,068</div>
+          <div class="lbl">M.Cap (Cr)</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">1.6%</div>
+          <div class="lbl">Avg Wt</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">+28%</div>
+          <div class="lbl">1Y Return</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">65%</div>
+          <div class="lbl">3Y CAGR</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- IDFC First Bank -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank r4">6</div>
+        <div class="fh-info">
+          <div class="fh-name">IDFC First Bank</div>
+          <div class="fh-sector">Banking</div>
+          <div class="fh-insight">Retail transformation story with improving CASA ratio</div>
+          <div class="fh-badge">
+            <div class="conviction-score">
+              <span>5/10 Conviction</span>
+              <div class="conviction-bar"><span style="width:50%"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat">
+          <div class="val">&#8377;62</div>
+          <div class="lbl">CMP</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">54,755</div>
+          <div class="lbl">M.Cap (Cr)</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">1.4%</div>
+          <div class="lbl">Avg Wt</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">+18%</div>
+          <div class="lbl">1Y Return</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">13%</div>
+          <div class="lbl">3Y CAGR</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aster DM Healthcare -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank r5">7</div>
+        <div class="fh-info">
+          <div class="fh-name">Aster DM Healthcare</div>
+          <div class="fh-sector">Healthcare</div>
+          <div class="fh-insight">Post-GCC demerger re-rating; India-focused pure play</div>
+          <div class="fh-badge">
+            <div class="conviction-score">
+              <span>5/10 Conviction</span>
+              <div class="conviction-bar"><span style="width:50%"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat">
+          <div class="val">&#8377;614</div>
+          <div class="lbl">CMP</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">18,200</div>
+          <div class="lbl">M.Cap (Cr)</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">1.3%</div>
+          <div class="lbl">Avg Wt</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">+47%</div>
+          <div class="lbl">1Y Return</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">41%</div>
+          <div class="lbl">3Y CAGR</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tega Industries -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank r4">8</div>
+        <div class="fh-info">
+          <div class="fh-name">Tega Industries</div>
+          <div class="fh-sector">Mining Equipment</div>
+          <div class="fh-insight">Global mining consumables leader with 70% exports</div>
+          <div class="fh-badge">
+            <div class="conviction-score">
+              <span>4/10 Conviction</span>
+              <div class="conviction-bar"><span style="width:40%"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat">
+          <div class="val">&#8377;1,666</div>
+          <div class="lbl">CMP</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">12,927</div>
+          <div class="lbl">M.Cap (Cr)</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">1.5%</div>
+          <div class="lbl">Avg Wt</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">+37%</div>
+          <div class="lbl">1Y Return</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">28%</div>
+          <div class="lbl">3Y CAGR</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CMS Info Systems -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank r5">9</div>
+        <div class="fh-info">
+          <div class="fh-name">CMS Info Systems</div>
+          <div class="fh-sector">Cash Management</div>
+          <div class="fh-insight">Duopoly in cash logistics; ATM outsourcing beneficiary</div>
+          <div class="fh-badge">
+            <div class="conviction-score">
+              <span>4/10 Conviction</span>
+              <div class="conviction-bar"><span style="width:40%"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat">
+          <div class="val">&#8377;485</div>
+          <div class="lbl">CMP</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">11,500</div>
+          <div class="lbl">M.Cap (Cr)</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">1.2%</div>
+          <div class="lbl">Avg Wt</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">+22%</div>
+          <div class="lbl">1Y Return</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val green">31%</div>
+          <div class="lbl">3Y CAGR</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sansera Engineering -->
+    <div class="fund-hero">
+      <div class="fh-top">
+        <div class="fh-rank r5">10</div>
+        <div class="fh-info">
+          <div class="fh-name">Sansera Engineering</div>
+          <div class="fh-sector">Auto Components</div>
+          <div class="fh-insight">Precision forging leader with EV + aerospace diversification</div>
+          <div class="fh-badge">
+            <div class="conviction-score">
+              <span>4/10 Conviction</span>
+              <div class="conviction-bar"><span style="width:40%"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="fh-stats">
+        <div class="fh-stat">
+          <div class="val">&#8377;1,580</div>
+          <div class="lbl">CMP</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">9,800</div>
+          <div class="lbl">M.Cap (Cr)</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">1.1%</div>
+          <div class="lbl">Avg Wt</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">+15%</div>
+          <div class="lbl">1Y Return</div>
+        </div>
+        <div class="fh-stat">
+          <div class="val">24%</div>
+          <div class="lbl">3Y CAGR</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BAR CHARTS: RETURNS COMPARISON -->
+  <div class="bar-section">
+    <div class="bar-card">
+      <h4>1-Year Returns</h4>
+      <div class="bsub">Ranked by recent performance</div>
+      <div class="brow">
+        <div class="blbl">MCX</div>
+        <div class="btrk"><div class="bfill bg1" style="width:100%;">62%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">KEI Ind</div>
+        <div class="btrk"><div class="bfill bg2" style="width:84%;">52%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Apar Ind</div>
+        <div class="btrk"><div class="bfill bg3" style="width:57%;">35%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Aster DM</div>
+        <div class="btrk"><div class="bfill bg4" style="width:76%;">47%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Karur V</div>
+        <div class="btrk"><div class="bfill bg5" style="width:61%;">38%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Tega Ind</div>
+        <div class="btrk"><div class="bfill bg6" style="width:60%;">37%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Kirloskar</div>
+        <div class="btrk"><div class="bfill bg7" style="width:45%;">28%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">CMS Info</div>
+        <div class="btrk"><div class="bfill bg8" style="width:35%;">22%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">IDFC First</div>
+        <div class="btrk"><div class="bfill bg9" style="width:29%;">18%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Sansera</div>
+        <div class="btrk"><div class="bfill bg10" style="width:24%;">15%</div></div>
+      </div>
+    </div>
+
+    <div class="bar-card">
+      <h4>3-Year CAGR</h4>
+      <div class="bsub">Long-term wealth creation</div>
+      <div class="brow">
+        <div class="blbl">MCX</div>
+        <div class="btrk"><div class="bfill bg1" style="width:100%;">89%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Kirloskar</div>
+        <div class="btrk"><div class="bfill bg2" style="width:73%;">65%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Apar Ind</div>
+        <div class="btrk"><div class="bfill bg3" style="width:72%;">64%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">KEI Ind</div>
+        <div class="btrk"><div class="bfill bg4" style="width:54%;">48%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Karur V</div>
+        <div class="btrk"><div class="bfill bg5" style="width:47%;">42%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Aster DM</div>
+        <div class="btrk"><div class="bfill bg6" style="width:46%;">41%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">CMS Info</div>
+        <div class="btrk"><div class="bfill bg7" style="width:35%;">31%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Tega Ind</div>
+        <div class="btrk"><div class="bfill bg8" style="width:31%;">28%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Sansera</div>
+        <div class="btrk"><div class="bfill bg9" style="width:27%;">24%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">IDFC First</div>
+        <div class="btrk"><div class="bfill bg10" style="width:15%;">13%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIE CHART: SECTOR BREAKDOWN -->
+  <div class="chart-section">
+    <div class="chart-card">
+      <h4>Sector Diversification</h4>
+      <div class="chart-sub">Top 10 stocks naturally span multiple sectors</div>
+      <div class="pie-container">
+        <div class="pie" style="background:conic-gradient(
+          #60a5fa 0deg 108deg,
+          #E8C45A 108deg 180deg,
+          #4ade80 180deg 216deg,
+          #a78bfa 216deg 252deg,
+          #2dd4bf 252deg 288deg,
+          #f472b6 288deg 324deg,
+          #fb923c 324deg 360deg
+        );"></div>
+        <div class="legend-list">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#60a5fa;"></div>
+            <div>
+              <div class="legend-value">Banking & Financial Services</div>
+              <div class="legend-label">30% (3 stocks) — MCX, Karur Vysya, IDFC First</div>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#E8C45A;"></div>
+            <div>
+              <div class="legend-value">Industrial & Equipment</div>
+              <div class="legend-label">20% (2 stocks) — KEI, Apar</div>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#4ade80;"></div>
+            <div>
+              <div class="legend-value">Healthcare</div>
+              <div class="legend-label">10% (1 stock) — Aster DM</div>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#a78bfa;"></div>
+            <div>
+              <div class="legend-value">Auto Components</div>
+              <div class="legend-label">10% (1 stock) — Sansera</div>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#2dd4bf;"></div>
+            <div>
+              <div class="legend-value">Cash Management</div>
+              <div class="legend-label">10% (1 stock) — CMS Info</div>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#f472b6;"></div>
+            <div>
+              <div class="legend-value">Cables & Wires</div>
+              <div class="legend-label">10% (1 stock) — Fluid Mgmt</div>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#fb923c;"></div>
+            <div>
+              <div class="legend-value">Mining Equipment</div>
+              <div class="legend-label">10% (1 stock) — Tega Industries</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPLETE DATA TABLE -->
+  <div class="card">
+    <h3>Complete Conviction Table</h3>
+    <div class="sub">All parameters across the top 10 stocks</div>
+    <div style="overflow-x:auto; -webkit-overflow-scrolling:touch;">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Stock Name</th>
+            <th>Sector</th>
+            <th>M.Cap (&#8377;Cr)</th>
+            <th>Funds (n/10)</th>
+            <th>Avg Wt%</th>
+            <th>CMP (&#8377;)</th>
+            <th>1Y Return</th>
+            <th>3Y CAGR</th>
+            <th>PE Ratio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td><strong>MCX</strong></td>
+            <td>Financial Services</td>
+            <td class="best-cell">61,683</td>
+            <td><span class="mini-bar" style="width:35px;"></span>7</td>
+            <td class="best-cell">2.8%</td>
+            <td>6,425</td>
+            <td class="green best-cell">+62%</td>
+            <td class="green best-cell">89%</td>
+            <td>63</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td><strong>Karur Vysya</strong></td>
+            <td>Banking</td>
+            <td>27,449</td>
+            <td><span class="mini-bar" style="width:35px;"></span>7</td>
+            <td>1.9%</td>
+            <td>264</td>
+            <td class="green">+38%</td>
+            <td class="green">42%</td>
+            <td>10.2</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td><strong>KEI Industries</strong></td>
+            <td>Cables & Wires</td>
+            <td>42,800</td>
+            <td><span class="mini-bar" style="width:30px;"></span>6</td>
+            <td class="best-cell">2.4%</td>
+            <td>4,126</td>
+            <td class="green">+52%</td>
+            <td class="green">48%</td>
+            <td>45.7</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td><strong>Apar Industries</strong></td>
+            <td>Electrical Equipment</td>
+            <td>36,107</td>
+            <td><span class="mini-bar" style="width:30px;"></span>6</td>
+            <td>1.8%</td>
+            <td>8,989</td>
+            <td class="green">+35%</td>
+            <td class="green best-cell">64%</td>
+            <td>37</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td><strong>Kirloskar Bros</strong></td>
+            <td>Fluid Management</td>
+            <td>13,068</td>
+            <td><span class="mini-bar" style="width:25px;"></span>5</td>
+            <td>1.6%</td>
+            <td>1,646</td>
+            <td class="green">+28%</td>
+            <td class="green">65%</td>
+            <td>38.5</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td><strong>IDFC First Bank</strong></td>
+            <td>Banking</td>
+            <td class="gold">54,755</td>
+            <td><span class="mini-bar" style="width:25px;"></span>5</td>
+            <td>1.4%</td>
+            <td>62</td>
+            <td>+18%</td>
+            <td>13%</td>
+            <td>33.3</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td><strong>Aster DM Healthcare</strong></td>
+            <td>Healthcare</td>
+            <td>18,200</td>
+            <td><span class="mini-bar" style="width:25px;"></span>5</td>
+            <td>1.3%</td>
+            <td>614</td>
+            <td class="green">+47%</td>
+            <td class="green">41%</td>
+            <td>42</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td><strong>Tega Industries</strong></td>
+            <td>Mining Equipment</td>
+            <td>12,927</td>
+            <td><span class="mini-bar" style="width:20px;"></span>4</td>
+            <td>1.5%</td>
+            <td>1,666</td>
+            <td class="green">+37%</td>
+            <td class="green">28%</td>
+            <td>52</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td><strong>CMS Info Systems</strong></td>
+            <td>Cash Management</td>
+            <td>11,500</td>
+            <td><span class="mini-bar" style="width:20px;"></span>4</td>
+            <td>1.2%</td>
+            <td>485</td>
+            <td class="green">+22%</td>
+            <td class="green">31%</td>
+            <td>28</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td><strong>Sansera Engineering</strong></td>
+            <td>Auto Components</td>
+            <td>9,800</td>
+            <td><span class="mini-bar" style="width:20px;"></span>4</td>
+            <td>1.1%</td>
+            <td>1,580</td>
+            <td>+15%</td>
+            <td>24%</td>
+            <td>35</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- INSIGHT CARDS: WHY THIS MATTERS -->
+  <div style="margin-bottom:36px;">
+    <div style="text-align:center; margin-bottom:28px;">
+      <h2 style="font-size:28px; font-weight:900; color:#f1f5f9; margin-bottom:6px;">Why This Data Matters</h2>
+      <p style="color:#94a3b8; font-size:14px;">Key principles behind the analysis</p>
+    </div>
+    <div class="principle-grid">
+      <div class="principle-card">
+        <h4>High Conviction = Multiple Funds Agree</h4>
+        <p>When 7 out of 10 professional fund managers independently hold the same stock, it signals deep research consensus and reduces single-point-of-failure risk. This is fundamentally different from retail hype.</p>
+      </div>
+      <div class="principle-card">
+        <h4>Small Cap ≠ Small Company</h4>
+        <p>MCX has a &#8377;62,000 Cr market cap. These are mid-sized, professionally run businesses with significant growth potential. "Small cap" refers to market cap classification, not business maturity.</p>
+      </div>
+      <div class="principle-card">
+        <h4>Sector Diversification Built In</h4>
+        <p>Banking, manufacturing, healthcare, tech — the top 10 naturally span multiple sectors. A basket of these stocks is more resilient than a concentrated bet on any single theme.</p>
+      </div>
+      <div class="principle-card">
+        <h4>Exports Shield Against INR Volatility</h4>
+        <p>4 of 10 stocks derive 50%+ revenue from exports (Apar, KEI, Tega, Kirloskar). Foreign currency earnings provide a natural hedge against rupee depreciation.</p>
+      </div>
+      <div class="principle-card">
+        <h4>Institutional Buying = Price Support</h4>
+        <p>When 5+ large funds hold a stock worth &#8377;15,000+ Cr AUM each, they provide a buying floor during market corrections. This reduces downside volatility for patient investors.</p>
+      </div>
+      <div class="principle-card">
+        <h4>Track the Smart Money</h4>
+        <p>These portfolios represent &#8377;1.5 Lakh Cr+ of professionally managed capital with full-time research teams, regulatory scrutiny, and fiduciary accountability. They align with serious investors.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="card" style="border-color:rgba(232,196,90,0.15); margin-bottom:20px;">
+    <h3>Important Disclaimer</h3>
+    <div class="sub" style="margin-bottom:14px;">Please read carefully before using this information</div>
+    <div style="color:#94a3b8; font-size:13px; line-height:1.7;">
+      <p style="margin-bottom:10px;"><strong style="color:#f1f5f9;">Past Performance:</strong> Returns shown are historical and not indicative of future performance. Markets can be volatile, and past gains do not guarantee future profits.</p>
+      <p style="margin-bottom:10px;"><strong style="color:#f1f5f9;">Data Source:</strong> Portfolio information sourced from Groww, Tickertape, and Value Research as of March 2026. Holdings and weightages may have changed since publication.</p>
+      <p style="margin-bottom:10px;"><strong style="color:#f1f5f9;">Not Investment Advice:</strong> This is educational content and a historical analysis only. It is not investment advice, and we strongly recommend consulting with a SEBI-registered investment advisor before making any investment decisions.</p>
+      <p style="margin-bottom:10px;"><strong style="color:#f1f5f9;">Risk Acknowledgement:</strong> Equity markets involve risk of loss. Small cap stocks are inherently more volatile than large caps. Individual conviction in these stocks may not be appropriate for all investors.</p>
+      <p><strong style="color:#f1f5f9;">Sai Assets MF Advisory</strong> is educational content. Always verify information independently and consult a qualified advisor before investing.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="width:28px; height:28px;">
+        <defs><linearGradient id="ng2" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#E8C45A"/><stop offset="100%" style="stop-color:#B8922E"/></linearGradient></defs>
+        <polygon points="50,0 93,25 93,75 50,100 7,75 7,25" fill="#1B2A4A" stroke="url(#ng2)" stroke-width="3"/>
+        <polyline points="22,70 38,50 55,58 78,28" stroke="url(#ng2)" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="78" cy="28" r="6" fill="url(#ng2)"/>
+      </svg>
+      <div>
+        <div class="footer-name">SAI ASSETS</div>
+        <div class="footer-sub">MF ADVISORY</div>
+      </div>
+    </div>
+    <div class="disc">Thoughtful analysis of India's mutual fund ecosystem. Helping investors make smarter choices.</div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+  var saved = localStorage.getItem('sai-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+})();
+function toggleTheme(){
+  var html = document.documentElement;
+  var current = html.getAttribute('data-theme') || 'dark';
+  var next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('sai-theme', next);
+}
+</script>
+
+</body>
+</html>
