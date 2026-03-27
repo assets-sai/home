@@ -466,6 +466,28 @@ thead th { background: var(--t-th-bg) !important; color: var(--t-gold) !importan
 /* Smooth transition for everything */
 *, *::before, *::after { transition: background-color 0.3s, color 0.3s, border-color 0.3s, box-shadow 0.3s; }
 
+
+  /* NAV DROPDOWN */
+  .sa-nav-dd{position:relative;}
+  .sa-nav-dd-toggle{font-size:12px;font-weight:600;color:#94a3b8;padding:6px 12px;border-radius:8px;transition:all 0.2s;letter-spacing:0.3px;white-space:nowrap;cursor:pointer;display:flex;align-items:center;gap:4px;background:none;border:none;font-family:inherit;}
+  .sa-nav-dd-toggle:hover{color:#f1f5f9;background:rgba(232,196,90,0.08);}
+  .sa-nav-dd-toggle.has-active{color:#E8C45A;background:rgba(232,196,90,0.1);border:1px solid rgba(232,196,90,0.2);}
+  .sa-nav-dd-arrow{font-size:8px;transition:transform 0.2s;margin-top:1px;}
+  .sa-nav-dd:hover .sa-nav-dd-arrow{transform:rotate(180deg);}
+  .sa-nav-dd-menu{display:none;position:absolute;top:100%;left:50%;transform:translateX(-50%);margin-top:6px;background:rgba(19,27,48,0.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(232,196,90,0.15);border-radius:12px;padding:8px;min-width:170px;box-shadow:0 12px 32px rgba(0,0,0,0.4);z-index:10000;}
+  .sa-nav-dd:hover .sa-nav-dd-menu{display:block;}
+  .sa-nav-dd-menu .sa-nav-link{display:block;padding:8px 14px;border-radius:8px;font-size:12px;}
+  .sa-nav-dd-menu .sa-nav-link:hover{background:rgba(232,196,90,0.1);}
+
+  /* Mobile dropdown */
+  .sa-nav-mobile .sa-nav-dd-group-label{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#64748b;padding:12px 16px 4px;display:block;}
+  .sa-nav-mobile .sa-nav-dd-group{padding-left:12px;border-left:2px solid rgba(232,196,90,0.15);margin-left:16px;margin-bottom:4px;}
+
+  /* Light theme overrides for dropdown */
+  [data-theme="light"] .sa-nav-dd-toggle{color:#64748b;}
+  [data-theme="light"] .sa-nav-dd-toggle:hover{color:#0f172a;background:rgba(184,146,46,0.06);}
+  [data-theme="light"] .sa-nav-dd-toggle.has-active{color:#B8922E;background:rgba(184,146,46,0.08);border-color:rgba(184,146,46,0.2);}
+  [data-theme="light"] .sa-nav-dd-menu{background:rgba(255,255,255,0.98);border-color:rgba(0,0,0,0.08);box-shadow:0 12px 32px rgba(0,0,0,0.12);}
 </style>
 </head>
 <body>
@@ -486,15 +508,25 @@ thead th { background: var(--t-th-bg) !important; color: var(--t-gold) !importan
     </a>
     <div class="sa-nav-links">
       <a href="#" class="sa-nav-link active">Home</a>
-          <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
-          <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
-          <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
-          <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
-          <a href="top5-international-funds.html" class="sa-nav-link">International</a>
+      <div class="sa-nav-dd">
+        <button class="sa-nav-dd-toggle ">Fund Reports <span class="sa-nav-dd-arrow">&#9660;</span></button>
+        <div class="sa-nav-dd-menu">
+  <span class="sa-nav-dd-group-label">Fund Category Reports</span>
+  <div class="sa-nav-dd-group">
+    <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
+    <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
+    <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
+    <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
+    <a href="top5-international-funds.html" class="sa-nav-link">International</a>
+  </div>
+        </div>
+      </div>
           <a href="sip-date-analysis.html" class="sa-nav-link">SIP Analysis</a>
           <a href="sip-portfolio-50k.html" class="sa-nav-link">SIP Portfolio</a>
       <a href="top10-smallcap-stocks.html" class="sa-nav-link">Small Cap Stocks</a>
       <a href="top10-microcap-stocks.html" class="sa-nav-link">Micro Caps</a>
+      <a href="parag-parikh-flexi-cap.html" class="sa-nav-link">PPFAS</a>
+      <a href="global-mf-regions.html" class="sa-nav-link">Global MF</a>
     </div>
     <button class="sa-nav-hamburger" onclick="document.querySelector('.sa-nav-mobile').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -516,6 +548,8 @@ thead th { background: var(--t-th-bg) !important; color: var(--t-gold) !importan
   <a href="sip-portfolio-50k.html" class="sa-nav-link">SIP Portfolio</a>
   <a href="top10-smallcap-stocks.html" class="sa-nav-link">Small Cap Stocks</a>
   <a href="top10-microcap-stocks.html" class="sa-nav-link">Micro Caps</a>
+  <a href="parag-parikh-flexi-cap.html" class="sa-nav-link">PPFAS</a>
+      <a href="global-mf-regions.html" class="sa-nav-link">Global MF</a>
 </div>
 
 
@@ -546,7 +580,7 @@ thead th { background: var(--t-th-bg) !important; color: var(--t-gold) !importan
   </p>
 
   <div class="stats-row">
-    <div class="stat"><div class="sv">9</div><div class="sl">Research Reports</div></div>
+    <div class="stat"><div class="sv">11</div><div class="sl">Research Reports</div></div>
     <div class="stat"><div class="sv">40+</div><div class="sl">Funds Analysed</div></div>
     <div class="stat"><div class="sv">50+</div><div class="sl">Parameters Compared</div></div>
     <div class="stat"><div class="sv">10 Yr</div><div class="sl">Historical Data</div></div>
@@ -771,6 +805,58 @@ thead th { background: var(--t-th-bg) !important; color: var(--t-gold) !importan
         </div>
         <div class="card-foot">
           <div class="card-fund-count"><strong>10</strong> stocks &bull; <strong>M.Cap &lt; &#8377;7K Cr</strong></div>
+          <div class="card-arrow">&rarr;</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- PPFAS DEEP DIVE -->
+    <a href="parag-parikh-flexi-cap.html" class="page-card">
+      <div class="card-band band-green"></div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-icon icon-green">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <div class="card-title">Parag Parikh Flexi Cap</div>
+            <div class="card-cat cat-green">Fund Deep Dive</div>
+          </div>
+        </div>
+        <div class="card-desc">India's largest flexi cap fund (&#8377;1.34L Cr AUM) with unique US tech exposure. Sharpe 1.65, Beta 0.55, Buffett-inspired value investing by Rajeev Thakkar.</div>
+        <div class="card-tags">
+          <span>&#8377;1.34L Cr AUM</span>
+          <span>US Exposure</span>
+          <span>13-Year Track Record</span>
+        </div>
+        <div class="card-foot">
+          <div class="card-fund-count"><strong>15</strong> holdings &bull; <strong>13</strong> infographics</div>
+          <div class="card-arrow">&rarr;</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- GLOBAL MF REGIONS -->
+    <a href="global-mf-regions.html" class="page-card">
+      <div class="card-band band-blue"></div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-icon icon-blue">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div>
+            <div class="card-title">Global MF Exposure</div>
+            <div class="card-cat cat-blue">Investing Across Regions</div>
+          </div>
+        </div>
+        <div class="card-desc">Discover which Indian mutual funds invest in the US, Europe, China, Japan &amp; beyond. Region heatmaps, fund comparisons, currency impact analysis &amp; risk profiles.</div>
+        <div class="card-tags">
+          <span>8 Regions</span>
+          <span>12+ Funds</span>
+          <span>Heatmap</span>
+        </div>
+        <div class="card-foot">
+          <div class="card-fund-count"><strong>12+</strong> international funds &bull; <strong>8</strong> regions</div>
           <div class="card-arrow">&rarr;</div>
         </div>
       </div>

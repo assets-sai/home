@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parag Parikh Flexi Cap Fund — Deep Dive Analysis | Sai Assets</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { font-family:'Inter',sans-serif; background:#0a0f1e; color:#e2e8f0; min-height:100vh; padding:64px 16px 40px 16px; }
+  .ctr { max-width:1160px; margin:0 auto; }
+
+  /* HEADER */
+  .hdr { text-align:center; margin-bottom:48px; }
+  .tag { display:inline-block; background:linear-gradient(135deg,#E8C45A,#B8922E); color:#1B2A4A; font-size:11px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:6px 18px; border-radius:20px; margin-bottom:14px; }
+  .hdr h1 { font-size:42px; font-weight:900; background:linear-gradient(135deg,#E8C45A,#f5e6a3,#B8922E); -webkit-background-clip:text; -webkit-text-fill-color:transparent; line-height:1.2; margin-bottom:14px; }
+  .hdr p { font-size:16px; color:#94a3b8; max-width:760px; margin:0 auto; line-height:1.65; }
+  .hdr .period { display:inline-block; margin-top:16px; background:rgba(232,196,90,0.1); border:1px solid rgba(232,196,90,0.25); padding:8px 20px; border-radius:8px; font-size:12px; color:#E8C45A; font-weight:600; }
+
+  /* CARDS */
+  .card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.15); border-radius:18px; padding:28px; margin-bottom:28px; overflow-x:auto; }
+  .card h3 { font-size:18px; font-weight:700; color:#f1f5f9; margin-bottom:4px; }
+  .card .sub { font-size:12px; color:#64748b; margin-bottom:20px; }
+
+  /* STAT GRID */
+  .stat-row { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:36px; }
+  .stat-box { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:14px; padding:24px; text-align:center; }
+  .stat-box .sv { font-size:32px; font-weight:900; margin-bottom:6px; color:#E8C45A; }
+  .stat-box .sl { font-size:11px; color:#94a3b8; line-height:1.5; }
+
+  /* TABLE */
+  table { width:100%; border-collapse:separate; border-spacing:0; font-size:13px; }
+  thead th { background:rgba(232,196,90,0.08); color:#E8C45A; font-weight:700; padding:12px 10px; text-align:center; font-size:11.5px; letter-spacing:.4px; white-space:nowrap; }
+  thead th:first-child { text-align:left; border-radius:8px 0 0 8px; }
+  thead th:last-child { border-radius:0 8px 8px 0; }
+  tbody td { padding:12px 10px; text-align:center; border-bottom:1px solid rgba(51,65,85,0.4); font-weight:500; }
+  tbody td:first-child { text-align:left; font-weight:700; color:#cbd5e1; }
+  tbody tr:last-child td { border-bottom:none; }
+  tbody tr:hover { background:rgba(232,196,90,0.03); }
+  .gold { color:#E8C45A; font-weight:800; }
+  .green { color:#4ade80; }
+  .red { color:#f87171; }
+  .muted { color:#64748b; }
+  .best-cell { background:rgba(232,196,90,0.12); color:#E8C45A; font-weight:800; border-radius:5px; padding:3px 7px; }
+
+  /* BAR VIZ */
+  .bar-section { display:grid; grid-template-columns:1fr; gap:22px; margin-bottom:36px; }
+  .bar-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:16px; padding:24px; }
+  .bar-card h4 { font-size:16px; font-weight:700; color:#f1f5f9; margin-bottom:4px; }
+  .bar-card .bsub { font-size:11px; color:#64748b; margin-bottom:20px; }
+  .brow { display:flex; align-items:center; margin-bottom:14px; gap:10px; }
+  .blbl { width:100px; font-size:11px; font-weight:600; color:#94a3b8; flex-shrink:0; text-align:left; white-space:nowrap; }
+  .btrk { flex:1; height:28px; background:rgba(20,30,50,0.8); border-radius:6px; overflow:hidden; position:relative; display:flex; }
+  .bfill { height:100%; border-radius:6px; display:flex; align-items:center; justify-content:flex-end; padding-right:10px; font-size:11px; font-weight:700; color:#fff; min-width:40px; }
+  .bg1 { background:linear-gradient(90deg,#E8C45A,#B8922E); }
+  .bg2 { background:linear-gradient(90deg,#475569,#334155); }
+  .bval { margin-left:8px; font-size:11px; font-weight:700; color:#f1f5f9; min-width:45px; text-align:right; }
+
+  /* SIP CALCULATOR CARDS */
+  .sip-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:36px; }
+  .sip-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(232,196,90,0.2); border-radius:16px; padding:24px; text-align:center; }
+  .sip-period { font-size:14px; font-weight:700; color:#E8C45A; margin-bottom:14px; }
+  .sip-invested { font-size:12px; color:#94a3b8; margin-bottom:4px; }
+  .sip-inv-val { font-size:20px; font-weight:800; color:#f1f5f9; margin-bottom:12px; }
+  .sip-value { font-size:12px; color:#94a3b8; margin-bottom:4px; }
+  .sip-curr-val { font-size:24px; font-weight:900; color:#4ade80; margin-bottom:14px; }
+  .sip-growth { display:inline-block; background:rgba(74,222,128,0.12); color:#4ade80; padding:4px 12px; border-radius:8px; font-size:12px; font-weight:700; }
+
+  /* RISK METRICS GRID */
+  .metric-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-bottom:36px; }
+  .metric-box { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:14px; padding:20px; text-align:center; }
+  .metric-name { font-size:11px; color:#94a3b8; margin-bottom:8px; text-transform:uppercase; letter-spacing:.5px; font-weight:600; }
+  .metric-val { font-size:28px; font-weight:900; color:#E8C45A; margin-bottom:6px; }
+  .metric-tag { display:inline-block; font-size:10px; background:rgba(74,222,128,0.12); color:#4ade80; padding:3px 10px; border-radius:8px; font-weight:700; }
+  .metric-tag.gold { background:rgba(232,196,90,0.12); color:#E8C45A; }
+
+  /* PIE CHART */
+  .chart-section { margin-bottom:36px; }
+  .chart-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:16px; padding:28px; }
+  .chart-card h4 { font-size:16px; font-weight:700; color:#f1f5f9; margin-bottom:4px; }
+  .chart-sub { font-size:11px; color:#64748b; margin-bottom:24px; }
+  .pie-container { display:flex; gap:40px; align-items:center; }
+  .pie { width:220px; height:220px; border-radius:50%; position:relative; flex-shrink:0; }
+  .legend-list { display:flex; flex-direction:column; gap:14px; flex:1; }
+  .legend-item { display:flex; align-items:center; gap:10px; }
+  .legend-dot { width:16px; height:16px; border-radius:4px; flex-shrink:0; }
+  .legend-label { font-size:13px; color:#94a3b8; }
+  .legend-value { font-size:14px; font-weight:700; color:#f1f5f9; }
+
+  /* TWO-COLUMN PIE LAYOUT */
+  .charts-2col { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin-bottom:36px; }
+
+  /* HOLDINGS TABLE */
+  .table-container { overflow-x:auto; }
+  .us-flag { margin-right:4px; }
+
+  /* US SPOTLIGHT CARD */
+  .spotlight-card { background:linear-gradient(145deg,#1a2a4a,#131a2e); border:2px solid rgba(168,139,255,0.3); border-radius:18px; padding:32px; margin-bottom:36px; }
+  .spotlight-card h4 { font-size:20px; font-weight:800; color:#f1f5f9; margin-bottom:6px; background:linear-gradient(135deg,#a78bfa,#7c3aed); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .spotlight-sub { font-size:14px; color:#94a3b8; margin-bottom:24px; }
+  .us-stocks-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:16px; }
+  .us-stock { background:linear-gradient(145deg,rgba(167,139,255,0.1),rgba(124,58,237,0.05)); border:1px solid rgba(168,139,255,0.2); border-radius:12px; padding:16px; text-align:center; }
+  .us-stock-name { font-size:13px; font-weight:700; color:#a78bfa; margin-bottom:4px; }
+  .us-stock-weight { font-size:18px; font-weight:900; color:#f1f5f9; margin-bottom:6px; }
+  .us-stock-desc { font-size:11px; color:#94a3b8; line-height:1.4; }
+
+  /* FUND MANAGER CARD */
+  .fm-card { background:linear-gradient(145deg,#131b30,#111827); border-left:4px solid #E8C45A; border-radius:12px; padding:28px; margin-bottom:36px; }
+  .fm-name { font-size:18px; font-weight:800; color:#f1f5f9; margin-bottom:2px; }
+  .fm-title { font-size:13px; color:#E8C45A; margin-bottom:16px; font-weight:700; }
+  .fm-detail { font-size:13px; color:#94a3b8; margin-bottom:4px; }
+  .fm-quote { font-size:13px; color:#cbd5e1; font-style:italic; margin:16px 0; padding:12px 0; border-top:1px solid rgba(99,102,241,0.15); border-bottom:1px solid rgba(99,102,241,0.15); }
+  .fm-skin { background:rgba(232,196,90,0.08); border-left:3px solid #E8C45A; padding:12px 16px; border-radius:6px; font-size:12px; color:#cbd5e1; margin-top:16px; }
+
+  /* INSIGHT CARDS */
+  .principle-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; margin-bottom:36px; }
+  .principle-card { background:linear-gradient(145deg,#131b30,#111827); border:1px solid rgba(99,102,241,0.12); border-radius:14px; padding:24px; }
+  .principle-card h4 { font-size:14px; font-weight:700; color:#E8C45A; margin-bottom:10px; }
+  .principle-card p { font-size:13px; color:#94a3b8; line-height:1.65; }
+
+  /* DISCLAIMER */
+  .disclaimer { background:rgba(232,196,90,0.05); border:1px solid rgba(232,196,90,0.15); border-radius:12px; padding:16px 20px; margin-bottom:24px; font-size:11px; color:#94a3b8; line-height:1.6; }
+
+  /* FOOTER */
+  .footer { text-align:center; padding:28px 20px; border-top:2px solid rgba(232,196,90,0.15); margin-top:20px; }
+  .footer-brand { display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:10px; }
+  .footer-name { font-size:16px; font-weight:700; letter-spacing:4px; color:#94a3b8; }
+  .footer-sub { font-size:11px; font-weight:300; letter-spacing:3px; color:#64748b; }
+  .footer .disc { font-size:11px; color:#475569; line-height:1.6; margin-top:12px; }
+
+  /* WHATSAPP BUTTON */
+  .wa-btn { position:fixed; bottom:24px; right:24px; width:56px; height:56px; background:linear-gradient(135deg,#25D366,#128C7E); border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 4px 12px rgba(37,211,102,0.3); z-index:999; text-decoration:none; transition:all 0.3s; }
+  .wa-btn:hover { transform:scale(1.1); box-shadow:0 6px 20px rgba(37,211,102,0.4); }
+  .wa-icon { font-size:28px; }
+
+  @media(max-width:900px) {
+    .stat-row { grid-template-columns:repeat(2,1fr); }
+    .sip-grid { grid-template-columns:repeat(2,1fr); }
+    .metric-grid { grid-template-columns:repeat(2,1fr); }
+    .principle-grid { grid-template-columns:1fr; }
+    .charts-2col { grid-template-columns:1fr; }
+    .us-stocks-grid { grid-template-columns:repeat(2,1fr); }
+    .pie-container { flex-direction:column; gap:24px; }
+    .hdr h1 { font-size:28px; }
+  }
+
+  @media(max-width:640px) {
+    body { padding:48px 12px 32px 12px; }
+    .hdr { margin-bottom:32px; }
+    .hdr h1 { font-size:22px; }
+    .stat-row { grid-template-columns:1fr; }
+    .sip-grid { grid-template-columns:1fr; }
+    .metric-grid { grid-template-columns:repeat(2,1fr); }
+    .us-stocks-grid { grid-template-columns:1fr; }
+    .wa-btn { bottom:16px; right:16px; width:48px; height:48px; }
+  }
+
+/* ===== GLOBAL NAV ===== */
+.sa-nav{position:sticky;top:0;z-index:9999;background:rgba(10,15,30,0.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid rgba(232,196,90,0.1);padding:0 20px;}
+.sa-nav-inner{max-width:1160px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.sa-nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+.sa-nav-logo svg{width:32px;height:32px;}
+.sa-nav-logo-text{display:flex;flex-direction:column;}
+.sa-nav-logo-name{font-size:16px;font-weight:800;letter-spacing:4px;color:#f1f5f9;line-height:1;}
+.sa-nav-logo-sub{font-size:8px;font-weight:400;letter-spacing:2px;color:#7A8599;line-height:1;margin-top:2px;}
+.sa-nav-links{display:flex;align-items:center;gap:4px;}
+.sa-nav-link{font-size:12px;font-weight:600;color:#94a3b8;text-decoration:none;padding:6px 12px;border-radius:8px;transition:all 0.2s;letter-spacing:0.3px;white-space:nowrap;}
+.sa-nav-link:hover{color:#f1f5f9;background:rgba(232,196,90,0.08);}
+.sa-nav-link.active{color:#E8C45A;background:rgba(232,196,90,0.1);border:1px solid rgba(232,196,90,0.2);}
+
+/* DROPDOWN */
+.sa-nav-dd { position:relative; }
+.sa-nav-dd-toggle { background:none; border:none; font-size:12px; font-weight:600; color:#94a3b8; padding:6px 12px; border-radius:8px; cursor:pointer; display:flex; align-items:center; gap:6px; transition:all 0.2s; letter-spacing:0.3px; }
+.sa-nav-dd-toggle:hover { color:#f1f5f9; background:rgba(232,196,90,0.08); }
+.sa-nav-dd-arrow { font-size:9px; transition:transform 0.2s; }
+.sa-nav-dd-menu { position:absolute; top:100%; left:0; background:rgba(10,15,30,0.98); backdrop-filter:blur(16px); border:1px solid rgba(232,196,90,0.15); border-radius:10px; padding:8px 0; min-width:160px; display:none; flex-direction:column; z-index:10000; box-shadow:0 8px 24px rgba(0,0,0,0.3); }
+.sa-nav-dd.open .sa-nav-dd-menu { display:flex; }
+.sa-nav-dd.open .sa-nav-dd-arrow { transform:rotate(180deg); }
+.sa-nav-dd-menu .sa-nav-link { padding:10px 16px; font-size:12px; border-radius:0; display:block; }
+.sa-nav-dd-menu .sa-nav-link:hover { background:rgba(232,196,90,0.08); }
+.sa-nav-dd-menu .sa-nav-link.active { background:rgba(232,196,90,0.1); }
+
+.sa-nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;z-index:10001;}
+.sa-nav-hamburger span{width:22px;height:2px;background:#E8C45A;border-radius:2px;transition:all 0.3s;}
+.sa-nav-mobile{display:none;position:fixed;top:56px;left:0;right:0;background:rgba(10,15,30,0.98);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(232,196,90,0.15);padding:12px 20px;flex-direction:column;gap:4px;z-index:9998;}
+.sa-nav-mobile .sa-nav-link{padding:10px 16px;font-size:13px;border-radius:10px;display:block;}
+@media(max-width:860px){
+  .sa-nav-links{display:none;}
+  .sa-nav-hamburger{display:flex;}
+  .sa-nav-mobile.open{display:flex;}
+}
+
+/* ===== THEME SYSTEM ===== */
+:root {
+  --t-bg: #0a0f1e;
+  --t-bg2: #0f172a;
+  --t-card: #131b30;
+  --t-card-alt: #111827;
+  --t-text: #e2e8f0;
+  --t-text2: #f1f5f9;
+  --t-muted: #94a3b8;
+  --t-dim: #64748b;
+  --t-border: rgba(99,102,241,0.12);
+  --t-border2: rgba(51,65,85,0.4);
+  --t-gold: #E8C45A;
+  --t-gold-dark: #B8922E;
+  --t-navy: #1B2A4A;
+  --t-nav-bg: rgba(10,15,30,0.92);
+  --t-card-hover: rgba(232,196,90,0.03);
+  --t-bar-track: rgba(30,41,59,0.8);
+  --t-th-bg: rgba(232,196,90,0.08);
+  --t-best-bg: rgba(232,196,90,0.12);
+  --t-green: #4ade80;
+  --t-red: #f87171;
+  --t-footer-border: rgba(232,196,90,0.15);
+}
+
+[data-theme="light"] {
+  --t-bg: #f8f9fc;
+  --t-bg2: #f1f3f8;
+  --t-card: #ffffff;
+  --t-card-alt: #f8f9fc;
+  --t-text: #1e293b;
+  --t-text2: #0f172a;
+  --t-muted: #64748b;
+  --t-dim: #94a3b8;
+  --t-border: rgba(0,0,0,0.08);
+  --t-border2: rgba(0,0,0,0.06);
+  --t-gold: #B8922E;
+  --t-gold-dark: #96750F;
+  --t-navy: #1B2A4A;
+  --t-nav-bg: rgba(255,255,255,0.92);
+  --t-card-hover: rgba(184,146,46,0.04);
+  --t-bar-track: rgba(241,245,249,0.9);
+  --t-th-bg: rgba(184,146,46,0.08);
+  --t-best-bg: rgba(184,146,46,0.1);
+  --t-green: #16a34a;
+  --t-red: #dc2626;
+  --t-footer-border: rgba(184,146,46,0.15);
+}
+
+/* THEME TOGGLE BUTTON */
+.theme-toggle {
+  width: 38px; height: 38px; border-radius: 10px;
+  border: 1px solid rgba(232,196,90,0.2);
+  background: rgba(232,196,90,0.08);
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s; flex-shrink: 0; margin-left: 8px;
+  color: var(--t-gold); font-size: 18px;
+}
+.theme-toggle:hover {
+  background: rgba(232,196,90,0.15);
+  border-color: rgba(232,196,90,0.4);
+  transform: scale(1.05);
+}
+.theme-toggle .sun { display: none; }
+.theme-toggle .moon { display: block; }
+[data-theme="light"] .theme-toggle .sun { display: block; }
+[data-theme="light"] .theme-toggle .moon { display: none; }
+
+/* ===== THEME OVERRIDES ===== */
+body { background: var(--t-bg) !important; color: var(--t-text) !important; transition: background 0.4s, color 0.4s; }
+
+.sa-nav { background: var(--t-nav-bg) !important; border-bottom-color: var(--t-footer-border) !important; }
+.sa-nav-logo-name { color: var(--t-text2) !important; }
+.sa-nav-link { color: var(--t-muted) !important; }
+.sa-nav-link:hover { color: var(--t-text2) !important; background: var(--t-card-hover) !important; }
+.sa-nav-link.active { color: var(--t-gold) !important; background: var(--t-best-bg) !important; border-color: rgba(184,146,46,0.2) !important; }
+.sa-nav-mobile { background: var(--t-nav-bg) !important; }
+
+.card, .stat-box, .chart-card, .bar-card, .sip-card, .metric-box, .principle-card, .fm-card, .spotlight-card, .us-stock {
+  background: linear-gradient(145deg, var(--t-card), var(--t-card-alt)) !important;
+  border-color: var(--t-border) !important;
+  transition: background 0.4s, border-color 0.4s;
+}
+[data-theme="light"] .card, [data-theme="light"] .stat-box, [data-theme="light"] .chart-card,
+[data-theme="light"] .bar-card, [data-theme="light"] .sip-card, [data-theme="light"] .metric-box {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+}
+
+.card h3, .hdr h1, .bar-card h4, .chart-card h4, .stat-box .sv { color: var(--t-text2) !important; }
+.card .sub, .hdr p, .chart-sub, .bsub, .sip-period { color: var(--t-muted) !important; }
+.muted { color: var(--t-dim) !important; }
+tbody td:first-child { color: var(--t-text) !important; }
+tbody td { border-bottom-color: var(--t-border2) !important; }
+tbody tr:hover { background: var(--t-card-hover) !important; }
+thead th { background: var(--t-th-bg) !important; color: var(--t-gold) !important; }
+
+.best-cell, .best { background: var(--t-best-bg) !important; color: var(--t-gold) !important; }
+.gold { color: var(--t-gold) !important; }
+.green { color: var(--t-green) !important; }
+.red { color: var(--t-red) !important; }
+
+.hdr .period { background: rgba(184,146,46,0.08) !important; border-color: rgba(184,146,46,0.2) !important; color: var(--t-gold) !important; }
+.tag { color: var(--t-navy) !important; }
+
+.btrk { background: var(--t-bar-track) !important; }
+
+.footer { border-top-color: var(--t-footer-border) !important; }
+.footer-name { color: var(--t-muted) !important; }
+.footer-sub { color: var(--t-dim) !important; }
+.footer .disc { color: var(--t-dim) !important; }
+
+.fm-card { border-left-color: var(--t-gold) !important; }
+.fm-title { color: var(--t-gold) !important; }
+.fm-quote { border-top-color: var(--t-border) !important; border-bottom-color: var(--t-border) !important; }
+.fm-skin { background: var(--t-best-bg) !important; color: var(--t-text) !important; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="sa-nav">
+  <div class="sa-nav-inner">
+    <a href="index.html" class="sa-nav-logo">
+      <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="18" stroke="#E8C45A" stroke-width="2"/>
+        <path d="M20 8v12m0 8v4M8 20h12m8 0h4" stroke="#E8C45A" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div class="sa-nav-logo-text">
+        <div class="sa-nav-logo-name">SAI</div>
+        <div class="sa-nav-logo-sub">ASSETS</div>
+      </div>
+    </a>
+    <div class="sa-nav-links">
+      <a href="index.html" class="sa-nav-link">Home</a>
+      <div class="sa-nav-dd">
+        <button class="sa-nav-dd-toggle">Fund Reports <span class="sa-nav-dd-arrow">&#9660;</span></button>
+        <div class="sa-nav-dd-menu">
+          <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
+          <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
+          <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
+          <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
+          <a href="top5-international-funds.html" class="sa-nav-link">International</a>
+        </div>
+      </div>
+      <a href="sip-analysis.html" class="sa-nav-link">SIP Analysis</a>
+      <a href="sip-portfolio.html" class="sa-nav-link">SIP Portfolio</a>
+      <a href="top10-smallcap-stocks.html" class="sa-nav-link">Small Cap Stocks</a>
+      <a href="top10-microcap-stocks.html" class="sa-nav-link">Micro Caps</a>
+      <a href="parag-parikh-flexi-cap.html" class="sa-nav-link active">PPFAS</a>
+      <a href="global-mf-regions.html" class="sa-nav-link">Global MF</a>
+      <button class="theme-toggle" id="theme-toggle"><span class="sun">☀️</span><span class="moon">🌙</span></button>
+    </div>
+    <button class="sa-nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </div>
+  <div class="sa-nav-mobile" id="mobile-nav"></div>
+</nav>
+
+<div class="ctr">
+
+  <!-- HEADER -->
+  <div class="hdr">
+    <div class="tag">Fund Deep Dive</div>
+    <h1>Parag Parikh Flexi Cap Fund</h1>
+    <p>India's largest flexi cap fund (₹1.34 Lakh Cr AUM) with a unique global diversification strategy. A Buffett-inspired, value-driven portfolio managed by Rajeev Thakkar since 2013.</p>
+    <div class="period">Data as of March 2026 | Direct Growth Plan | Benchmark: Nifty 500 TRI</div>
+  </div>
+
+  <!-- SECTION 1: FUND SNAPSHOT -->
+  <div class="card">
+    <h3>Fund Snapshot — Key Statistics</h3>
+    <div class="sub">Essential fund metrics at a glance</div>
+    <div class="stat-row">
+      <div class="stat-box">
+        <div class="sv">₹1,34,253 Cr</div>
+        <div class="sl">Assets Under Management</div>
+      </div>
+      <div class="stat-box">
+        <div class="sv">₹87.79</div>
+        <div class="sl">NAV (Growth)</div>
+      </div>
+      <div class="stat-box">
+        <div class="sv">0.63%</div>
+        <div class="sl">Expense Ratio</div>
+      </div>
+      <div class="stat-box">
+        <div class="sv">★★★★★</div>
+        <div class="sl">Morningstar Rating</div>
+      </div>
+      <div class="stat-box">
+        <div class="sv">24 May 2013</div>
+        <div class="sl">Fund Launch Date</div>
+      </div>
+      <div class="stat-box">
+        <div class="sv">Rajeev Thakkar</div>
+        <div class="sl">Fund Manager</div>
+      </div>
+      <div class="stat-box">
+        <div class="sv">₹1,000</div>
+        <div class="sl">Minimum SIP Amount</div>
+      </div>
+      <div class="stat-box">
+        <div class="sv">2% / 1%</div>
+        <div class="sl">Exit Load (<1yr / 1-2yr)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 2: RETURNS COMPARISON TABLE -->
+  <div class="card">
+    <h3>Returns Comparison — Fund vs Benchmark vs Category</h3>
+    <div class="sub">Consistent outperformance across all time periods</div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Period</th>
+            <th>Fund</th>
+            <th>Nifty 500 TRI</th>
+            <th>Category Avg</th>
+            <th>Alpha</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1 Year</td>
+            <td class="gold">6.11%</td>
+            <td>5.2%</td>
+            <td>4.8%</td>
+            <td class="green">+0.91%</td>
+          </tr>
+          <tr>
+            <td>3 Year CAGR</td>
+            <td class="gold">19.74%</td>
+            <td>14.5%</td>
+            <td>13.8%</td>
+            <td class="green">+5.24%</td>
+          </tr>
+          <tr>
+            <td>5 Year CAGR</td>
+            <td class="gold">19.87%</td>
+            <td>14.85%</td>
+            <td>15.2%</td>
+            <td class="green">+5.02%</td>
+          </tr>
+          <tr>
+            <td>10 Year CAGR</td>
+            <td class="gold">17.8%</td>
+            <td>13.2%</td>
+            <td>12.5%</td>
+            <td class="green">+4.6%</td>
+          </tr>
+          <tr>
+            <td>Since Inception (13Y)</td>
+            <td class="gold">20.4%</td>
+            <td>14.1%</td>
+            <td>—</td>
+            <td class="green">+6.3%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 3: RETURNS BAR CHART -->
+  <div class="bar-section">
+    <div class="bar-card">
+      <h4>Returns Comparison — Visual</h4>
+      <div class="bsub">Fund vs Benchmark performance across time horizons</div>
+      <div class="brow">
+        <div class="blbl">1 Year</div>
+        <div class="btrk">
+          <div class="bfill bg1" style="width:70%;">6.11%</div>
+        </div>
+        <div class="bval">5.2%</div>
+      </div>
+      <div class="brow">
+        <div class="blbl">3 Year</div>
+        <div class="btrk">
+          <div class="bfill bg1" style="width:95%;">19.74%</div>
+        </div>
+        <div class="bval">14.5%</div>
+      </div>
+      <div class="brow">
+        <div class="blbl">5 Year</div>
+        <div class="btrk">
+          <div class="bfill bg1" style="width:98%;">19.87%</div>
+        </div>
+        <div class="bval">14.85%</div>
+      </div>
+      <div class="brow">
+        <div class="blbl">10 Year</div>
+        <div class="btrk">
+          <div class="bfill bg1" style="width:93%;">17.8%</div>
+        </div>
+        <div class="bval">13.2%</div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Since Inception</div>
+        <div class="btrk">
+          <div class="bfill bg1" style="width:100%;">20.4%</div>
+        </div>
+        <div class="bval">14.1%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4: SIP WEALTH CALCULATOR -->
+  <div class="card">
+    <h3>SIP Wealth Growth Calculator</h3>
+    <div class="sub">If you had invested ₹10,000/month since inception or start date</div>
+    <div class="sip-grid">
+      <div class="sip-card">
+        <div class="sip-period">3 Years</div>
+        <div class="sip-invested">Total Invested</div>
+        <div class="sip-inv-val">₹3.6L</div>
+        <div class="sip-value">Current Value</div>
+        <div class="sip-curr-val">₹4.40L</div>
+        <div class="sip-growth">+22% Gain</div>
+      </div>
+      <div class="sip-card">
+        <div class="sip-period">5 Years</div>
+        <div class="sip-invested">Total Invested</div>
+        <div class="sip-inv-val">₹6L</div>
+        <div class="sip-value">Current Value</div>
+        <div class="sip-curr-val">₹8.95L</div>
+        <div class="sip-growth">+49% Gain</div>
+      </div>
+      <div class="sip-card">
+        <div class="sip-period">10 Years</div>
+        <div class="sip-invested">Total Invested</div>
+        <div class="sip-inv-val">₹12L</div>
+        <div class="sip-value">Current Value</div>
+        <div class="sip-curr-val">₹32.83L</div>
+        <div class="sip-growth">+174% Gain</div>
+      </div>
+      <div class="sip-card">
+        <div class="sip-period">Since Inception (13Y)</div>
+        <div class="sip-invested">Total Invested</div>
+        <div class="sip-inv-val">₹15.6L</div>
+        <div class="sip-value">Current Value</div>
+        <div class="sip-curr-val">₹58.2L</div>
+        <div class="sip-growth">+273% Gain</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: RISK METRICS DASHBOARD -->
+  <div class="card">
+    <h3>Risk Metrics Dashboard</h3>
+    <div class="sub">Defensive characteristics with excellent risk-adjusted returns</div>
+    <div class="metric-grid">
+      <div class="metric-box">
+        <div class="metric-name">Sharpe Ratio</div>
+        <div class="metric-val">1.65</div>
+        <div class="metric-tag gold">Excellent</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-name">Alpha (10Y)</div>
+        <div class="metric-val">10.94%</div>
+        <div class="metric-tag gold">Outstanding</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-name">Beta</div>
+        <div class="metric-val">0.55</div>
+        <div class="metric-tag">Defensive</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-name">Std Deviation</div>
+        <div class="metric-val">8.59%</div>
+        <div class="metric-tag">Low Volatility</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-name">Sortino Ratio</div>
+        <div class="metric-val">2.59</div>
+        <div class="metric-tag gold">Strong</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-name">Max Drawdown</div>
+        <div class="metric-val">-8.46%</div>
+        <div class="metric-tag">Well Controlled</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-name">Expense Ratio</div>
+        <div class="metric-val">0.63%</div>
+        <div class="metric-tag gold">Very Low</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-name">Treynor Ratio</div>
+        <div class="metric-val">26.8</div>
+        <div class="metric-tag gold">Category Best</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: PORTFOLIO COMPOSITION -->
+  <div class="charts-2col">
+    <div class="chart-card">
+      <h4>Asset Allocation</h4>
+      <div class="chart-sub">Geographic and asset class spread</div>
+      <div class="pie-container">
+        <div class="pie" style="background:conic-gradient(from 0deg, #60a5fa 0deg 230.4deg, #a78bfa 230.4deg 288deg, #E8C45A 288deg 316.8deg, #94a3b8 316.8deg 360deg);"></div>
+        <div class="legend-list">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#60a5fa;"></div>
+            <span class="legend-label">Indian Equity</span>
+            <span class="legend-value">64%</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#a78bfa;"></div>
+            <span class="legend-label">Foreign Equity</span>
+            <span class="legend-value">16%</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#E8C45A;"></div>
+            <span class="legend-label">Debt/Bonds</span>
+            <span class="legend-value">8%</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#94a3b8;"></div>
+            <span class="legend-label">Cash</span>
+            <span class="legend-value">12%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chart-card">
+      <h4>Market Cap Distribution</h4>
+      <div class="chart-sub">Size distribution within equity holdings</div>
+      <div class="pie-container">
+        <div class="pie" style="background:conic-gradient(from 0deg, #60a5fa 0deg 223.2deg, #E8C45A 223.2deg 259.2deg, #a78bfa 259.2deg 270.8deg, #2dd4bf 270.8deg 329.6deg, #94a3b8 329.6deg 360deg);"></div>
+        <div class="legend-list">
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#60a5fa;"></div>
+            <span class="legend-label">Large Cap</span>
+            <span class="legend-value">62%</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#E8C45A;"></div>
+            <span class="legend-label">Mid Cap</span>
+            <span class="legend-value">10%</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#a78bfa;"></div>
+            <span class="legend-label">Small Cap</span>
+            <span class="legend-value">3%</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#2dd4bf;"></div>
+            <span class="legend-label">Foreign</span>
+            <span class="legend-value">16%</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-dot" style="background:#94a3b8;"></div>
+            <span class="legend-label">Debt/Cash</span>
+            <span class="legend-value">9%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7: TOP 15 HOLDINGS -->
+  <div class="card">
+    <h3>Top 15 Holdings</h3>
+    <div class="sub">Detailed breakdown of portfolio concentration</div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Stock</th>
+            <th>Sector</th>
+            <th>Weight</th>
+            <th>Type</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>HDFC Bank</td>
+            <td>Banking</td>
+            <td class="gold">8.09%</td>
+            <td>India</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>CCIL</td>
+            <td>Financial Services</td>
+            <td class="gold">7.89%</td>
+            <td>India</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Power Grid Corp</td>
+            <td>Utilities</td>
+            <td class="gold">6.92%</td>
+            <td>India</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Coal India</td>
+            <td>Mining</td>
+            <td class="gold">5.18%</td>
+            <td>India</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>ITC Ltd</td>
+            <td>FMCG</td>
+            <td class="gold">5.04%</td>
+            <td>India</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>ICICI Bank</td>
+            <td>Banking</td>
+            <td class="gold">4.97%</td>
+            <td>India</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Kotak Mahindra Bank</td>
+            <td>Banking</td>
+            <td class="gold">4.07%</td>
+            <td>India</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Bajaj Holdings</td>
+            <td>Diversified</td>
+            <td class="gold">4.52%</td>
+            <td>India</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Alphabet Inc</td>
+            <td>Technology</td>
+            <td class="best-cell">3.99%</td>
+            <td style="color:#a78bfa;">🇺🇸 US</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Mahindra & Mahindra</td>
+            <td>Auto</td>
+            <td class="gold">3.63%</td>
+            <td>India</td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>Microsoft Corp</td>
+            <td>Technology</td>
+            <td class="best-cell">3.20%</td>
+            <td style="color:#a78bfa;">🇺🇸 US</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>Amazon.com</td>
+            <td>E-Commerce</td>
+            <td class="best-cell">2.85%</td>
+            <td style="color:#a78bfa;">🇺🇸 US</td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>Meta Platforms</td>
+            <td>Social Media</td>
+            <td class="best-cell">2.60%</td>
+            <td style="color:#a78bfa;">🇺🇸 US</td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>HCL Technologies</td>
+            <td>IT Services</td>
+            <td class="gold">2.40%</td>
+            <td>India</td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>Maruti Suzuki</td>
+            <td>Auto</td>
+            <td class="gold">2.10%</td>
+            <td>India</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 8: SECTOR ALLOCATION -->
+  <div class="bar-section">
+    <div class="bar-card">
+      <h4>Sector Allocation</h4>
+      <div class="bsub">Portfolio concentration by sector</div>
+      <div class="brow">
+        <div class="blbl">Banking & Finance</div>
+        <div class="btrk"><div class="bfill bg1" style="width:80%;">24%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Technology (US)</div>
+        <div class="btrk"><div class="bfill" style="background:linear-gradient(90deg,#a78bfa,#7c3aed);width:43%;">13%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">FMCG</div>
+        <div class="btrk"><div class="bfill" style="background:linear-gradient(90deg,#34d399,#10b981);width:17%;">5%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Utilities</div>
+        <div class="btrk"><div class="bfill" style="background:#E8C45A;width:23%;">7%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Mining</div>
+        <div class="btrk"><div class="bfill" style="background:linear-gradient(90deg,#fb923c,#f97316);width:17%;">5%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Auto & Transport</div>
+        <div class="btrk"><div class="bfill" style="background:linear-gradient(90deg,#2dd4bf,#14b8a6);width:20%;">6%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">IT Services</div>
+        <div class="btrk"><div class="bfill" style="background:linear-gradient(90deg,#f472b6,#ec4899);width:13%;">4%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Diversified</div>
+        <div class="btrk"><div class="bfill" style="background:linear-gradient(90deg,#fbbf24,#f59e0b);width:17%;">5%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Others</div>
+        <div class="btrk"><div class="bfill" style="background:#94a3b8;width:37%;">11%</div></div>
+      </div>
+      <div class="brow">
+        <div class="blbl">Debt & Cash</div>
+        <div class="btrk"><div class="bfill" style="background:rgba(99,102,241,0.3);width:67%;">20%</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 9: US STOCKS SPOTLIGHT -->
+  <div class="spotlight-card">
+    <h4>Global Diversification — US Tech Giants in Your Portfolio</h4>
+    <div class="spotlight-sub">Approximately 16% of the fund is invested in America's most profitable technology companies. No other Indian flexi cap offers this unique advantage.</div>
+    <div class="us-stocks-grid">
+      <div class="us-stock">
+        <div class="us-stock-name">Alphabet (Google)</div>
+        <div class="us-stock-weight">3.99%</div>
+        <div class="us-stock-desc">Search, Cloud Computing, AI/ML, YouTube</div>
+      </div>
+      <div class="us-stock">
+        <div class="us-stock-name">Microsoft</div>
+        <div class="us-stock-weight">3.20%</div>
+        <div class="us-stock-desc">Enterprise Software, Azure Cloud, AI</div>
+      </div>
+      <div class="us-stock">
+        <div class="us-stock-name">Amazon</div>
+        <div class="us-stock-weight">2.85%</div>
+        <div class="us-stock-desc">E-Commerce, AWS Cloud, Advertising</div>
+      </div>
+      <div class="us-stock">
+        <div class="us-stock-name">Meta</div>
+        <div class="us-stock-weight">2.60%</div>
+        <div class="us-stock-desc">Social Media, Metaverse, AI Research</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 10: FUND MANAGER PROFILE -->
+  <div class="fm-card">
+    <div class="fm-name">Rajeev Thakkar</div>
+    <div class="fm-title">CIO (Equity) & Director, PPFAS AMC</div>
+    <div class="fm-detail"><strong>Experience:</strong> 30+ years in financial services and fund management</div>
+    <div class="fm-detail"><strong>Tenure:</strong> Managing this fund since May 2013 (13 years)</div>
+    <div class="fm-detail"><strong>Philosophy:</strong></div>
+    <div class="fm-quote">"Stay the course for 10, 15, 20 years. Only stocks at right valuations provide long-term returns. Quality of business and management integrity is paramount."</div>
+    <div class="fm-skin">
+      <strong>Skin in the Game:</strong> Fund managers hold ₹283+ Cr of their own money in this fund (1.46% of AUM). When the fund falls, their wealth falls too. Alignment over marketing.
+    </div>
+  </div>
+
+  <!-- SECTION 11: PEER COMPARISON -->
+  <div class="card">
+    <h3>Peer Comparison — Parag Parikh vs Other Leading Flexi Caps</h3>
+    <div class="sub">Why PPFAS stands out in the flexi cap category</div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Parag Parikh</th>
+            <th>HDFC Flexi Cap</th>
+            <th>Kotak Flexi Cap</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>AUM</td>
+            <td class="best-cell">₹1,34,253 Cr</td>
+            <td>₹97,451 Cr</td>
+            <td>₹56,478 Cr</td>
+          </tr>
+          <tr>
+            <td>3Y CAGR</td>
+            <td>19.74%</td>
+            <td class="best-cell">21.85%</td>
+            <td>17.45%</td>
+          </tr>
+          <tr>
+            <td>5Y CAGR</td>
+            <td class="best-cell">19.87%</td>
+            <td>20.34%</td>
+            <td>13.83%</td>
+          </tr>
+          <tr>
+            <td>Expense Ratio</td>
+            <td class="best-cell">0.63%</td>
+            <td>0.77%</td>
+            <td>0.59%</td>
+          </tr>
+          <tr>
+            <td>Beta</td>
+            <td class="best-cell">0.55</td>
+            <td>0.76</td>
+            <td>0.94</td>
+          </tr>
+          <tr>
+            <td>Sharpe Ratio</td>
+            <td class="best-cell">1.65</td>
+            <td>1.32</td>
+            <td>0.98</td>
+          </tr>
+          <tr>
+            <td>International Exposure</td>
+            <td class="best-cell">16%</td>
+            <td>0%</td>
+            <td>0%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 12: YEAR-BY-YEAR RETURNS -->
+  <div class="card">
+    <h3>Year-by-Year Returns & Outperformance</h3>
+    <div class="sub">Calendar year performance vs benchmark (mostly positive outperformance)</div>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Year</th>
+            <th>Fund</th>
+            <th>Benchmark</th>
+            <th>Outperformance</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2025</td>
+            <td>6.1%</td>
+            <td>5.2%</td>
+            <td class="green">+0.9%</td>
+          </tr>
+          <tr>
+            <td>2024</td>
+            <td>26.4%</td>
+            <td>24.8%</td>
+            <td class="green">+1.6%</td>
+          </tr>
+          <tr>
+            <td>2023</td>
+            <td>35.7%</td>
+            <td>22.1%</td>
+            <td class="green">+13.6%</td>
+          </tr>
+          <tr>
+            <td>2022</td>
+            <td>6.3%</td>
+            <td>0.8%</td>
+            <td class="green">+5.5%</td>
+          </tr>
+          <tr>
+            <td>2021</td>
+            <td>41.2%</td>
+            <td>30.4%</td>
+            <td class="green">+10.8%</td>
+          </tr>
+          <tr>
+            <td>2020</td>
+            <td>24.3%</td>
+            <td>17.2%</td>
+            <td class="green">+7.1%</td>
+          </tr>
+          <tr>
+            <td>2019</td>
+            <td>15.6%</td>
+            <td>9.3%</td>
+            <td class="green">+6.3%</td>
+          </tr>
+          <tr>
+            <td>2018</td>
+            <td>-1.8%</td>
+            <td>-3.5%</td>
+            <td class="green">+1.7%</td>
+          </tr>
+          <tr>
+            <td>2017</td>
+            <td>26.1%</td>
+            <td>35.5%</td>
+            <td class="red">-9.4%</td>
+          </tr>
+          <tr>
+            <td>2016</td>
+            <td>6.4%</td>
+            <td>4.5%</td>
+            <td class="green">+1.9%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 13: WHY THIS FUND -->
+  <div class="card">
+    <h3>Why This Fund — Six Key Reasons</h3>
+    <div class="sub">What makes Parag Parikh Flexi Cap unique in the Indian market</div>
+    <div class="principle-grid">
+      <div class="principle-card">
+        <h4>India's Largest Flexi Cap</h4>
+        <p>₹1.34 Lakh Cr AUM by a wide margin. Size provides stability, liquidity advantage, and influence in corporate governance.</p>
+      </div>
+      <div class="principle-card">
+        <h4>Global Diversification Built In</h4>
+        <p>16% US exposure (Alphabet, Microsoft, Amazon, Meta). No other Indian flexi cap offers this. Currency hedge + tech growth in one fund.</p>
+      </div>
+      <div class="principle-card">
+        <h4>Skin in the Game</h4>
+        <p>Fund managers hold ₹283 Cr+ of their own money in this fund. When the fund falls, their wealth falls too. Alignment > Marketing.</p>
+      </div>
+      <div class="principle-card">
+        <h4>Lowest Beta in Category</h4>
+        <p>Beta of 0.55 means this fund moves only half as much as the market. During crashes, it falls less. Your sleep quality matters.</p>
+      </div>
+      <div class="principle-card">
+        <h4>Buffett-Inspired Value Investing</h4>
+        <p>Rajeev Thakkar's philosophy: buy quality businesses at fair prices, hold for decades. No chasing momentum or themes.</p>
+      </div>
+      <div class="principle-card">
+        <h4>13 Years of Consistency</h4>
+        <p>Since 2013 inception, the fund has beaten its benchmark in 9 out of 10 calendar years. Consistency is the real alpha.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> This analysis is for informational purposes only and should not be construed as investment advice. Past performance is not indicative of future results. Mutual fund investments are subject to market risk and volatility. Please consult a qualified financial advisor before making investment decisions. Data is as of March 2026 and sourced from official fund documentation and AMFI records. All figures are approximate.
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">
+      <svg width="24" height="24" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="20" cy="20" r="18" stroke="#E8C45A" stroke-width="2"/>
+        <path d="M20 8v12m0 8v4M8 20h12m8 0h4" stroke="#E8C45A" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <div class="footer-name">SAI ASSETS</div>
+    </div>
+    <div class="footer-sub">Intelligent Fund Analysis</div>
+    <div class="disc">All data as of March 2026. Benchmark: Nifty 500 TRI. Past performance does not guarantee future results. Mutual fund investments are subject to market risks. Please read the fund scheme document carefully before investing.</div>
+  </div>
+
+</div>
+
+<!-- WHATSAPP BUTTON -->
+<a href="https://wa.me/919823696867?text=Hello%20Sai%20Assets!%20I%20have%20a%20question%20about%20the%20Parag%20Parikh%20Flexi%20Cap%20Fund." class="wa-btn" title="Chat with us on WhatsApp">
+  <span class="wa-icon">💬</span>
+</a>
+
+<script>
+// THEME TOGGLE
+const themeToggle = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
+
+const savedTheme = localStorage.getItem('theme') || 'dark';
+htmlElement.setAttribute('data-theme', savedTheme);
+
+themeToggle.addEventListener('click', () => {
+  const currentTheme = htmlElement.getAttribute('data-theme');
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  htmlElement.setAttribute('data-theme', newTheme);
+  localStorage.setItem('theme', newTheme);
+});
+
+// MOBILE NAV
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobile-nav');
+const navLinks = document.querySelectorAll('.sa-nav-link');
+
+hamburger.addEventListener('click', () => {
+  mobileNav.classList.toggle('open');
+  if (mobileNav.classList.contains('open')) {
+    mobileNav.innerHTML = `
+      <a href="index.html" class="sa-nav-link">Home</a>
+      <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
+      <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
+      <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
+      <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
+      <a href="top5-international-funds.html" class="sa-nav-link">International</a>
+      <a href="sip-analysis.html" class="sa-nav-link">SIP Analysis</a>
+      <a href="sip-portfolio.html" class="sa-nav-link">SIP Portfolio</a>
+      <a href="top10-smallcap-stocks.html" class="sa-nav-link">Small Cap Stocks</a>
+      <a href="top10-microcap-stocks.html" class="sa-nav-link">Micro Caps</a>
+      <a href="parag-parikh-flexi-cap.html" class="sa-nav-link active">PPFAS</a>
+      <a href="global-mf-regions.html" class="sa-nav-link">Global MF</a>
+    `;
+  }
+});
+
+// DROPDOWN TOGGLE
+document.querySelectorAll('.sa-nav-dd-toggle').forEach(toggle => {
+  toggle.addEventListener('click', (e) => {
+    e.preventDefault();
+    const dropdown = toggle.closest('.sa-nav-dd');
+    dropdown.classList.toggle('open');
+  });
+});
+
+// Close dropdown when link clicked
+document.querySelectorAll('.sa-nav-dd-menu .sa-nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    link.closest('.sa-nav-dd').classList.remove('open');
+  });
+});
+
+// THEME
+(function(){
+  var saved = localStorage.getItem('sai-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', saved);
+})();
+function toggleTheme(){
+  var html = document.documentElement;
+  var current = html.getAttribute('data-theme') || 'dark';
+  var next = current === 'dark' ? 'light' : 'dark';
+  html.setAttribute('data-theme', next);
+  localStorage.setItem('sai-theme', next);
+}
+</script>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<div class="wa-float">
+  <div class="wa-pulse"></div>
+  <div class="wa-tooltip">Chat with us on WhatsApp</div>
+  <a href="https://wa.me/919823696867?text=Hi%20Sai%20Assets%2C%20I%20have%20a%20query%20about%20mutual%20funds" target="_blank" rel="noopener" class="wa-float-btn" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.962A15.91 15.91 0 0016.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.342 22.616c-.39 1.1-1.932 2.014-3.182 2.28-.854.182-1.97.326-5.728-1.23-4.81-1.99-7.908-6.872-8.148-7.192-.23-.32-1.938-2.58-1.938-4.92s1.228-3.49 1.662-3.97c.436-.478.95-.598 1.266-.598.316 0 .63.002.906.016.29.016.68-.11 1.064.812.39.938 1.326 3.238 1.442 3.472.116.234.194.506.04.812-.156.312-.234.506-.468.778-.234.274-.492.61-.702.818-.234.234-.478.488-.206.958.274.468 1.216 2.006 2.612 3.25 1.794 1.598 3.306 2.094 3.774 2.328.468.234.742.196 1.014-.118.274-.312 1.17-1.364 1.482-1.834.312-.468.624-.39 1.054-.234.43.156 2.728 1.288 3.196 1.522.468.234.78.352.896.546.116.194.116 1.128-.274 2.228z"/></svg>
+  </a>
+</div>
+</body>
+</html>
