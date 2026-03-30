@@ -172,6 +172,7 @@
 .sa-nav-dd { position:relative; }
 .sa-nav-dd-toggle { background:none; border:none; font-size:12px; font-weight:600; color:#94a3b8; padding:6px 12px; border-radius:8px; cursor:pointer; display:flex; align-items:center; gap:6px; transition:all 0.2s; letter-spacing:0.3px; }
 .sa-nav-dd-toggle:hover { color:#f1f5f9; background:rgba(232,196,90,0.08); }
+.sa-nav-dd-toggle.active{color:#E8C45A;}
 .sa-nav-dd-arrow { font-size:9px; transition:transform 0.2s; }
 .sa-nav-dd-menu { position:absolute; top:100%; left:0; background:rgba(10,15,30,0.98); backdrop-filter:blur(16px); border:1px solid rgba(232,196,90,0.15); border-radius:10px; padding:8px 0; min-width:160px; display:none; flex-direction:column; z-index:10000; box-shadow:0 8px 24px rgba(0,0,0,0.3); }
 .sa-nav-dd.open .sa-nav-dd-menu { display:flex; }
@@ -324,25 +325,11 @@ thead th { background: var(--t-th-bg) !important; color: var(--t-gold) !importan
     </a>
     <div class="sa-nav-links">
       <a href="index.html" class="sa-nav-link">Home</a>
-      <div class="sa-nav-dd">
-        <button class="sa-nav-dd-toggle">Fund Reports <span class="sa-nav-dd-arrow">&#9660;</span></button>
-        <div class="sa-nav-dd-menu">
-          <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
-          <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
-          <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
-          <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
-          <a href="top5-international-funds.html" class="sa-nav-link">International</a>
-        </div>
-      </div>
-      <a href="sip-analysis.html" class="sa-nav-link">SIP Analysis</a>
-      <a href="sip-portfolio.html" class="sa-nav-link">SIP Portfolio</a>
-      <a href="top10-smallcap-stocks.html" class="sa-nav-link">Small Cap Stocks</a>
-      <a href="top10-microcap-stocks.html" class="sa-nav-link">Micro Caps</a>
-      <a href="parag-parikh-flexi-cap.html" class="sa-nav-link active">PPFAS</a>
-      <a href="global-mf-regions.html" class="sa-nav-link">Global MF</a>
-      <a href="power-of-compounding.html" class="sa-nav-link">Compounding</a>
-      <a href="sip-step-up.html" class="sa-nav-link">Step-Up SIP</a>
-      <a href="asset-allocation-by-age.html" class="sa-nav-link">Allocation</a>
+      <div class="sa-nav-dd"><button class="sa-nav-dd-toggle" type="button">Fund Reports <span class="sa-nav-dd-arrow">&#9662;</span></button><div class="sa-nav-dd-menu"><a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a><a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a><a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a><a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a><a href="top5-international-funds.html" class="sa-nav-link">International</a></div></div>
+      <div class="sa-nav-dd"><button class="sa-nav-dd-toggle" type="button">SIP Tools <span class="sa-nav-dd-arrow">&#9662;</span></button><div class="sa-nav-dd-menu"><a href="sip-date-analysis.html" class="sa-nav-link">SIP Analysis</a><a href="sip-portfolio-50k.html" class="sa-nav-link">SIP Portfolio</a><a href="sip-step-up.html" class="sa-nav-link">Step-Up SIP</a></div></div>
+      <div class="sa-nav-dd"><button class="sa-nav-dd-toggle active" type="button">Research <span class="sa-nav-dd-arrow">&#9662;</span></button><div class="sa-nav-dd-menu"><a href="top10-smallcap-stocks.html" class="sa-nav-link">Small Cap Stocks</a><a href="top10-microcap-stocks.html" class="sa-nav-link">Micro Caps</a><a href="parag-parikh-flexi-cap.html" class="sa-nav-link active">PPFAS Deep Dive</a><a href="global-mf-regions.html" class="sa-nav-link">Global MF Regions</a></div></div>
+      <div class="sa-nav-dd"><button class="sa-nav-dd-toggle" type="button">Learn <span class="sa-nav-dd-arrow">&#9662;</span></button><div class="sa-nav-dd-menu"><a href="power-of-compounding.html" class="sa-nav-link">Power of Compounding</a><a href="asset-allocation-by-age.html" class="sa-nav-link">Asset Allocation</a><a href="nfo-vs-existing-funds.html" class="sa-nav-link">NFO vs Existing</a><a href="exit-load-expense-ratio.html" class="sa-nav-link">Exit Load & Costs</a></div></div>
+      
       <button class="theme-toggle" id="theme-toggle"><span class="sun">☀️</span><span class="moon">🌙</span></button>
     </div>
     <button class="sa-nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
@@ -1093,21 +1080,28 @@ hamburger.addEventListener('click', () => {
   mobileNav.classList.toggle('open');
   if (mobileNav.classList.contains('open')) {
     mobileNav.innerHTML = `
-      <a href="index.html" class="sa-nav-link">Home</a>
-      <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
-      <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
-      <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
-      <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
-      <a href="top5-international-funds.html" class="sa-nav-link">International</a>
-      <a href="sip-analysis.html" class="sa-nav-link">SIP Analysis</a>
-      <a href="sip-portfolio.html" class="sa-nav-link">SIP Portfolio</a>
-      <a href="top10-smallcap-stocks.html" class="sa-nav-link">Small Cap Stocks</a>
-      <a href="top10-microcap-stocks.html" class="sa-nav-link">Micro Caps</a>
-      <a href="parag-parikh-flexi-cap.html" class="sa-nav-link active">PPFAS</a>
-      <a href="global-mf-regions.html" class="sa-nav-link">Global MF</a>
-      <a href="power-of-compounding.html" class="sa-nav-link">Compounding</a>
-      <a href="sip-step-up.html" class="sa-nav-link">Step-Up SIP</a>
-      <a href="asset-allocation-by-age.html" class="sa-nav-link">Allocation</a>
+        <a href="index.html" class="sa-nav-link">Home</a>
+        <span class="sa-nav-dd-group-label">Fund Reports</span>
+        <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
+        <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
+        <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
+        <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
+        <a href="top5-international-funds.html" class="sa-nav-link">International</a>
+        <span class="sa-nav-dd-group-label">SIP Tools</span>
+        <a href="sip-date-analysis.html" class="sa-nav-link">SIP Analysis</a>
+        <a href="sip-portfolio-50k.html" class="sa-nav-link">SIP Portfolio</a>
+        <a href="sip-step-up.html" class="sa-nav-link">Step-Up SIP</a>
+        <span class="sa-nav-dd-group-label">Research</span>
+        <a href="top10-smallcap-stocks.html" class="sa-nav-link">Small Cap Stocks</a>
+        <a href="top10-microcap-stocks.html" class="sa-nav-link">Micro Caps</a>
+        <a href="parag-parikh-flexi-cap.html" class="sa-nav-link active">PPFAS Deep Dive</a>
+        <a href="global-mf-regions.html" class="sa-nav-link">Global MF Regions</a>
+        <span class="sa-nav-dd-group-label">Learn</span>
+        <a href="power-of-compounding.html" class="sa-nav-link">Power of Compounding</a>
+        <a href="asset-allocation-by-age.html" class="sa-nav-link">Asset Allocation</a>
+        <a href="nfo-vs-existing-funds.html" class="sa-nav-link">NFO vs Existing</a>
+        <a href="exit-load-expense-ratio.html" class="sa-nav-link">Exit Load & Costs</a>
+    
     `;
   }
 });

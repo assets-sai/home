@@ -471,6 +471,7 @@ thead th { background: var(--t-th-bg) !important; color: var(--t-gold) !importan
   .sa-nav-dd{position:relative;}
   .sa-nav-dd-toggle{font-size:12px;font-weight:600;color:#94a3b8;padding:6px 12px;border-radius:8px;transition:all 0.2s;letter-spacing:0.3px;white-space:nowrap;cursor:pointer;display:flex;align-items:center;gap:4px;background:none;border:none;font-family:inherit;}
   .sa-nav-dd-toggle:hover{color:#f1f5f9;background:rgba(232,196,90,0.08);}
+  .sa-nav-dd-toggle.active{color:var(--t-gold);}
   .sa-nav-dd-toggle.has-active{color:#E8C45A;background:rgba(232,196,90,0.1);border:1px solid rgba(232,196,90,0.2);}
   .sa-nav-dd-arrow{font-size:8px;transition:transform 0.2s;margin-top:1px;}
   .sa-nav-dd:hover .sa-nav-dd-arrow{transform:rotate(180deg);}
@@ -507,29 +508,12 @@ thead th { background: var(--t-th-bg) !important; color: var(--t-gold) !importan
       </div>
     </a>
     <div class="sa-nav-links">
-      <a href="#" class="sa-nav-link active">Home</a>
-      <div class="sa-nav-dd">
-        <button class="sa-nav-dd-toggle ">Fund Reports <span class="sa-nav-dd-arrow">&#9660;</span></button>
-        <div class="sa-nav-dd-menu">
-  <span class="sa-nav-dd-group-label">Fund Category Reports</span>
-  <div class="sa-nav-dd-group">
-    <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
-    <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
-    <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
-    <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
-    <a href="top5-international-funds.html" class="sa-nav-link">International</a>
-  </div>
-        </div>
-      </div>
-          <a href="sip-date-analysis.html" class="sa-nav-link">SIP Analysis</a>
-          <a href="sip-portfolio-50k.html" class="sa-nav-link">SIP Portfolio</a>
-      <a href="top10-smallcap-stocks.html" class="sa-nav-link">Small Cap Stocks</a>
-      <a href="top10-microcap-stocks.html" class="sa-nav-link">Micro Caps</a>
-      <a href="parag-parikh-flexi-cap.html" class="sa-nav-link">PPFAS</a>
-      <a href="global-mf-regions.html" class="sa-nav-link">Global MF</a>
-      <a href="power-of-compounding.html" class="sa-nav-link">Compounding</a>
-      <a href="sip-step-up.html" class="sa-nav-link">Step-Up SIP</a>
-      <a href="asset-allocation-by-age.html" class="sa-nav-link">Allocation</a>
+      <a href="index.html" class="sa-nav-link active">Home</a>
+      <div class="sa-nav-dd"><button class="sa-nav-dd-toggle" type="button">Fund Reports <span class="sa-nav-dd-arrow">&#9662;</span></button><div class="sa-nav-dd-menu"><a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a><a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a><a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a><a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a><a href="top5-international-funds.html" class="sa-nav-link">International</a></div></div>
+      <div class="sa-nav-dd"><button class="sa-nav-dd-toggle" type="button">SIP Tools <span class="sa-nav-dd-arrow">&#9662;</span></button><div class="sa-nav-dd-menu"><a href="sip-date-analysis.html" class="sa-nav-link">SIP Analysis</a><a href="sip-portfolio-50k.html" class="sa-nav-link">SIP Portfolio</a><a href="sip-step-up.html" class="sa-nav-link">Step-Up SIP</a></div></div>
+      <div class="sa-nav-dd"><button class="sa-nav-dd-toggle" type="button">Research <span class="sa-nav-dd-arrow">&#9662;</span></button><div class="sa-nav-dd-menu"><a href="top10-smallcap-stocks.html" class="sa-nav-link">Small Cap Stocks</a><a href="top10-microcap-stocks.html" class="sa-nav-link">Micro Caps</a><a href="parag-parikh-flexi-cap.html" class="sa-nav-link">PPFAS Deep Dive</a><a href="global-mf-regions.html" class="sa-nav-link">Global MF Regions</a></div></div>
+      <div class="sa-nav-dd"><button class="sa-nav-dd-toggle" type="button">Learn <span class="sa-nav-dd-arrow">&#9662;</span></button><div class="sa-nav-dd-menu"><a href="power-of-compounding.html" class="sa-nav-link">Power of Compounding</a><a href="asset-allocation-by-age.html" class="sa-nav-link">Asset Allocation</a><a href="nfo-vs-existing-funds.html" class="sa-nav-link">NFO vs Existing</a><a href="exit-load-expense-ratio.html" class="sa-nav-link">Exit Load & Costs</a></div></div>
+    
     </div>
     <button class="sa-nav-hamburger" onclick="document.querySelector('.sa-nav-mobile').classList.toggle('open')" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -541,21 +525,27 @@ thead th { background: var(--t-th-bg) !important; color: var(--t-gold) !importan
   </div>
 </nav>
 <div class="sa-nav-mobile">
-  <a href="#" class="sa-nav-link active">Home</a>
-        <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
-        <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
-        <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
-        <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
-        <a href="top5-international-funds.html" class="sa-nav-link">International</a>
-        <a href="sip-date-analysis.html" class="sa-nav-link">SIP Analysis</a>
+  <a href="index.html" class="sa-nav-link active">Home</a>
+  <span class="sa-nav-dd-group-label">Fund Reports</span>
+  <a href="top5-largecap-funds.html" class="sa-nav-link">Large Cap</a>
+  <a href="top5-midcap-funds.html" class="sa-nav-link">Mid Cap</a>
+  <a href="top5-smallcap-funds.html" class="sa-nav-link">Small Cap</a>
+  <a href="top5-flexicap-funds.html" class="sa-nav-link">Flexi Cap</a>
+  <a href="top5-international-funds.html" class="sa-nav-link">International</a>
+  <span class="sa-nav-dd-group-label">SIP Tools</span>
+  <a href="sip-date-analysis.html" class="sa-nav-link">SIP Analysis</a>
   <a href="sip-portfolio-50k.html" class="sa-nav-link">SIP Portfolio</a>
+  <a href="sip-step-up.html" class="sa-nav-link">Step-Up SIP</a>
+  <span class="sa-nav-dd-group-label">Research</span>
   <a href="top10-smallcap-stocks.html" class="sa-nav-link">Small Cap Stocks</a>
   <a href="top10-microcap-stocks.html" class="sa-nav-link">Micro Caps</a>
-  <a href="parag-parikh-flexi-cap.html" class="sa-nav-link">PPFAS</a>
-      <a href="global-mf-regions.html" class="sa-nav-link">Global MF</a>
-      <a href="power-of-compounding.html" class="sa-nav-link">Compounding</a>
-      <a href="sip-step-up.html" class="sa-nav-link">Step-Up SIP</a>
-      <a href="asset-allocation-by-age.html" class="sa-nav-link">Allocation</a>
+  <a href="parag-parikh-flexi-cap.html" class="sa-nav-link">PPFAS Deep Dive</a>
+  <a href="global-mf-regions.html" class="sa-nav-link">Global MF Regions</a>
+  <span class="sa-nav-dd-group-label">Learn</span>
+  <a href="power-of-compounding.html" class="sa-nav-link">Power of Compounding</a>
+  <a href="asset-allocation-by-age.html" class="sa-nav-link">Asset Allocation</a>
+  <a href="nfo-vs-existing-funds.html" class="sa-nav-link">NFO vs Existing</a>
+  <a href="exit-load-expense-ratio.html" class="sa-nav-link">Exit Load & Costs</a>
 </div>
 
 
@@ -586,7 +576,7 @@ thead th { background: var(--t-th-bg) !important; color: var(--t-gold) !importan
   </p>
 
   <div class="stats-row">
-    <div class="stat"><div class="sv">14</div><div class="sl">Research Reports</div></div>
+    <div class="stat"><div class="sv">16</div><div class="sl">Research Reports</div></div>
     <div class="stat"><div class="sv">40+</div><div class="sl">Funds Analysed</div></div>
     <div class="stat"><div class="sv">50+</div><div class="sl">Parameters Compared</div></div>
     <div class="stat"><div class="sv">10 Yr</div><div class="sl">Historical Data</div></div>
@@ -941,6 +931,58 @@ thead th { background: var(--t-th-bg) !important; color: var(--t-gold) !importan
         </div>
         <div class="card-foot">
           <div class="card-fund-count"><strong>4</strong> age profiles &bull; <strong>28</strong> fund suggestions</div>
+          <div class="card-arrow">&rarr;</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- NFO VS EXISTING FUNDS -->
+    <a href="nfo-vs-existing-funds.html" class="page-card">
+      <div class="card-band band-orange"></div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-icon icon-orange">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round"><path d="M12 9v4l3 3"/><circle cx="12" cy="12" r="10"/><path d="M16 3l2 2M8 3L6 5"/></svg>
+          </div>
+          <div>
+            <div class="card-title">NFO vs Existing Funds</div>
+            <div class="card-cat cat-orange">Investment Guide</div>
+          </div>
+        </div>
+        <div class="card-desc">Should you chase New Fund Offers or trust proven funds? Myth busters, head-to-head comparison, interactive NFO checker tool, red flags checklist &amp; decision framework.</div>
+        <div class="card-tags">
+          <span>NFO Checker</span>
+          <span>Myth Busters</span>
+          <span>Red Flags</span>
+        </div>
+        <div class="card-foot">
+          <div class="card-fund-count"><strong>5</strong> myths busted &bull; <strong>10</strong> comparison parameters</div>
+          <div class="card-arrow">&rarr;</div>
+        </div>
+      </div>
+    </a>
+
+    <!-- EXIT LOAD & EXPENSE RATIO -->
+    <a href="exit-load-expense-ratio.html" class="page-card">
+      <div class="card-band band-red"></div>
+      <div class="card-body">
+        <div class="card-top">
+          <div class="card-icon icon-red">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#f87171" stroke-width="2" stroke-linecap="round"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="10"/><path d="M8 8l8 8M16 8l-8 8"/></svg>
+          </div>
+          <div>
+            <div class="card-title">Exit Load &amp; Expense Ratio</div>
+            <div class="card-cat cat-red">Cost Analysis</div>
+          </div>
+        </div>
+        <div class="card-desc">The hidden costs silently eating your returns — expense ratio impact calculator, category-wise comparison, direct vs regular plans, exit load structures &amp; money-saving tips.</div>
+        <div class="card-tags">
+          <span>Cost Calculator</span>
+          <span>Direct vs Regular</span>
+          <span>Save Lakhs</span>
+        </div>
+        <div class="card-foot">
+          <div class="card-fund-count"><strong>6</strong> fund categories &bull; <strong>10</strong> lowest-cost funds</div>
           <div class="card-arrow">&rarr;</div>
         </div>
       </div>
